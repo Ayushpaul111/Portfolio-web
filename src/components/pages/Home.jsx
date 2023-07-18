@@ -67,10 +67,10 @@ const Home = () => {
           </div>
           <div className=" max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3 md:-mt-5">
             <h3 className="pt-5 md:max-w-xl pb-6">
-              I'm a Next.js contributor and help lead our open-source
-              communities. I'm passionate about frontend development and have
-              created courses on React, Next.js, and web development. I'm an
-              advisor and investor in early stage startups.
+              I am a dedicated developer and designer proficient in frontend
+              development with React, Tailwind, and web technologies. I have
+              successfully collaborated with multiple clients on independent
+              projects.
             </h3>
           </div>
         </div>
