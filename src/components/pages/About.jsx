@@ -3,8 +3,8 @@ import React from "react";
 const About = () => {
   return (
     <section>
-      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl">
-        <div className="space-y-5 md:-ml-3 ">
+      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl space-y-10 md:-ml-3">
+        <div className=" space-y-5">
           <h1 className=" text-3xl font-semibold">About Me:</h1>
           <h3>
             I am Ayush Paul, a fourth-year student at Dayananda Sagar
@@ -27,6 +27,54 @@ const About = () => {
             remain confident in my capacity to handle pressure in future
             endeavors.
           </h3>
+        </div>
+        <div className=" space-x-20 align-middle flex flex-row">
+          <div className="space-y-5">
+            <h3 className="text-xl font-medium">Professional Skills:</h3>
+            <div className="flex flex-row space-x-10">
+              <div>
+                <ul>
+                  <li className=" pb-2 font-medium">Developing</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>React js</li>
+                  <li>Tailwind CSS</li>
+                  <li>JavaScript</li>
+                  <li>Python</li>
+                  <li>C</li>
+                </ul>
+              </div>
+
+              <div>
+                <ul>
+                  <li className=" pb-2 font-medium">Designing</li>
+                  <li>Adobe Photoshop</li>
+                  <li>Adobe Illustrator</li>
+                  <li>Adobe XD</li>
+                  <li>Adobe Premiere Pro</li>
+                  <li>Adobe After Effect</li>
+                  <li>Figma</li>
+                  <li>Canva</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className=" space-y-5">
+            <div>
+              <h3 className="text-xl font-medium">Soft Skills:</h3>
+            </div>
+            <div>
+              <ul>
+                <li>Creativity</li>
+                <li>Problem-solving</li>
+                <li>Conflict management</li>
+                <li>Leadership</li>
+                <li>Communication</li>
+                <li>Sales</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

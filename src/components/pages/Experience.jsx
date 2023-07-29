@@ -1,10 +1,42 @@
 import React from "react";
-import project1 from "../../assets/iitm.png";
+import project1 from "../../assets/DSU-Library.jpg";
+import project2 from "../../assets/iitm.png";
+import Card from "../ui/Card";
+
+const projects = [
+  {
+    id: 1,
+    title: "Dayananda Sagar University Library System",
+    description:
+      "An efficient and robust library management system for seamless student and system data administration.",
+    src: project1,
+    previewHref:
+      "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
+    titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
+  },
+  {
+    id: 2,
+    title: "Weather UI",
+    description:
+      "A sleek and user-friendly weather app with an efficient and modern UI.",
+    src: project2,
+    previewHref: "https://ayush-iitm.netlify.app/",
+    titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
+  },
+  {
+    id: 3,
+    title: "Bill Management System For Small Shops",
+    description: "A simple bill management system for small stores.",
+    src: "",
+    previewHref: "https://github.com/Ayushpaul111/Store-billing-system",
+    titleHref: "https://github.com/Ayushpaul111/Store-billing-system",
+  },
+];
 
 const Experience = () => {
   return (
     <section>
-      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-5">
+      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
         <div className="space-y-5  ">
           <h1 className=" text-3xl font-semibold">Experience:</h1>
           <h3 className="">
@@ -28,10 +60,11 @@ const Experience = () => {
           </h3>
         </div>
 
-        <div className="md:flex md:flex-col md:space-y-5">
+        <div className="md:flex md:flex-col space-y-5">
           <div className="text-xl text">
-            <h1>Companies:</h1>
+            <h1 className=" font-medium">Companies:</h1>
           </div>
+
           {/* company cards */}
           <div className="flex flex-col space-y-5">
             {/* mediqueue */}
@@ -41,7 +74,7 @@ const Experience = () => {
                 <div className="w-full">
                   <div className="flex flex-col lg:flex-row mx-auto w-full bg-white dark:bg-gray-800 shadow rounded">
                     <div className="w-full lg:w-1/3 p-6">
-                      <div className="flex items-center">
+                      <div className="flex lg:flex-col">
                         <div className="w-12 h-12 rounded shadow">
                           <img
                             className="w-full h-full overflow-hidden object-cover rounded"
@@ -49,7 +82,7 @@ const Experience = () => {
                             alt="logo"
                           />
                         </div>
-                        <div className="ml-3">
+                        <div className="ml-3 lg:mt-3 lg:ml-0">
                           <h5 className="text-gray-800 dark:text-gray-100 font-medium text-base">
                             Mediqueue
                           </h5>
@@ -147,7 +180,7 @@ const Experience = () => {
                 <div className="w-full">
                   <div className="flex flex-col lg:flex-row mx-auto w-full bg-white dark:bg-gray-800 shadow rounded">
                     <div className="w-full lg:w-1/3 p-6">
-                      <div className="flex items-center">
+                      <div className="flex lg:flex-col">
                         <div className="w-12 h-12 rounded shadow">
                           <img
                             className="w-full h-full overflow-hidden object-cover rounded"
@@ -155,7 +188,7 @@ const Experience = () => {
                             alt="logo"
                           />
                         </div>
-                        <div className="ml-3">
+                        <div className="ml-3 lg:mt-3 lg:ml-0">
                           <h5 className="text-gray-800 dark:text-gray-100 font-medium text-base">
                             Skill Academia
                           </h5>
@@ -244,15 +277,15 @@ const Experience = () => {
                 <div className="w-full">
                   <div className="flex flex-col lg:flex-row mx-auto w-full bg-white dark:bg-gray-800 shadow rounded">
                     <div className="w-full lg:w-1/3 p-6">
-                      <div className="flex items-center">
+                      <div className="flex lg:flex-col">
                         <div className="w-12 h-12 rounded shadow">
                           <img
                             className="w-full h-full overflow-hidden object-cover rounded"
-                            src="https://media.licdn.com/dms/image/C560BAQGLl5g9wT4ZsQ/company-logo_200_200/0/1652106728326?e=2147483647&v=beta&t=oRWJeUKeVe9u4mHsWOXTSX6D3Ct848XnM_WUQOKBPTw"
+                            src="https://media.licdn.com/dms/image/C560BAQEhmbMP7wQpoA/company-logo_200_200/0/1662660599258?e=2147483647&v=beta&t=Jb9yGmePebjjvgWVaPjJjatQ1l-cuBrKMa7neO5b5eM"
                             alt="logo"
                           />
                         </div>
-                        <div className="ml-3">
+                        <div className="ml-3 lg:mt-3 lg:ml-0">
                           <h5 className="text-gray-800 dark:text-gray-100 font-medium text-base">
                             Nincompoop (Media Inminutes)
                           </h5>
@@ -334,88 +367,58 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className="md:flex md:flex-col md:space-y-5">
+        <div className="md:flex md:flex-col space-y-5">
           <div className="text-xl text">
-            <h1>Project:</h1>
+            <h1 className="font-medium">Projects:</h1>
           </div>
-          {/* sm:space-y-5 >> add to next line */}
-          <div className="md:flex md:flex-row  md:space-x-10">
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="https://github.com/Zafcar/Special-topics-2/tree/Front-end">
-                <img class="rounded-t-lg" src={project1} alt="project-1" />
-              </a>
-              <div class="p-5">
-                <a href="https://github.com/Zafcar/Special-topics-2/tree/Front-end">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Dayananda Sagar University Library System
-                  </h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  An efficient and robust library management system for seamless
-                  student and system data administration.
-                </p>
-                <a
-                  href="https://github.com/Zafcar/Special-topics-2/tree/Front-end"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
-                >
-                  Read more
-                  <svg
-                    class="w-3.5 h-3.5 ml-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
 
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="hhttps://ayush-iitm.netlify.app/">
-                <img class="rounded-t-lg" src={project1} alt="project-1" />
-              </a>
-              <div class="p-5 space-y-5">
-                <a href="https://github.com/Zafcar/Special-topics-2/tree/Front-end">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Weather UI
-                  </h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  A sleek and user-friendly weather app with an efficient and
-                  modern UI.
-                </p>
-                <a
-                  href="https://github.com/Ayushpaul111/iitM-internship"
-                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
-                >
-                  Read more
-                  <svg
-                    class="w-3.5 h-3.5 ml-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 space-y-8 md:space-y-5">
+            {projects.map((item) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                previewHref={item.previewHref}
+                src={item.src}
+                titleHref={item.titleHref}
+              />
+            ))}
           </div>
+        </div>
+
+        <div className="space-y-5">
+          <h3 className="text-xl font-medium">Certificate and others:</h3>
+          <h3>
+            You will get every Certificates and other documents in this drive:
+          </h3>
+
+          <a
+            className="inline-block"
+            href="https://drive.google.com/drive/folders/1Ccl9fVm9xxBB4V5U6Y0mUgEUHySGu50a?usp=sharing"
+            rel="noopener noreferrer"
+          >
+            <button
+              className="flex select-none items-center gap-2 rounded-lg py-3 px-2 text-center align-middle font-sans text-xs font-bold uppercase bg-opacity-20 bg-black transition-all hover:bg-pink-500/10 active:bg-pink-500/30 text-pink-500 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+              Read more
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+                className="h-4 w-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                ></path>
+              </svg>
+            </button>
+          </a>
         </div>
       </div>
     </section>

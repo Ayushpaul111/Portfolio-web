@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import cv from "../../assets/Ayush_Paul_Resume.pdf";
 
 const links = [
   { linkTo: "/", label: "Home" },
@@ -10,8 +11,8 @@ const links = [
 
 const Layout = () => {
   return (
-    <header className="min-h-screen pt-10 p-5 md:pl-40 md:pt-20 md:p-20 md:flex md:flex-row">
-      <div>
+    <div className="min-h-screen pt-10 p-5 md:pl-40 lg:pl-60 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row">
+      <header>
         <img
           src={Logo}
           className="ml-1 mb-5 flex object-cover h-20 w-20 md:-ml-3 "
@@ -24,13 +25,15 @@ const Layout = () => {
             ))}
 
             <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle text-neutral-500">
-              <Link to={"/resume"}>Resume</Link>
+              <a href="src/assets/Ayush_Paul_Resume.pdf" download>
+                Resume
+              </a>
             </li>
           </ul>
         </nav>
-      </div>
+      </header>
       <Outlet />
-    </header>
+    </div>
   );
 };
 
@@ -39,10 +42,12 @@ export default Layout;
 const NavLink = ({ label, linkTo }) => {
   const location = useLocation();
 
+  console.log(location.pathname === linkTo);
+
   return (
     <li
-      className={`pr-4 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle text-neutral-500 ${
-        location.pathname === linkTo ? " text-neutral-100" : ""
+      className={`pr-4 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle ${
+        location.pathname === linkTo ? " text-neutral-100" : "text-neutral-500"
       }`}
     >
       <Link className="md:pb-4" to={linkTo}>
