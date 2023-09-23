@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import cv from "../../assets/Ayush_Paul_Resume.pdf";
 
 const links = [
   { linkTo: "/", label: "Home" },
@@ -25,7 +24,10 @@ const Layout = () => {
             ))}
 
             <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle text-neutral-500">
-              <a href="src/assets/Ayush_Paul_Resume.pdf" download>
+              <a
+                href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
+                download
+              >
                 Resume
               </a>
             </li>

@@ -28,7 +28,7 @@ const About = () => {
             endeavors.
           </h3>
         </div>
-        <div className=" space-x-20 align-middle flex flex-row">
+        <div className="space-y-10 md:space-y-0 md:space-x-20 align-middle flex flex-col md:flex-row">
           <div className="space-y-5">
             <h3 className="text-xl font-medium">Professional Skills:</h3>
             <div className="flex flex-row space-x-10">
