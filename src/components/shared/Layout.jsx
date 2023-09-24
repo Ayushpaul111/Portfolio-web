@@ -48,17 +48,7 @@ const Layout = () => {
                 <div className="flex flex-col space-y-4">
                   <ul className="flex flex-col space-y-4">
                     {links.map((link) => (
-                      <NavLink
-                        onClick={() => {
-                          window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "auto",
-                          });
-                        }}
-                        label={link.label}
-                        linkTo={link.linkTo}
-                      />
+                      <NavLink label={link.label} linkTo={link.linkTo} />
                     ))}
                   </ul>
                 </div>
