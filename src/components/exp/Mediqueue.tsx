@@ -91,7 +91,7 @@ const Mediqueue = () => {
                   </h2>
                 </div>
 
-                <div className=" lg:items-start lg:hidden md:block">
+                <div className=" lg:items-start  lg:hidden md:block">
                   <p className="text-sm text-gray-800 dark:text-gray-100 font-normal mb-1 ">
                     Designing
                   </p>
@@ -100,7 +100,7 @@ const Mediqueue = () => {
                   </h2>
                 </div>
               </div>
-              <div className=" lg:items-start md:hidden lg:block pt-4">
+              <div className=" lg:items-start hidden md:hidden lg:block pt-4">
                 <p className="text-sm text-gray-800 dark:text-gray-100 font-normal mb-1 ">
                   Designing
                 </p>
