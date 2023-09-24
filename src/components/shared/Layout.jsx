@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
@@ -9,6 +9,10 @@ const links = [
 ];
 
 const Layout = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [pathname]);
   return (
     <>
       <div className="min-h-screen pt-10 p-5 md:pl-40 lg:pl-60 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row">
@@ -44,7 +48,17 @@ const Layout = () => {
                 <div className="flex flex-col space-y-4">
                   <ul className="flex flex-col space-y-4">
                     {links.map((link) => (
-                      <NavLink label={link.label} linkTo={link.linkTo} />
+                      <NavLink
+                        onClick={() => {
+                          window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "auto",
+                          });
+                        }}
+                        label={link.label}
+                        linkTo={link.linkTo}
+                      />
                     ))}
                   </ul>
                 </div>
