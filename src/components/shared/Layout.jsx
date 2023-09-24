@@ -42,21 +42,11 @@ const Layout = () => {
               <hr className="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
               <div className="w-full max-w-2xl pb-16 flex flex-row justify-center col-span-full space-x-20 sm:space-x-40 xsm:space-x-20 xs:space-x-10 xxs:space-x-2">
                 <div className="flex flex-col space-y-4">
-                  <a href="/">
-                    <a className="text-gray-500 transition hover:text-gray-600">
-                      Home
-                    </a>
-                  </a>
-                  <a href="/about">
-                    <a className="text-gray-500 transition hover:text-gray-600">
-                      About
-                    </a>
-                  </a>
-                  <a href="/experience">
-                    <a className="text-gray-500 transition hover:text-gray-600">
-                      Experience
-                    </a>
-                  </a>
+                  <ul className="flex flex-col space-y-4">
+                    {links.map((link) => (
+                      <NavLink label={link.label} linkTo={link.linkTo} />
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="flex flex-col space-y-4">
