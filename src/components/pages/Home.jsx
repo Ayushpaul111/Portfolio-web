@@ -4,7 +4,7 @@ import { BiLogoLinkedin, BiLogoGithub, BiLogoInstagram } from "react-icons/bi";
 
 const Home = () => {
   return (
-    <section className="w-screen flex flex-col">
+    <section className="w-full flex flex-col">
       <div className="flex flex-col">
         <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3">
           <h1 className=" font-semibold text-3xl">Ayush Paul</h1>
@@ -66,7 +66,7 @@ const Home = () => {
             </div>
           </div>
           <div className=" max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3 md:-mt-5">
-            <h3 className="pt-5 md:max-w-xl pb-6">
+            <h3 className="pt-5 md:max-w-xl pb-4">
               I am a dedicated developer and designer proficient in frontend
               development with React, Tailwind, and web technologies. I have
               successfully collaborated with multiple clients on independent
