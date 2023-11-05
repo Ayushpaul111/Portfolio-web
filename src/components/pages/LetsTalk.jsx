@@ -147,7 +147,10 @@ const LetsTalk = () => {
         </form>
       )}
 
-      <div name="socials" className=" text-neutral-500  flex space-x-28 ">
+      <div
+        name="socials"
+        className=" text-neutral-500  flex md:space-x-10 lg:space-x-24  flex-col md:flex-row space-y-5 md:space-y-0 space-x-0"
+      >
         <div className="flex text-center hover:scale-105 transition-all  hover:text-white ">
           <BiLogoLinkedin className="text-2xl text-white " />
           <a

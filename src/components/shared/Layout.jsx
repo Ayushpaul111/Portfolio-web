@@ -6,7 +6,12 @@ const links = [
   { linkTo: "/", label: "Home" },
   { linkTo: "/about", label: "About" },
   { linkTo: "/experience", label: "Experience" },
-  { linkTo: "/letsTalk", label: "Lets Talk " },
+  { linkTo: "/letsTalk", label: "LetsTalk" },
+  {
+    linkTo:
+      "https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U",
+    label: "Resume",
+  },
 ];
 
 const Layout = () => {
@@ -29,25 +34,26 @@ const Layout = () => {
                 <NavLink label={link.label} linkTo={link.linkTo} />
               ))}
 
-              <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle text-neutral-500">
+              {/* <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle text-neutral-500">
                 <a
                   href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
                   download
                 >
                   Resume
                 </a>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </header>
         <div className="md:absolute md:ml-32">
           <Outlet />
         </div>
+        {/* for phone */}
         <div>
           <footer className=" md:hidden flex items-center justify-center mt-10">
             <div className="mb-8 flex w-11/12 max-w-2xl flex-col items-start">
               <hr className="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
-              <div className="w-full max-w-2xl pb-16 flex flex-row justify-center col-span-full space-x-20 sm:space-x-40 xsm:space-x-20 xs:space-x-10 xxs:space-x-2">
+              <div className="w-full max-w-2xl pb-16 flex flex-row justify-center col-span-full space-x-20 sm:space-x-52 xsm:space-x-32 xs:space-x-20 xxs:space-x-10">
                 <div className="flex flex-col space-y-4">
                   <ul className="flex flex-col space-y-4">
                     {links.map((link) => (
@@ -56,21 +62,27 @@ const Layout = () => {
                   </ul>
                 </div>
 
-                <div className="flex flex-col space-y-4">
+                {/* <div className="flex flex-col space-y-4">
                   <a
-                    className="text-gray-500 transition hover:text-gray-600"
-                    href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    download={true}
+                  className="text-neutral-500 hover:text-gray-600 transition "
+                  href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  download={true}
                   >
-                    Resume
+                  Resume
                   </a>
-                </div>
+                </div> */}
 
                 <div className="flex flex-col space-y-4">
                   <a
-                    className="text-gray-500 transition hover:text-gray-600"
+                    href="mailto:ayushpaul1111@gmail.com"
+                    className="text-neutral-500 transition hover:text-gray-600"
+                  >
+                    Gmail
+                  </a>
+                  <a
+                    className="text-neutral-500 transition hover:text-gray-600"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/ayushpaul1111/"
@@ -78,7 +90,7 @@ const Layout = () => {
                     LinkedIn
                   </a>
                   <a
-                    className="text-gray-500 transition hover:text-gray-600"
+                    className="text-neutral-500 transition hover:text-gray-600"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://github.com/Ayushpaul111"
@@ -86,19 +98,27 @@ const Layout = () => {
                     GitHub
                   </a>
                   <a
-                    className="text-gray-500 transition hover:text-gray-600"
+                    className="text-neutral-500 transition hover:text-gray-600"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.instagram.com/_ayush_paul_/"
                   >
                     Instagram
                   </a>
+                  <a
+                    className="text-neutral-500 transition hover:text-gray-600"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/ayushpaul1111/"
+                  >
+                    Facebook
+                  </a>
                 </div>
               </div>
-              <p className="flex self-center text-center text-sm text-gray-600 dark:text-gray-300">
+              <p className="flex self-center text-center text-sm text-gray-500">
                 Created with ❤ by Ayush Paul.
               </p>
-              <p className="mb-8 mt-2 self-center text-sm text-gray-600 dark:text-gray-300">
+              <p className="mb-8 mt-2 self-center text-sm text-gray-500">
                 Inspiration:{" "}
                 <a
                   className="text-white underline underline-offset-4 hover:text-blue-100"
@@ -106,8 +126,9 @@ const Layout = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Lee Robinson
+                  Lee Robinson's{" "}
                 </a>
+                old website
               </p>
             </div>
           </footer>
@@ -126,7 +147,7 @@ const NavLink = ({ label, linkTo }) => {
 
   return (
     <li
-      className={`pr-4 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle ${
+      className={`pr-3 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle ${
         location.pathname === linkTo ? " text-neutral-100" : "text-neutral-500"
       }`}
     >
