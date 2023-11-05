@@ -6,6 +6,7 @@ const links = [
   { linkTo: "/", label: "Home" },
   { linkTo: "/about", label: "About" },
   { linkTo: "/experience", label: "Experience" },
+  { linkTo: "/letsTalk", label: "Lets Talk " },
 ];
 
 const Layout = () => {
@@ -16,19 +17,19 @@ const Layout = () => {
   return (
     <>
       <div className="min-h-screen pt-10 p-5 md:pl-40 lg:pl-60 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row">
-        <header>
+        <header className="">
           <img
             src={Logo}
             className="ml-1 mb-5 flex object-cover h-20 w-20 md:-ml-3 "
             alt="logo"
           />
-          <nav className="flex  md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative ">
-            <ul className="flex  flex-row md:flex-col space-x-0 pr-10 mb-5 mt-2 md:mt-0">
+          <nav className="flex  md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative  ">
+            <ul className="flex  flex-row md:flex-col space-x-0 pr-10 mb-5 mt-2 md:mt-0 ">
               {links.map((link) => (
                 <NavLink label={link.label} linkTo={link.linkTo} />
               ))}
 
-              <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle text-neutral-500">
+              <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle text-neutral-500">
                 <a
                   href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
                   download
@@ -39,7 +40,9 @@ const Layout = () => {
             </ul>
           </nav>
         </header>
-        <Outlet />
+        <div className="md:absolute md:ml-32">
+          <Outlet />
+        </div>
         <div>
           <footer className=" md:hidden flex items-center justify-center mt-10">
             <div className="mb-8 flex w-11/12 max-w-2xl flex-col items-start">
@@ -98,7 +101,7 @@ const Layout = () => {
               <p className="mb-8 mt-2 self-center text-sm text-gray-600 dark:text-gray-300">
                 Inspiration:{" "}
                 <a
-                  className="text-blue-500 underline underline-offset-4 hover:text-blue-600"
+                  className="text-white underline underline-offset-4 hover:text-blue-100"
                   href="https://leerob.io"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -123,7 +126,7 @@ const NavLink = ({ label, linkTo }) => {
 
   return (
     <li
-      className={`pr-4 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle ${
+      className={`pr-4 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle ${
         location.pathname === linkTo ? " text-neutral-100" : "text-neutral-500"
       }`}
     >

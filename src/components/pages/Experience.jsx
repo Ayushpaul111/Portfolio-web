@@ -31,7 +31,7 @@ const projects = [
     id: 3,
     title: "Bill Management System For Small Shops",
     description: "A simple bill management system for small stores.",
-    src: "",
+    src: "https://img.freepik.com/free-vector/invoice-concept-illustration_114360-2411.jpg?w=740&t=st=1699010460~exp=1699011060~hmac=908591bf582ff4a8c376cb8f26dcaf2cc2744b133bd62fcc4d25697a1b6721ce",
     previewHref: "https://github.com/Ayushpaul111/Store-billing-system",
     titleHref: "https://github.com/Ayushpaul111/Store-billing-system",
   },

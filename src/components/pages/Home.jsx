@@ -49,7 +49,7 @@ const Home = () => {
                     className="pl-2 cursor-pointer"
                     href="https://github.com/Ayushpaul111"
                   >
-                    Ayushpaul1111
+                    Ayushpaul111
                   </a>
                 </div>
 
@@ -59,7 +59,7 @@ const Home = () => {
                     className="pl-2 cursor-pointer"
                     href="https://www.instagram.com/_ayush_paul_/"
                   >
-                    ayushpaul111
+                    _ayush_paul_
                   </a>
                 </div>
               </div>
