@@ -72,12 +72,11 @@ const Experience = () => {
           {/* company cards */}
           <div className="flex flex-col space-y-5 ">
             <Lyik />
-            {/* mediqueue */}
+
             <Mediqueue />
-            {/* Skill Academia */}
+
             <SkillAcademia />
 
-            {/* Nincompoop */}
             <MediaInMinutes />
           </div>
         </div>
