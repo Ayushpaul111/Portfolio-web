@@ -5,7 +5,7 @@ const Mediqueue = () => {
     <div className="w-full bg-gray-200 dark:bg-gray-900 ">
       <div className="container mx-auto flex items-start justify-center">
         <div className="w-full">
-          <div className="flex flex-col lg:flex-row mx-auto w-full bg-white dark:bg-gray-800 shadow rounded">
+          <div className="flex flex-col lg:flex-row mx-auto w-full bg-white dark:bg-[#1A2936] shadow rounded">
             <div className="w-full lg:w-1/3 p-6 ">
               <div className="flex lg:flex-col">
                 <div className="w-12 h-12 rounded shadow">
@@ -16,7 +16,7 @@ const Mediqueue = () => {
                   />
                 </div>
                 <div className="ml-3 lg:mt-3 lg:ml-0">
-                  <h5 className="text-gray-800 dark:text-gray-100 font-medium text-base">
+                  <h5 className="text-[#1A2936] dark:text-gray-100 font-medium text-base">
                     Mediqueue
                   </h5>
                   <p className="text-gray-600 dark:text-gray-400 text-xs font-normal">
@@ -24,7 +24,7 @@ const Mediqueue = () => {
                   </p>
                 </div>
               </div>
-              <h3 className="text-lg text-gray-800 dark:text-gray-100 font-bold mt-5 mb-1">
+              <h3 className="text-lg text-[#1A2936] dark:text-gray-100 font-bold mt-5 mb-1">
                 Front-end Developer and UI/Ux
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm font-normal">
@@ -62,7 +62,7 @@ const Mediqueue = () => {
                   <h2 className="text-gray-600 dark:text-gray-400 font-bold text-lg leading-6 mb-1 text-center">
                     2
                   </h2>
-                  <p className="text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
+                  <p className="text-[#1A2936] dark:text-gray-100 text-sm leading-5 text-center">
                     Work Positions
                   </p>
                 </div>
@@ -70,7 +70,7 @@ const Mediqueue = () => {
                   <h2 className="text-gray-600 dark:text-gray-400 font-bold text-lg leading-6 mb-1 text-center">
                     3
                   </h2>
-                  <p className="text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
+                  <p className="text-[#1A2936] dark:text-gray-100 text-sm leading-5 text-center">
                     Teams Assigned
                   </p>
                 </div>
@@ -83,7 +83,7 @@ const Mediqueue = () => {
 
               <div className="flex lg:flex-col flex-row lg:items-start items-center justify-between md:space-x-5 lg:space-y-5">
                 <div>
-                  <p className="text-sm text-gray-800 dark:text-gray-100 font-normal mb-1 ">
+                  <p className="text-sm text-[#1A2936] dark:text-gray-100 font-normal mb-1 ">
                     Developing
                   </p>
                   <h2 className="text-sm  text-gray-600 dark:text-gray-400 ">
@@ -92,7 +92,7 @@ const Mediqueue = () => {
                 </div>
 
                 <div className=" lg:items-start  lg:hidden md:block">
-                  <p className="text-sm text-gray-800 dark:text-gray-100 font-normal mb-1 ">
+                  <p className="text-sm text-[#1A2936] dark:text-gray-100 font-normal mb-1 ">
                     Designing
                   </p>
                   <h2 className="text-sm  text-gray-600 dark:text-gray-400">
@@ -101,7 +101,7 @@ const Mediqueue = () => {
                 </div>
               </div>
               <div className=" lg:items-start hidden md:hidden lg:block pt-4">
-                <p className="text-sm text-gray-800 dark:text-gray-100 font-normal mb-1 ">
+                <p className="text-sm text-[#1A2936] dark:text-gray-100 font-normal mb-1 ">
                   Designing
                 </p>
                 <h2 className="text-sm  text-gray-600 dark:text-gray-400">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ src, title, titleHref, previewHref, description }) => {
   return (
-    <div className="relative flex w-full max-w-[48rem] flex-col md:flex-row rounded-xl bg-gray-200 dark:bg-gray-800 bg-clip-border text-white shadow-md">
+    <div className="relative flex w-full max-w-[48rem] flex-col md:flex-row rounded-xl bg-gray-200 dark:bg-[#1A2936] bg-clip-border text-white shadow-md">
       <div className="relative m-0 w-auto md:w-2/5 shrink-0 overflow-hidden rounded-xl rounded-b-none md:rounded-xl md:rounded-r-none bg-black bg-clip-border text-gray-600">
         <a href={previewHref} rel="noopener noreferrer">
           <img src={src} alt={title} className="h-full w-full object-cover" />

@@ -33,15 +33,6 @@ const Layout = () => {
               {links.map((link) => (
                 <NavLink label={link.label} linkTo={link.linkTo} />
               ))}
-
-              {/* <li className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle text-neutral-500">
-                <a
-                  href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
-                  download
-                >
-                  Resume
-                </a>
-              </li> */}
             </ul>
           </nav>
         </header>
@@ -52,7 +43,7 @@ const Layout = () => {
         <div>
           <footer className=" md:hidden flex items-center justify-center mt-10">
             <div className="mb-8 flex w-11/12 max-w-2xl flex-col items-start">
-              <hr className="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
+              <hr className="border-1 mb-8 w-full border-gray-200 dark:border-[#1A2936]" />
               <div className="w-full max-w-2xl pb-16 flex flex-row justify-center col-span-full space-x-20 sm:space-x-52 xsm:space-x-32 xs:space-x-20 xxs:space-x-10">
                 <div className="flex flex-col space-y-4">
                   <ul className="flex flex-col space-y-4">

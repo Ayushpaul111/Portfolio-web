@@ -33,7 +33,7 @@ const Home = () => {
                 name="socials"
                 className=" text-neutral-500 pl-3  space-y-3 md:-ml-3"
               >
-                <div className="flex text-center ">
+                <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                   <BiLogoLinkedin className="text-2xl" />
                   <a
                     className="pl-2 cursor-pointer"
@@ -43,7 +43,7 @@ const Home = () => {
                   </a>
                 </div>
 
-                <div className="flex text-center">
+                <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                   <BiLogoGithub className="text-2xl" />
                   <a
                     className="pl-2 cursor-pointer"
@@ -53,7 +53,7 @@ const Home = () => {
                   </a>
                 </div>
 
-                <div className="flex text-center">
+                <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                   <BiLogoInstagram className="text-2xl" />
                   <a
                     className="pl-2 cursor-pointer"

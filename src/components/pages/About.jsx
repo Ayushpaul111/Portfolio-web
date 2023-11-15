@@ -1,6 +1,37 @@
 import React from "react";
 
 const About = () => {
+  const techStack = [
+    {
+      category: "Frontend",
+      items: [
+        "HTML",
+        "CSS",
+        "React js",
+        "Next Js",
+        "Tailwind CSS",
+        "JavaScript",
+        "Python",
+        "C",
+      ],
+    },
+    {
+      category: "Backend",
+      items: ["Node Js"],
+    },
+    {
+      category: "Database",
+      items: ["MySql"],
+    },
+    {
+      category: "Devops",
+      items: ["GIT", "Docker"],
+    },
+    {
+      category: "Extra",
+      items: ["Figma", "Canva", "Adobe Photoshop", "Adobe Illustrator"],
+    },
+  ];
   return (
     <section>
       <div className="max-w-screen-lg  flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl space-y-10 md:-ml-3">
@@ -31,8 +62,26 @@ const About = () => {
             endeavors.
           </h3>
         </div>
-        <div className="space-y-10 md:space-y-0 md:space-x-20 align-middle flex flex-col md:flex-row">
-          <div className="space-y-5">
+        <div className="container mx-auto mt-8">
+          {techStack.map((category, index) => (
+            <div key={index} className="mb-8">
+              <h2 className="text-xl font-semibold mb-4">
+                {category.category}
+              </h2>
+              <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {category.items.map((item, itemIndex) => (
+                  <li
+                    key={itemIndex}
+                    className="bg-gray-800 p-2 text-sm rounded-md border border-sky-600 text-white hover:bg-gray-700 transition duration-300"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* <div className="space-y-5">
             <h3 className="text-xl font-medium">Professional Skills:</h3>
             <div className="flex flex-row space-x-10">
               <div>
@@ -77,7 +126,7 @@ const About = () => {
                 <li>Sales</li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
