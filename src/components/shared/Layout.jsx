@@ -9,7 +9,7 @@ const links = [
   { linkTo: "/letsTalk", label: "LetsTalk" },
   {
     linkTo:
-      "https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U",
+      "https://drive.google.com/file/d/101gPFZiMWCnBx3G_IMcooZVc1U5LDHRJ/view?usp=drive_link",
     label: "Resume",
   },
 ];
