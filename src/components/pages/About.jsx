@@ -80,53 +80,6 @@ const About = () => {
               </ul>
             </div>
           ))}
-
-          {/* <div className="space-y-5">
-            <h3 className="text-xl font-medium">Professional Skills:</h3>
-            <div className="flex flex-row space-x-10">
-              <div>
-                <ul>
-                  <li className=" pb-2 font-medium">Developing</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>React js</li>
-                  <li>Tailwind CSS</li>
-                  <li>JavaScript</li>
-                  <li>Python</li>
-                  <li>C</li>
-                </ul>
-              </div>
-
-              <div>
-                <ul>
-                  <li className=" pb-2 font-medium">Designing</li>
-                  <li>Adobe Photoshop</li>
-                  <li>Adobe Illustrator</li>
-                  <li>Adobe XD</li>
-                  <li>Adobe Premiere Pro</li>
-                  <li>Adobe After Effect</li>
-                  <li>Figma</li>
-                  <li>Canva</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className=" space-y-5">
-            <div>
-              <h3 className="text-xl font-medium">Soft Skills:</h3>
-            </div>
-            <div>
-              <ul>
-                <li>Creativity</li>
-                <li>Problem-solving</li>
-                <li>Conflict management</li>
-                <li>Leadership</li>
-                <li>Communication</li>
-                <li>Sales</li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>

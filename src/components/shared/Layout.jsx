@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { FixedPopup } from "../ui/FixedPopup";
 
 const links = [
   { linkTo: "/", label: "Home" },
@@ -20,8 +21,7 @@ const Layout = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [pathname]);
   return (
-    <>
-      <div className="min-h-screen pt-10 p-5 md:pl-40 lg:pl-60 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row">
+    <div className="min-h-screen pt-10 p-5 md:pl-40 lg:pl-60 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row">
         <header className="">
           <img
             src={Logo}
@@ -38,6 +38,7 @@ const Layout = () => {
         </header>
         <div className="md:absolute md:ml-32">
           <Outlet />
+          <FixedPopup/>
         </div>
         {/* for phone */}
         <div>
@@ -117,15 +118,13 @@ const Layout = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Lee Robinson's{" "}
-                </a>
+                  Lee Robinson's{" "}</a>
                 old website
               </p>
             </div>
           </footer>
         </div>
       </div>
-    </>
   );
 };
 
