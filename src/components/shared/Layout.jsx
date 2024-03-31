@@ -4,14 +4,21 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { FixedPopup } from "../ui/FixedPopup";
 
 const links = [
-  { linkTo: "/", label: "Home" },
-  { linkTo: "/about", label: "About" },
-  { linkTo: "/experience", label: "Experience" },
-  { linkTo: "/letsTalk", label: "LetsTalk" },
+  { linkTo: "/", label: "Home" , tar: "_self"},
+  { linkTo: "/about", label: "About", tar: "_self"},
+  { linkTo: "/experience", label: "Experience", tar: "_self"},
+  { linkTo: "/letsTalk", label: "LetsTalk", tar: "_self"},
   {
     linkTo:
       "https://drive.google.com/file/d/101gPFZiMWCnBx3G_IMcooZVc1U5LDHRJ/view?usp=drive_link",
     label: "Resume",
+    tar: "_blank",
+  },
+  {
+    linkTo:
+      "https://shop.ayushpaul.dev",
+    label: "Shop",
+    tar: "_blank",
   },
 ];
 
@@ -28,17 +35,17 @@ const Layout = () => {
             className="ml-1 mb-5 flex object-cover h-20 w-20 md:-ml-3 "
             alt="logo"
           />
-          <nav className="flex  md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative  ">
-            <ul className="flex  flex-row md:flex-col space-x-0 pr-10 mb-5 mt-2 md:mt-0 ">
-              {links.map((link) => (
-                <NavLink label={link.label} linkTo={link.linkTo} />
+          <nav className={`flex  md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto ${window.innerWidth < 768 ? 'scroll-pr-6' : ''} md:relative`}>
+            <ul className={`flex navBar flex-row md:flex-col space-x-0 pr-10 mb-5 mt-2 md:mt-0 ${window.innerWidth < 768 ? 'overflow-x-auto' : ''}`}>
+              {links.map((link, index) => (
+                <NavLink key={index} label={link.label} linkTo={link.linkTo} tar={link.tar} />
               ))}
             </ul>
           </nav>
         </header>
         <div className="md:absolute md:ml-32">
           <Outlet />
-          <FixedPopup/>
+          {/* <FixedPopup/> */}
         </div>
         {/* for phone */}
         <div>
@@ -46,41 +53,42 @@ const Layout = () => {
             <div className="mb-8 flex w-11/12 max-w-2xl flex-col items-start">
               <hr className="border-1 mb-8 w-full border-gray-200 dark:border-[#1A2936]" />
               <div className="w-full max-w-2xl pb-16 flex flex-row justify-center col-span-full space-x-20 sm:space-x-52 xsm:space-x-32 xs:space-x-20 xxs:space-x-10">
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-4 ">
                   <ul className="flex flex-col space-y-4">
-                    {links.map((link) => (
-                      <NavLink label={link.label} linkTo={link.linkTo} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* <div className="flex flex-col space-y-4">
-                  <a
-                  className="text-neutral-500 hover:text-gray-600 transition "
-                  href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  download={true}
-                  >
-                  Resume
-                  </a>
-                </div> */}
-
-                <div className="flex flex-col space-y-4">
-                  <a
+                    <li>
+                      <a
                     href="mailto:ayushpaul1111@gmail.com"
                     className="text-neutral-500 transition hover:text-gray-600"
                   >
                     Gmail
                   </a>
-                  <a
+                  </li>
+                  <li> 
+                    <a
                     className="text-neutral-500 transition hover:text-gray-600"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/ayushpaul1111/"
                   >
                     LinkedIn
+                  </a></li>
+                  <li>
+                  <a
+                    className="text-neutral-500 transition hover:text-gray-600"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://shop.ayushpaul.dev/"
+                  >
+                    Shop
                   </a>
+                  </li>
+                  </ul>
+                </div>
+
+
+                <div className="flex flex-col space-y-4">
+                  
+                 
                   <a
                     className="text-neutral-500 transition hover:text-gray-600"
                     target="_blank"
@@ -108,7 +116,7 @@ const Layout = () => {
                 </div>
               </div>
               <p className="flex self-center text-center text-sm text-gray-500">
-                Created with ❤ by Ayush Paul.
+                Created with ❤ by&nbsp;<a href="http://https://www.linkedin.com/in/ayushpaul1111/" target="_blank" rel="noopener noreferrer"></a>Ayush Paul.
               </p>
               <p className="mb-8 mt-2 self-center text-sm text-gray-500">
                 Inspiration:{" "}
@@ -130,7 +138,7 @@ const Layout = () => {
 
 export default Layout;
 
-const NavLink = ({ label, linkTo }) => {
+const NavLink = ({ label, linkTo, tar }) => {
   const location = useLocation();
 
   console.log(location.pathname === linkTo);
@@ -141,7 +149,7 @@ const NavLink = ({ label, linkTo }) => {
         location.pathname === linkTo ? " text-neutral-100" : "text-neutral-500"
       }`}
     >
-      <Link className="md:pb-4" to={linkTo}>
+      <Link className="md:pb-4" to={linkTo} target={tar}>
         {label}
       </Link>
     </li>

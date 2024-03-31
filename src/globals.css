@@ -27,3 +27,15 @@
   font-size: 0.75rem; /* Adjust the font size as needed */
   color: #ffffff; /* Change the color when focused */
 }
+
+.navBar::-webkit-scrollbar {
+  height: 4px !important;
+}
+
+.navBar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.navBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #888888;
+}

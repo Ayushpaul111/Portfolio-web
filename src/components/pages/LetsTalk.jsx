@@ -31,9 +31,6 @@ const LetsTalk = () => {
         }
       );
 
-    // Handle form submission logic here
-    // For this example, we'll just simulate a successful submission
-    // You can replace this with your actual submission logic
     setSubmitted(true);
     setSuccessMessage(
       <p>
