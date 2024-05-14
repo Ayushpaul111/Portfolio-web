@@ -10,7 +10,7 @@ const links = [
   { linkTo: "/letsTalk", label: "LetsTalk", tar: "_self"},
   {
     linkTo:
-      "https://drive.google.com/file/d/101gPFZiMWCnBx3G_IMcooZVc1U5LDHRJ/view?usp=drive_link",
+      "https://drive.google.com/file/d/1WFEaT2YcEXa9zblTr8ZyJTcebPdzH8wi/view?usp=sharing",
     label: "Resume",
     tar: "_blank",
   },
