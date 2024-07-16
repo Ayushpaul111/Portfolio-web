@@ -11,8 +11,7 @@ const Lyik = () => {
                 <div className="w-12 h-12 rounded shadow">
                   <img
                     className="w-full h-full overflow-hidden object-cover rounded"
-                    src="https://media.licdn.com/dms/image/D560BAQGnzgTTggiB_g/company-logo_200_200/0/1693575608290/lyik_technologies_logo?e=1715817600&v=beta&t=r7AC8CjqZcFDzF8jV9oMxj-5C1BaCPtaOwcEui4yAls"
-                    alt="logo"
+                    src="https://media.licdn.com/dms/image/D560BAQGnzgTTggiB_g/company-logo_200_200/0/1693575608290/lyik_technologies_logo?e=1729123200&v=beta&t=SzsDpZn7rhrrZkCl43eLfKsqlmBX14itFDDUm5a_jRs"
                   />
                 </div>
                 <div className="ml-3 lg:mt-3 lg:ml-0">
