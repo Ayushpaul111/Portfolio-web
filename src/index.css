@@ -6,6 +6,7 @@
   html {
     background: #111010;
     font-family: "Poppins", sans-serif;
+    scrollbar-gutter: stable;
     /* font-family: 'Raleway', sans-serif; */
   }
 }

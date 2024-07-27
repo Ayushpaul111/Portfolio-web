@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import logo from "../../assets/logo.png";
 import { getCalApi } from "@calcom/embed-react";
 export function FixedPopup() {
   useEffect(() => {
@@ -8,8 +7,8 @@ export function FixedPopup() {
       const cal = await getCalApi({});
       cal("floatingButton", {
         calLink: "ayush-paul/15min",
-        buttonTextColor: "#fff",
-        buttonText: "Lets Have A Chat",
+        buttonTextColor: "#f5f5f5",
+        buttonText: "Let's Chat",
       });
       cal("ui", {
         styles: { branding: { brandColor: "#000000" } },

@@ -48,7 +48,7 @@ const LetsTalk = () => {
   };
 
   return (
-    <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl space-y-10 md:-ml-3 ">
+    <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 md:pl-6 pt-5 md:-ml-3pt-5  space-y-10 md:-ml-3 ">
       <div className="font-semibold text-3xl">
         <h1>Let's Have A Chat</h1>
       </div>
