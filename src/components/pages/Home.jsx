@@ -5,7 +5,7 @@ import { BiLogoLinkedin, BiLogoGithub, BiLogoInstagram } from "react-icons/bi";
 const Home = () => {
   return (
     <section>
-      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
+      <div className="">
         <div className="flex flex-col">
           <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3">
             <h1 className=" font-semibold text-3xl">Ayush Paul</h1>
