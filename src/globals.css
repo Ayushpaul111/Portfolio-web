@@ -39,3 +39,14 @@
   border-radius: 10px;
   background: #888888;
 }
+
+
+
+.app-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.app-container.loaded {
+  opacity: 1;
+}
