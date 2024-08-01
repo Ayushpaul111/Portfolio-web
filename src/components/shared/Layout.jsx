@@ -70,14 +70,14 @@ const Layout = () => {
                   <li>
                     <a
                       href="mailto:ayushpaul1111@gmail.com"
-                      className="text-neutral-500 transition hover:text-gray-600"
+                      className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                     >
                       Gmail
                     </a>
                   </li>
                   <li>
                     <a
-                      className="text-neutral-500 transition hover:text-gray-600"
+                      className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://www.linkedin.com/in/ayushpaul1111/"
@@ -87,7 +87,7 @@ const Layout = () => {
                   </li>
                   <li>
                     <a
-                      className="text-neutral-500 transition hover:text-gray-600"
+                      className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://shop.ayushpaul.dev/"
@@ -100,7 +100,7 @@ const Layout = () => {
 
               <div className="flex flex-col space-y-4">
                 <a
-                  className="text-neutral-500 transition hover:text-gray-600"
+                  className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://github.com/Ayushpaul111"
@@ -108,7 +108,7 @@ const Layout = () => {
                   GitHub
                 </a>
                 <a
-                  className="text-neutral-500 transition hover:text-gray-600"
+                  className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.instagram.com/ayush_paul/"
@@ -116,7 +116,7 @@ const Layout = () => {
                   Instagram
                 </a>
                 <a
-                  className="text-neutral-500 transition hover:text-gray-600"
+                  className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.facebook.com/ayushpaul1111/"
@@ -125,7 +125,7 @@ const Layout = () => {
                 </a>
               </div>
             </div>
-            <p className="flex self-center text-center text-sm text-gray-500">
+            <p className="flex self-center text-center text-sm text-gray-500 font-subHead">
               Created with ❤ by&nbsp;
               <a
                 href="http://https://www.linkedin.com/in/ayushpaul1111/"
@@ -163,10 +163,12 @@ const NavLink = ({ label, linkTo, tar }) => {
   return (
     <li
       className={`pr-3 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle ${
-        location.pathname === linkTo ? "text-neutral-100" : "text-neutral-500"
+        location.pathname === linkTo
+          ? "text-neutral-100 font-title font-semibold"
+          : "text-neutral-500 "
       }`}
     >
-      <Link className="md:pb-4" to={linkTo} target={tar}>
+      <Link className="md:pb-4 font-subHead" to={linkTo} target={tar}>
         {label}
       </Link>
     </li>

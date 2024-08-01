@@ -40,12 +40,12 @@ const projects = [
 const Experience = () => {
   return (
     <section>
-      <div className="max-w-screen-lg  flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
+      <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
         <div className="space-y-5  ">
-          <h1 className=" text-3xl font-semibold">Experience:</h1>
-          <h3 className="">
+          <h1 className="font-semibold text-4xl font-title">Experience:</h1>
+          <h3 className="font-para font-medium">
             During my previous engagements, I acquired valuable experience in
-            various roles such as web developer, graphic designer, and UI/UX
+            various roles such as web developer, Mern Developer and UI/UX
             designer. Additionally, as a Computer Science student, I have
             developed proficient skills in web development. Throughout my
             journey, I have actively contributed to numerous projects, with one
@@ -55,7 +55,7 @@ const Experience = () => {
             comprehensive understanding of the responsibilities associated with
             this position.
           </h3>
-          <h3>
+          <h3 className="font-para font-medium">
             The primary motivation behind my pursuit of this internship
             opportunity is to further augment my skill set. By immersing myself
             in new challenges and working alongside industry professionals, I am
@@ -65,8 +65,10 @@ const Experience = () => {
         </div>
 
         <div className="md:flex md:flex-col space-y-5">
-          <div className="text-xl text">
-            <h1 className=" font-medium">Companies:</h1>
+          <div className="text-xl">
+            <h1 className="font-subHead text-xl font-semibold italic">
+              Companies:
+            </h1>
           </div>
 
           {/* company cards */}
@@ -101,8 +103,10 @@ const Experience = () => {
         </div>
 
         <div className="space-y-5">
-          <h3 className="text-xl font-medium">Certificate and others:</h3>
-          <h3>
+          <h3 className="text-xl font-subHead font-medium">
+            Certificate and others:
+          </h3>
+          <h3 className="font-para">
             You will get every Certificates and other documents in this drive:
           </h3>
 

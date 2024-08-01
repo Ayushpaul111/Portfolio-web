@@ -9,10 +9,10 @@ const Card = ({ src, title, titleHref, previewHref, description }) => {
         </a>
       </div>
       <div className="p-6">
-        <h1 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+        <h1 className="mb-2 font-subHead block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
           {title}
         </h1>
-        <p className="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-400 antialiased">
+        <p className="mb-8 font-para block font-sans text-base font-normal leading-relaxed text-gray-400 antialiased">
           {description}
         </p>
         <a className="inline-block" href={titleHref} rel="noopener noreferrer">

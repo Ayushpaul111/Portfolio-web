@@ -33,7 +33,7 @@ const LetsTalk = () => {
 
     setSubmitted(true);
     setSuccessMessage(
-      <p>
+      <p className="font-subHead">
         Thank you for showing interest!
         <br />I will get back to you soon!
       </p>
@@ -50,7 +50,7 @@ const LetsTalk = () => {
   return (
     <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 md:pl-6 pt-5 md:-ml-3pt-5  space-y-10 md:-ml-3 ">
       <div className="font-semibold text-3xl">
-        <h1>Let's Have A Chat</h1>
+        <h1 className="text-4xl font-semibold font-title">Let's Have A Chat</h1>
       </div>
 
       {submitted ? (
@@ -73,7 +73,7 @@ const LetsTalk = () => {
                 }
               }}
             />
-            <span className="absolute left-0 top-1  px-1 uppercase tracking-wide duration-200 transform translate-y-0">
+            <span className="absolute font-para left-0 bottom-0 px-1 uppercase tracking-wide duration-200 transform translate-y-0">
               Your Name
             </span>
           </label>
@@ -94,7 +94,7 @@ const LetsTalk = () => {
                 }
               }}
             />
-            <span className="absolute left-0 top-1  px-1 uppercase tracking-wide duration-200 transform translate-y-0">
+            <span className="absolute font-para left-0 bottom-0 px-1 uppercase tracking-wide duration-200 transform translate-y-0">
               Your Email
             </span>
           </label>
@@ -114,7 +114,7 @@ const LetsTalk = () => {
                 }
               }}
             />
-            <span className="absolute left-0 bottom-0 px-1 uppercase tracking-wide duration-200 transform translate-y-0">
+            <span className="absolute font-para left-0 bottom-0 px-1 uppercase tracking-wide duration-200 transform translate-y-0">
               Message
             </span>
           </label>
@@ -148,33 +148,33 @@ const LetsTalk = () => {
         name="socials"
         className=" text-neutral-500  flex md:space-x-10 lg:space-x-24  flex-col md:flex-row space-y-5 md:space-y-0 space-x-0"
       >
-        <div className="flex text-center hover:scale-105 transition-all  hover:text-white ">
+        <div className="flex items-center hover:scale-105 transition-all  hover:text-white ">
           <BiLogoLinkedin className="text-2xl text-white " />
           <a
             className="pl-2 cursor-pointer"
             href="https://www.linkedin.com/in/ayushpaul1111/"
           >
-            ayushpaul1111
+            <h3 className="font-subHead">_ayush_paul_</h3>
           </a>
         </div>
 
-        <div className="flex text-center hover:scale-105 transition-all  hover:text-white">
+        <div className="flex items-center text-center hover:scale-105 transition-all  hover:text-white">
           <BiLogoGithub className="text-2xl text-white" />
           <a
             className="pl-2 cursor-pointer"
             href="https://github.com/Ayushpaul111"
           >
-            Ayushpaul111
+            <h3 className="font-subHead">Ayushpaul111</h3>
           </a>
         </div>
 
-        <div className="flex text-center hover:scale-105 transition-all  hover:text-white">
+        <div className="flex items-center text-center hover:scale-105 transition-all  hover:text-white">
           <BiLogoInstagram className="text-2xl text-white" />
           <a
             className="pl-2 cursor-pointer"
             href="https://www.instagram.com/_ayush_paul_/"
           >
-            _ayush_paul_
+            <h3 className="font-subHead">_ayush_paul_</h3>
           </a>
         </div>
       </div>

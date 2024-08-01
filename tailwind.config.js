@@ -2,6 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      title: ["Cuprum", "serif"],
+      subHead: ["Exo", "serif"],
+      para: ["Molengo", "serif"],
+    },
     extend: {},
     screens: {
       xxs: "280px",

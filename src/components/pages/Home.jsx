@@ -8,14 +8,14 @@ const Home = () => {
       <div className="max-w-screen-lg flex flex-col items-start text-white pl-3 md:max-w-2xl md:-ml-3 space-y-10">
         <div className="flex flex-col">
           <div className="max-w-screen-lg flex flex-col items-start text-white pl-1 md:pl-4 pt-5 md:-ml-3">
-            <h1 className=" font-semibold text-3xl">Ayush Paul</h1>
+            <h1 className=" font-semibold text-4xl font-title ">Ayush Paul</h1>
             <div>
-              <h2 className="pt-5">
+              <h2 className="pt-5 font-subHead text-lg font-semibold italic">
                 Developer with 1.6+ years of experience, I acquired knowledge in
                 various roles such as MARN Stack Developer, Web Developer and
                 Frontend Developer.
               </h2>
-              <h2 className="pt-2 pb-6">
+              <h2 className="pt-3 pb-6 font-para font-medium">
                 Additionally, I am a freelancer with extensive experience
                 working with multiple clients, enhancing both my development and
                 communication skills.
@@ -43,7 +43,7 @@ const Home = () => {
                   <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                     <BiLogoLinkedin className="text-2xl" />
                     <a
-                      className="pl-2 cursor-pointer"
+                      className="pl-2 cursor-pointer font-subHead"
                       href="https://www.linkedin.com/in/ayushpaul1111/"
                     >
                       ayushpaul1111
@@ -53,7 +53,7 @@ const Home = () => {
                   <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                     <BiLogoGithub className="text-2xl" />
                     <a
-                      className="pl-2 cursor-pointer"
+                      className="pl-2 cursor-pointer font-subHead"
                       href="https://github.com/Ayushpaul111"
                     >
                       Ayushpaul111
@@ -63,7 +63,7 @@ const Home = () => {
                   <div className="flex text-center md:hover:scale-105 transition-all md:hover:pl-1">
                     <BiLogoInstagram className="text-2xl" />
                     <a
-                      className="pl-2 cursor-pointer"
+                      className="pl-2 cursor-pointer font-subHead"
                       href="https://www.instagram.com/_ayush_paul_/"
                     >
                       _ayush_paul_
@@ -73,9 +73,9 @@ const Home = () => {
               </div>
             </div>
             <div className=" max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3 md:-mt-5">
-              <h3 className="pt-5 pb-4">
+              <h3 className="pt-5 pb-4 font-para font-medium">
                 I am a dedicated mern stack developer proficient with React JS,
-                Next JS, Tailwind, MongoDB, Express JS and Other technologies. I
+                Next JS, Tailwind, MongoDB, Express JS and other technologies. I
                 have successfully collaborated with multiple clients on
                 independent projects as a freelancer.
               </h3>
