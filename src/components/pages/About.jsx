@@ -5,23 +5,23 @@ const About = () => {
     {
       category: "Frontend",
       items: [
-        "HTML",
-        "CSS",
+        "HTML/CSS",
+        "JavaScript",
         "React js",
         "Next Js",
+        "Redux Js",
         "Tailwind CSS",
-        "JavaScript",
         "Python",
         "C",
       ],
     },
     {
       category: "Backend",
-      items: ["Node Js"],
+      items: ["Node Js", "Express Js"],
     },
     {
       category: "Database",
-      items: ["MySql"],
+      items: ["MongoDB", "MySql"],
     },
     {
       category: "Devops",

@@ -9,6 +9,9 @@ const Home = () => {
         <div className="flex flex-col">
           <div className="max-w-screen-lg flex flex-col items-start text-white pl-1 md:pl-4 pt-5 md:-ml-3">
             <h1 className=" font-semibold text-4xl font-title ">Ayush Paul</h1>
+            <p className=" font-subHead mt-1">
+              Mern Stack / Frontend Developer
+            </p>
             <div>
               <h2 className="pt-5 font-subHead text-lg font-semibold italic">
                 Developer with 1.6+ years of experience, I acquired knowledge in
