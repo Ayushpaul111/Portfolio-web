@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { FixedPopup } from "../ui/FixedPopup";
+import { toast, Toaster } from "react-hot-toast";
 
 const links = [
   { linkTo: "/", label: "Home", tar: "_self" },
@@ -9,14 +10,14 @@ const links = [
   { linkTo: "/experience", label: "Experience", tar: "_self" },
   { linkTo: "/letsTalk", label: "LetsTalk", tar: "_self" },
   {
-    linkTo:
-      "https://drive.google.com/file/d/1LMhZ0rfr31lfF3Egx-JBSTDfd9rNnbIu/view?usp=sharing",
+    // linkTo:
+    //   "https://drive.google.com/file/d/1LMhZ0rfr31lfF3Egx-JBSTDfd9rNnbIu/view?usp=sharing",
     label: "Resume",
-    tar: "_blank",
+    // tar: "_blank",
   },
   {
-    linkTo: "https://shop.ayushpaul.dev",
-    label: "Shop",
+    linkTo: "https://ehike.in",
+    label: "Ehike",
     tar: "_blank",
   },
 ];
@@ -28,6 +29,20 @@ const Layout = () => {
   }, [pathname]);
   return (
     <div className="min-h-screen pt-10 p-5 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row md:justify-center">
+      <Toaster
+        toastOptions={{
+          duration: 4000,
+          className: "animate-bounce",
+          style: {
+            background: "#333",
+            color: "#fff",
+            maxWidth: "400px",
+            padding: "16px",
+            borderRadius: "8px",
+            animationDuration: "0.5s",
+          },
+        }}
+      />
       <header className="">
         <img
           src={Logo}
@@ -90,9 +105,9 @@ const Layout = () => {
                       className="text-neutral-500 transition hover:text-gray-600 font-subHead"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://shop.ayushpaul.dev/"
+                      href="https://ehike.in/"
                     >
-                      Shop
+                      Ehike
                     </a>
                   </li>
                 </ul>
@@ -158,6 +173,28 @@ export default Layout;
 const NavLink = ({ label, linkTo, tar }) => {
   const location = useLocation();
 
+  const handleResumeClick = () => {
+    if (label === "Resume") {
+      toast.success(
+        "I am always learning and implementing. Please mail me at Ayushpaul1111@gmail.com or tap on 𝗟𝗲𝘁'𝘀 𝗖𝗵𝗮𝘁",
+
+        {
+          duration: 4000,
+          position: "top-center",
+          className: "animate-bounce",
+          style: {
+            background: "#333",
+            color: "#fff",
+            maxWidth: "400px",
+            padding: "16px",
+            borderRadius: "8px",
+            animationDuration: "0.5s",
+          },
+        }
+      );
+    }
+  };
+
   console.log(location.pathname === linkTo);
 
   return (
@@ -168,7 +205,12 @@ const NavLink = ({ label, linkTo, tar }) => {
           : "text-neutral-500 "
       }`}
     >
-      <Link className="md:pb-4 font-subHead" to={linkTo} target={tar}>
+      <Link
+        className="md:pb-4 font-subHead"
+        to={linkTo}
+        target={tar}
+        onClick={handleResumeClick}
+      >
         {label}
       </Link>
     </li>

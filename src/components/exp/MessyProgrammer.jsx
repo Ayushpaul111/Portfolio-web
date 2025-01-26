@@ -1,6 +1,6 @@
 import React from "react";
 
-const Lyik = () => {
+const MessyProgrammer = () => {
   return (
     <div className="w-full bg-gray-200 dark:bg-gray-900">
       <div className="container mx-auto flex items-start justify-center">
@@ -11,38 +11,44 @@ const Lyik = () => {
                 <div className="w-12 h-12 rounded shadow">
                   <img
                     className="w-full h-full overflow-hidden object-cover rounded"
-                    src="https://store-images.s-microsoft.com/image/apps.22172.98d12f57-368b-4a9a-8ac2-d4926608f98f.0d164c8e-81af-44c8-92d0-25ab3ec447b8.c7eb27fb-7ee1-4d98-a641-bd623960e3f2"
+                    src="https://media.licdn.com/dms/image/v2/D560BAQHafjq4CvE4zQ/company-logo_200_200/company-logo_200_200/0/1708921438416/messyprogrammer_logo?e=2147483647&v=beta&t=4pbik2rApZ0wd0z4BaLz0sMj15yYC-u_E_iYOhJvlmM"
                   />
                 </div>
                 <div className="ml-3 lg:mt-3 lg:ml-0">
                   <h5 className="text-[#1A2936] font-subHead dark:text-gray-100 font-medium text-base">
-                    LYIK Technologies
+                    Messy Programmer
                   </h5>
                   <p className="text-gray-600 font-para dark:text-gray-400 text-xs font-normal">
-                    Bengaluru, Karnataka
+                    Remote
                   </p>
                 </div>
               </div>
               <h3 className="text-lg font-subHead text-[#1A2936] dark:text-gray-100 font-bold mt-5 mb-1">
-                Web Developer (Intern)
+                Full Stack Developer (Full Time)
               </h3>
               <p className="text-gray-600 font-para dark:text-gray-400 text-sm font-normal">
-                I was working as a Web Developer Intern Developer.
+                I am currently working as a Full-Stack Developer.
               </p>
             </div>
             <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">
               <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
                 <div className="text-xs font-para  text-center w-full bg-gray-100 dark:bg-gray-700 rounded font-medium p-3 lg:mr-3">
-                  Start Date: Sept, 2023
+                  Start Date: Nov, 2024
                 </div>
                 <div className="mt-4 font-para  text-center w-full lg:mt-0 text-xs bg-gray-100 dark:bg-gray-700 rounded font-medium p-3">
-                  End Date: Nov, 2023
+                  End Date: Present
                 </div>
               </div>
               <div className="mt-6 mb-8 w-full bg-gray-100 dark:bg-gray-700 rounded p-4 relative">
                 <ul className=" space-y-4">
                   <li className="text-xs font-para  text-gray-600 dark:text-gray-400 font-normal">
-                    - Contributed in Website.
+                    - Contribute in Autometions.
+                  </li>
+                  <li className="text-xs font-para  text-gray-600 dark:text-gray-400 font-normal">
+                    - Contribute in Full-stack development.
+                  </li>
+                  <li className="text-xs font-para  text-gray-600 dark:text-gray-400 font-normal">
+                    - Provide consultation for technical solutions.
                   </li>
                 </ul>
               </div>
@@ -57,7 +63,7 @@ const Lyik = () => {
                 </div>
                 <div>
                   <h2 className="text-gray-600 font-para  dark:text-gray-400 font-bold text-lg leading-6 mb-1 text-center">
-                    1
+                    2
                   </h2>
                   <p className="text-[#1A2936] font-para  dark:text-gray-100 text-sm leading-5 text-center">
                     Teams Assigned
@@ -76,7 +82,8 @@ const Lyik = () => {
                     Developing
                   </p>
                   <h2 className=" font-para text-sm  text-gray-600 dark:text-gray-400">
-                    React Js, Next Js, Tailwind, Docker etc.
+                    Next Js, MongoDB, Zapier, App Script, Google APIs, Docker
+                    etc.
                   </h2>
                 </div>
               </div>
@@ -90,4 +97,4 @@ const Lyik = () => {
   );
 };
 
-export default Lyik;
+export default MessyProgrammer;

@@ -1,6 +1,4 @@
 import React from "react";
-// import About from "../pages/About";
-// import Experience from "../pages/Experience"
 const footer = () => {
   return (
     <footer className="flex items-center justify-center">
@@ -17,15 +15,6 @@ const footer = () => {
               <a className="text-gray-500 transition hover:text-gray-600">
                 About
               </a>
-            </a>
-            <a
-              className="text-gray-500 transition hover:text-gray-600"
-              href="https://drive.google.com/uc?export=download&id=1Gr9FSFvS5QXMZ-0pyySD_UV6COE79k5U"
-              rel="noopener noreferrer"
-              target="_blank"
-              download={true}
-            >
-              Resume
             </a>
           </div>
 
@@ -47,15 +36,7 @@ const footer = () => {
               className="text-gray-500 transition hover:text-gray-600"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://twitter.com/hiswebworld"
-            >
-              Twitter
-            </a>
-            <a
-              className="text-gray-500 transition hover:text-gray-600"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/gaganbiswas"
+              href="https://github.com/ayushpaul111"
             >
               GitHub
             </a>
@@ -63,14 +44,14 @@ const footer = () => {
               className="text-gray-500 transition hover:text-gray-600"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.instagram.com/the_narcissist_guy/"
+              href="https://www.instagram.com/ayushpaul1111/"
             >
               Instagram
             </a>
           </div>
         </div>
         <p className="flex self-center text-center text-sm text-gray-600 dark:text-gray-300">
-          Created with ❤ by Gagan Biswas.
+          Created with ❤ by Ayush Paul.
         </p>
         <p className="mb-8 mt-2 self-center text-sm text-gray-600 dark:text-gray-300">
           Inspiration:{" "}

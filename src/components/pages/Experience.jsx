@@ -6,6 +6,9 @@ import SkillAcademia from "../exp/SkillAcademia";
 import Mediqueue from "../exp/Mediqueue";
 import MediaInMinutes from "../exp/MediaInMinutes";
 import Lyik from "../exp/Lyik";
+import MessyProgrammer from "../exp/MessyProgrammer";
+import BlurText from "../ui/BlurText";
+import FadeContent from "../ui/FadeContent";
 
 const projects = [
   {
@@ -42,45 +45,79 @@ const Experience = () => {
     <section>
       <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
         <div className="space-y-5  ">
-          <h1 className="font-semibold text-4xl font-title">Experience:</h1>
+          <h1 className="font-semibold text-4xl font-title">
+            <BlurText
+              text="Experience"
+              delay={150}
+              animateBy="words"
+              direction="top"
+            />
+          </h1>
           <h3 className="font-para font-medium">
-            During my previous engagements, I acquired valuable experience in
-            various roles such as web developer, Mern Developer and UI/UX
-            designer. Additionally, as a Computer Science student, I have
-            developed proficient skills in web development. Throughout my
-            journey, I have actively contributed to numerous projects, with one
-            notable accomplishment being my role as the front-end lead in a web
-            application developed for Dayananda Sagar University and Dayananda
-            Sagar College of Engineering. This experience has provided me with a
-            comprehensive understanding of the responsibilities associated with
-            this position.
+            <FadeContent
+              blur={true}
+              duration={1200}
+              easing="ease-out"
+              initialOpacity={0}
+            >
+              During my previous engagements, I acquired valuable experience in
+              various roles such as web developer, Mern Developer and UI/UX
+              designer. Additionally, as a Computer Science student, I have
+              developed proficient skills in web development. Throughout my
+              journey, I have actively contributed to numerous projects, with
+              one notable accomplishment being my role as the front-end lead in
+              a web application developed for Dayananda Sagar University and
+              Dayananda Sagar College of Engineering. This experience has
+              provided me with a comprehensive understanding of the
+              responsibilities associated with this position.
+            </FadeContent>
           </h3>
           <h3 className="font-para font-medium">
-            The primary motivation behind my pursuit of this internship
-            opportunity is to further augment my skill set. By immersing myself
-            in new challenges and working alongside industry professionals, I am
-            confident that I will be able to refine my abilities and broaden my
-            knowledge within the field.
+            <FadeContent
+              blur={true}
+              duration={1600}
+              easing="ease-out"
+              initialOpacity={0}
+            >
+              The primary motivation behind my pursuit of this internship
+              opportunity is to further augment my skill set. By immersing
+              myself in new challenges and working alongside industry
+              professionals, I am confident that I will be able to refine my
+              abilities and broaden my knowledge within the field.
+            </FadeContent>
           </h3>
         </div>
 
         <div className="md:flex md:flex-col space-y-5">
           <div className="text-xl">
             <h1 className="font-subHead text-xl font-semibold italic">
-              Companies:
+              <BlurText
+                text="Companies:"
+                delay={400}
+                animateBy="words"
+                direction="top"
+              />
             </h1>
           </div>
 
           {/* company cards */}
-          <div className="flex flex-col space-y-5 ">
-            <Lyik />
+          <FadeContent
+            blur={true}
+            duration={2000}
+            easing="ease-out"
+            initialOpacity={0}
+          >
+            <div className="flex flex-col space-y-5 ">
+              <MessyProgrammer />
+              <Lyik />
 
-            <Mediqueue />
+              <Mediqueue />
 
-            <SkillAcademia />
+              <SkillAcademia />
 
-            <MediaInMinutes />
-          </div>
+              <MediaInMinutes />
+            </div>
+          </FadeContent>
         </div>
 
         <div className="md:flex md:flex-col space-y-5">
