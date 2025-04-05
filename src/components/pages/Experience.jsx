@@ -1,22 +1,18 @@
 import React from "react";
-import project1 from "../../assets/DSU-Library.jpg";
-import project2 from "../../assets/iitm.png";
 import Card from "../ui/Card";
-import SkillAcademia from "../exp/SkillAcademia";
-import Mediqueue from "../exp/Mediqueue";
-import MediaInMinutes from "../exp/MediaInMinutes";
-import Lyik from "../exp/Lyik";
-import MessyProgrammer from "../exp/MessyProgrammer";
 import BlurText from "../ui/BlurText";
 import FadeContent from "../ui/FadeContent";
 
-const projects = [
+// Company components
+import CompanyCard from "../ui/CompanyCard";
+// Project data - moved outside component for better organization
+const PROJECTS = [
   {
     id: 1,
     title: "Dayananda Sagar University Library System",
     description:
       "An efficient and robust library management system for seamless student and system data administration.",
-    src: project1,
+    src: "/assets/DSU-Library.jpg", // Using path imports for better build optimization
     previewHref:
       "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
     titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
@@ -26,7 +22,7 @@ const projects = [
     title: "Weather UI",
     description:
       "A sleek and user-friendly weather app with an efficient and modern UI.",
-    src: project2,
+    src: "/assets/iitm.png",
     previewHref: "https://ayush-iitm.netlify.app/",
     titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
   },
@@ -40,11 +36,122 @@ const projects = [
   },
 ];
 
+// Company data - consolidated for better maintainability
+const COMPANIES = [
+  {
+    id: "messy-programmer",
+    name: "Messy Programmer",
+    location: "Remote",
+    logoUrl:
+      "https://media.licdn.com/dms/image/v2/D560BAQHafjq4CvE4zQ/company-logo_200_200/company-logo_200_200/0/1708921438416/messyprogrammer_logo?e=2147483647&v=beta&t=4pbik2rApZ0wd0z4BaLz0sMj15yYC-u_E_iYOhJvlmM",
+    position: "Full Stack Developer (Full Time)",
+    description: "I am currently working as a Full-Stack Developer.",
+    startDate: "Nov, 2024",
+    endDate: "Present",
+    responsibilities: [
+      "Contribute in Autometions.",
+      "Contribute in Full-stack development.",
+      "Provide consultation for technical solutions.",
+    ],
+    workPositions: 1,
+    teamsAssigned: 2,
+    technologies: {
+      development:
+        "Next Js, MongoDB, Zapier, App Script, Google APIs, Docker etc.",
+    },
+  },
+  {
+    id: "lyik",
+    name: "LYIK Technologies",
+    location: "Bengaluru, Karnataka",
+    logoUrl:
+      "https://store-images.s-microsoft.com/image/apps.22172.98d12f57-368b-4a9a-8ac2-d4926608f98f.0d164c8e-81af-44c8-92d0-25ab3ec447b8.c7eb27fb-7ee1-4d98-a641-bd623960e3f2",
+    position: "Web Developer (Intern)",
+    description: "I was working as a Web Developer Intern Developer.",
+    startDate: "Sept, 2023",
+    endDate: "Nov, 2023",
+    responsibilities: ["Contributed in Website."],
+    workPositions: 1,
+    teamsAssigned: 1,
+    technologies: {
+      development: "React Js, Next Js, Tailwind, Docker etc.",
+    },
+  },
+  {
+    id: "mediqueue",
+    name: "Mediqueue",
+    location: "Cooch Behar, West Bengal",
+    logoUrl:
+      "https://play-lh.googleusercontent.com/SHqJPBvECZHig7yJ4SKord-SCyPzEDa_dLpazwJ5oqNXt2BfdXcmHPP5rNWKoVlAqX4=w240-h480-rw",
+    position: "Front-end Developer (Intern)",
+    description:
+      "I have gained valuable experience and expertise as a Frontend Developer and UI/UX Designer, honing my skills in various aspects of design and development. I successfully implemented my learnings in real-world projects during my tenure at this company.",
+    startDate: "March, 2022",
+    endDate: "October, 2022",
+    responsibilities: [
+      "Contributed in main website developing",
+      "Created the login ui design for the mobile application",
+      "Made poster and logos for the clients",
+    ],
+    workPositions: 2,
+    teamsAssigned: 3,
+    technologies: {
+      development: "HTML, CSS, JavaScript.",
+      design: "Photoshop, Illustrator, XD",
+    },
+  },
+  {
+    id: "skill-academia",
+    name: "Skill Academia",
+    location: "Kolkata, West Bengal",
+    logoUrl:
+      "https://media.licdn.com/dms/image/C560BAQGLl5g9wT4ZsQ/company-logo_200_200/0/1652106728326?e=2147483647&v=beta&t=oRWJeUKeVe9u4mHsWOXTSX6D3Ct848XnM_WUQOKBPTw",
+    position: "Graphic Designer (Part-time)",
+    description:
+      "During my time at this company, I served as a Graphic Designer, specializing in creating impactful marketing materials such as posters.",
+    startDate: "June, 2022",
+    endDate: "March, 2023",
+    responsibilities: [
+      "Contributed in social media posters.",
+      "Made brochure for the company.",
+      "Made several designs.",
+    ],
+    workPositions: 2,
+    teamsAssigned: 2,
+    technologies: {
+      design: "Adobe Photoshop, Adobe Illustrator, Adobe XD, Canva etc.",
+    },
+  },
+  {
+    id: "media-in-minutes",
+    name: "Nincompoop (Media Inminutes)",
+    location: "Kolkata, West Bengal",
+    logoUrl:
+      "https://media.licdn.com/dms/image/C560BAQEhmbMP7wQpoA/company-logo_200_200/0/1662660599258?e=2147483647&v=beta&t=Jb9yGmePebjjvgWVaPjJjatQ1l-cuBrKMa7neO5b5eM",
+    position: "Graphic Designer (Part-time)",
+    description:
+      "During my time at this company, I served as a Graphic Designer, specializing in creating impactful marketing materials such as posters.",
+    startDate: "October, 2022",
+    endDate: "March, 2023",
+    responsibilities: [
+      "Made poster and logos for the clients.",
+      "Contributed in social media posters.",
+    ],
+    workPositions: 1,
+    teamsAssigned: 1,
+    technologies: {
+      design: "Adobe Photoshop, Adobe Illustrator, Adobe XD, Canva etc.",
+    },
+  },
+];
+
+// Main component
 const Experience = () => {
   return (
     <section>
       <div className="max-w-screen-lg flex flex-col items-start text-white pl-4 pt-5 md:-ml-3pt-5 md:max-w-2xl md:-ml-3 space-y-10">
-        <div className="space-y-5  ">
+        {/* Header section */}
+        <div className="space-y-5">
           <h1 className="font-semibold text-4xl font-title">
             <BlurText
               text="Experience"
@@ -53,122 +160,119 @@ const Experience = () => {
               direction="top"
             />
           </h1>
-          <h3 className="font-para font-medium">
+          <div className="space-y-4">
             <FadeContent
               blur={true}
               duration={1200}
               easing="ease-out"
               initialOpacity={0}
             >
-              During my previous engagements, I acquired valuable experience in
-              various roles such as web developer, Mern Developer and UI/UX
-              designer. Additionally, as a Computer Science student, I have
-              developed proficient skills in web development. Throughout my
-              journey, I have actively contributed to numerous projects, with
-              one notable accomplishment being my role as the front-end lead in
-              a web application developed for Dayananda Sagar University and
-              Dayananda Sagar College of Engineering. This experience has
-              provided me with a comprehensive understanding of the
-              responsibilities associated with this position.
+              <p className="font-para font-medium">
+                During my previous engagements, I acquired valuable experience
+                in various roles such as web developer, Mern Developer and UI/UX
+                designer. Additionally, as a Computer Science student, I have
+                developed proficient skills in web development. Throughout my
+                journey, I have actively contributed to numerous projects, with
+                one notable accomplishment being my role as the front-end lead
+                in a web application developed for Dayananda Sagar University
+                and Dayananda Sagar College of Engineering. This experience has
+                provided me with a comprehensive understanding of the
+                responsibilities associated with this position.
+              </p>
             </FadeContent>
-          </h3>
-          <h3 className="font-para font-medium">
+
             <FadeContent
               blur={true}
               duration={1600}
               easing="ease-out"
               initialOpacity={0}
             >
-              The primary motivation behind my pursuit of this internship
-              opportunity is to further augment my skill set. By immersing
-              myself in new challenges and working alongside industry
-              professionals, I am confident that I will be able to refine my
-              abilities and broaden my knowledge within the field.
+              <p className="font-para font-medium">
+                The primary motivation behind my pursuit of this internship
+                opportunity is to further augment my skill set. By immersing
+                myself in new challenges and working alongside industry
+                professionals, I am confident that I will be able to refine my
+                abilities and broaden my knowledge within the field.
+              </p>
             </FadeContent>
-          </h3>
+          </div>
         </div>
 
-        <div className="md:flex md:flex-col space-y-5">
-          <div className="text-xl">
-            <h1 className="font-subHead text-xl font-semibold italic">
-              <BlurText
-                text="Companies:"
-                delay={400}
-                animateBy="words"
-                direction="top"
-              />
-            </h1>
-          </div>
+        {/* Companies section */}
+        <div className="w-full space-y-5">
+          <h2 className="font-subHead text-xl font-semibold italic">
+            <BlurText
+              text="Companies:"
+              delay={400}
+              animateBy="words"
+              direction="top"
+            />
+          </h2>
 
-          {/* company cards */}
           <FadeContent
             blur={true}
             duration={2000}
             easing="ease-out"
             initialOpacity={0}
           >
-            <div className="flex flex-col space-y-5 ">
-              <MessyProgrammer />
-              <Lyik />
-
-              <Mediqueue />
-
-              <SkillAcademia />
-
-              <MediaInMinutes />
+            <div className="flex flex-col space-y-5">
+              {COMPANIES.map((company) => (
+                <CompanyCard key={company.id} company={company} />
+              ))}
             </div>
           </FadeContent>
         </div>
 
-        <div className="md:flex md:flex-col space-y-5">
-          <div className="text-xl text">
-            <h1 className="font-medium">Projects:</h1>
-          </div>
+        {/* Projects section */}
+        <div className="w-full space-y-5">
+          <h2 className="font-medium text-xl">Projects:</h2>
 
-          <div className="grid grid-cols-1 space-y-8 md:space-y-5">
-            {projects.map((item) => (
+          <div className="grid grid-cols-1 gap-8 md:gap-5">
+            {PROJECTS.map((project) => (
               <Card
-                key={item.id}
-                title={item.title}
-                description={item.description}
-                previewHref={item.previewHref}
-                src={item.src}
-                titleHref={item.titleHref}
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                previewHref={project.previewHref}
+                src={project.src}
+                titleHref={project.titleHref}
               />
             ))}
           </div>
         </div>
 
+        {/* Certificates section */}
         <div className="space-y-5">
           <h3 className="text-xl font-subHead font-medium">
             Certificate and others:
           </h3>
-          <h3 className="font-para">
+          <p className="font-para">
             You will get every Certificates and other documents in this drive:
-          </h3>
+          </p>
 
           <a
             className="inline-block"
             href="https://drive.google.com/drive/folders/1Ccl9fVm9xxBB4V5U6Y0mUgEUHySGu50a?usp=sharing"
             rel="noopener noreferrer"
+            aria-label="View certificates and other documents"
           >
             <button
-              className="flex select-none items-center gap-2 rounded-lg py-3 px-2 text-center align-middle font-sans text-xs font-bold uppercase bg-opacity-20 bg-black transition-all hover:bg-pink-500/10 active:bg-pink-500/30 text-pink-500 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="flex select-none items-center gap-2 rounded-lg py-3 px-4 text-center align-middle font-sans text-xs font-bold uppercase bg-black bg-opacity-20 text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50"
               type="button"
             >
-              Read more
+              View Documents
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="currentColor"
                 aria-hidden="true"
                 className="h-4 w-4"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                 ></path>
               </svg>
