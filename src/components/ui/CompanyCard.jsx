@@ -1,12 +1,5 @@
 import React from "react";
 
-/**
- * CompanyCard component - displays information about a company experience
- * Fixed layout issues to prevent page width shifts
- *
- * @param {Object} props
- * @param {Object} props.company - Company data object
- */
 const CompanyCard = ({ company }) => {
   const {
     name,
@@ -17,119 +10,124 @@ const CompanyCard = ({ company }) => {
     startDate,
     endDate,
     responsibilities,
-    workPositions,
-    teamsAssigned,
     technologies,
   } = company;
 
   return (
-    <div className="w-full bg-gray-200 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row w-full bg-white dark:bg-[#1A2936] shadow rounded overflow-hidden">
-            {/* Company info column */}
-            <div className="w-full lg:w-1/3 p-6 flex flex-col">
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded shadow overflow-hidden flex-shrink-0">
-                  <img
-                    className="w-full h-full object-cover rounded"
-                    src={logoUrl}
-                    alt={`${name} logo`}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="ml-3">
-                  <h5 className="text-[#1A2936] font-subHead dark:text-gray-100 font-medium text-base">
-                    {name}
-                  </h5>
-                  <p className="text-gray-600 font-para dark:text-gray-400 text-xs font-normal">
-                    {location}
-                  </p>
-                </div>
+    <div className="w-full bg-gray-50 dark:bg-gray-950">
+      <div className="container mx-auto">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            {/* Header with Logo and Company Info */}
+            <div className="flex items-center p-6 border-b border-gray-100 dark:border-gray-800">
+              <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                <img
+                  className="w-full h-full object-cover"
+                  src={logoUrl}
+                  alt={`${name} logo`}
+                  loading="lazy"
+                />
               </div>
-              <h3 className="text-lg font-subHead text-[#1A2936] dark:text-gray-100 font-bold mt-5 mb-1">
-                {position}
-              </h3>
-              <p className="text-gray-600 font-para dark:text-gray-400 text-sm font-normal">
-                {description}
-              </p>
+              <div className="ml-4">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight">
+                  {name}
+                </h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {location}
+                </p>
+              </div>
             </div>
 
-            {/* Timeline & responsibilities column */}
-            <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 lg:border-l lg:border-r border-gray-300">
-              {/* Date range */}
-              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
-                <div className="text-xs font-para text-center w-full bg-gray-100 dark:bg-gray-700 rounded font-medium p-3 lg:mr-3">
-                  Start Date: {startDate}
+            {/* Main Content */}
+            <div className="p-6 sm:p-8">
+              {/* Position and Description */}
+              <div className="mb-6">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                  {position}
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {description}
+                </p>
+              </div>
+
+              {/* Date Range */}
+              <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
+                <div className="flex-1 py-2 text-center border-b-2 border-gray-200 dark:border-gray-700">
+                  <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                    Start Date
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {startDate}
+                  </p>
                 </div>
-                <div className="mt-4 font-para text-center w-full lg:mt-0 text-xs bg-gray-100 dark:bg-gray-700 rounded font-medium p-3">
-                  End Date: {endDate}
+                <div className="flex-1 py-2 text-center border-b-2 border-gray-200 dark:border-gray-700">
+                  <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                    End Date
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {endDate}
+                  </p>
                 </div>
               </div>
 
               {/* Responsibilities */}
-              <div className="mt-6 mb-8 w-full bg-gray-100 dark:bg-gray-700 rounded p-4">
-                <ul className="space-y-4">
+              <div className="mb-6">
+                <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
+                  Responsibilities
+                </h4>
+                <ul className="space-y-2">
                   {responsibilities.map((responsibility, index) => (
                     <li
                       key={index}
-                      className="text-xs font-para text-gray-600 dark:text-gray-400 font-normal"
+                      className="flex items-start text-sm text-gray-600 dark:text-gray-400"
                     >
-                      - {responsibility}
+                      <svg
+                        className="w-4 h-4 mr-2 mt-0.5 text-gray-400 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {responsibility}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-gray-600 font-para dark:text-gray-400 font-bold text-lg leading-6 mb-1 text-center">
-                    {workPositions}
-                  </h2>
-                  <p className="text-[#1A2936] font-para dark:text-gray-100 text-sm leading-5 text-center">
-                    Work Positions
-                  </p>
+              {/* Technologies */}
+              <div>
+                <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
+                  Technologies
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {technologies.development && (
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                        Development
+                      </p>
+                      <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                        {technologies.development}
+                      </p>
+                    </div>
+                  )}
+                  {technologies.design && (
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                        Design
+                      </p>
+                      <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                        {technologies.design}
+                      </p>
+                    </div>
+                  )}
                 </div>
-                <div>
-                  <h2 className="text-gray-600 font-para dark:text-gray-400 font-bold text-lg leading-6 mb-1 text-center">
-                    {teamsAssigned}
-                  </h2>
-                  <p className="text-[#1A2936] font-para dark:text-gray-100 text-sm leading-5 text-center">
-                    Teams Assigned
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Technologies column */}
-            <div className="w-full lg:w-1/3 p-6">
-              <div className="mb-4 font-para flex items-center">
-                <p className="font-subHead font-semibold">Tech I have used</p>
-              </div>
-
-              <div className="flex flex-col space-y-4">
-                {technologies.development && (
-                  <div>
-                    <p className="text-sm font-para text-[#1A2936] dark:text-gray-100 font-normal mb-1">
-                      Developing
-                    </p>
-                    <h2 className="text-sm font-para text-gray-600 dark:text-gray-400 break-words">
-                      {technologies.development}
-                    </h2>
-                  </div>
-                )}
-
-                {technologies.design && (
-                  <div>
-                    <p className="text-sm font-para text-[#1A2936] dark:text-gray-100 font-normal mb-1">
-                      Designing
-                    </p>
-                    <h2 className="text-sm font-para text-gray-600 dark:text-gray-400 break-words">
-                      {technologies.design}
-                    </h2>
-                  </div>
-                )}
               </div>
             </div>
           </div>

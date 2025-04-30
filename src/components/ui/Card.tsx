@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types"; // For prop type validation
 
 const Card = ({ src, title, titleHref, previewHref, description }) => {
   return (

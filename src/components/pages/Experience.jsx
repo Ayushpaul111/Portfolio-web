@@ -2,9 +2,9 @@ import React from "react";
 import Card from "../ui/Card";
 import BlurText from "../ui/BlurText";
 import FadeContent from "../ui/FadeContent";
-
-// Company components
 import CompanyCard from "../ui/CompanyCard";
+import ProductCard from "../ui/ProductCard";
+
 // Project data - moved outside component for better organization
 const PROJECTS = [
   {
@@ -53,11 +53,10 @@ const COMPANIES = [
       "Contribute in Full-stack development.",
       "Provide consultation for technical solutions.",
     ],
-    workPositions: 1,
-    teamsAssigned: 2,
+
     technologies: {
       development:
-        "Next Js, MongoDB, Zapier, App Script, Google APIs, Docker etc.",
+        "Next Js, MongoDB, Zapier, App Script, Google APIs, Docker, GoHighLevel, Firebase etc.",
     },
   },
   {
@@ -69,10 +68,9 @@ const COMPANIES = [
     position: "Web Developer (Intern)",
     description: "I was working as a Web Developer Intern Developer.",
     startDate: "Sept, 2023",
-    endDate: "Nov, 2023",
+    endDate: "Dec, 2023",
     responsibilities: ["Contributed in Website."],
-    workPositions: 1,
-    teamsAssigned: 1,
+
     technologies: {
       development: "React Js, Next Js, Tailwind, Docker etc.",
     },
@@ -93,8 +91,7 @@ const COMPANIES = [
       "Created the login ui design for the mobile application",
       "Made poster and logos for the clients",
     ],
-    workPositions: 2,
-    teamsAssigned: 3,
+
     technologies: {
       development: "HTML, CSS, JavaScript.",
       design: "Photoshop, Illustrator, XD",
@@ -116,8 +113,7 @@ const COMPANIES = [
       "Made brochure for the company.",
       "Made several designs.",
     ],
-    workPositions: 2,
-    teamsAssigned: 2,
+
     technologies: {
       design: "Adobe Photoshop, Adobe Illustrator, Adobe XD, Canva etc.",
     },
@@ -142,6 +138,18 @@ const COMPANIES = [
     technologies: {
       design: "Adobe Photoshop, Adobe Illustrator, Adobe XD, Canva etc.",
     },
+  },
+];
+
+const PRODUCTS = [
+  {
+    id: 1,
+    title: "QR Menu + Restaurant Management",
+    description:
+      "With this, they're saving around 20,000 rupees every month and also getting a clear insight into which dishes are performing well and how the expenses are going. They can easily manage menu items, control charges, availability, and more. Their customers are also happy with how quickly and smoothly orders are being handled now.",
+    mainImage: "./product/bonbhojan.webp",
+    sample1: "./product/bonbhojanMain.png",
+    sample2: "./product/bonbhojan.webp",
   },
 ];
 
@@ -223,9 +231,41 @@ const Experience = () => {
           </FadeContent>
         </div>
 
+        {/* Products section */}
+        <div className="w-full space-y-5">
+          <h2 className="font-subHead text-xl font-semibold italic">
+            <BlurText
+              text="Products:"
+              delay={100}
+              animateBy="words"
+              direction="top"
+            />
+          </h2>
+
+          <FadeContent
+            blur={true}
+            duration={500}
+            easing="ease-out"
+            initialOpacity={0}
+          >
+            <div className="grid grid-cols-1 gap-8 md:gap-5">
+              <p className="font-para">
+                Alongside my experience, projects, and freelance work, I've also
+                built and marketed a few products on my own — and I'm proud to
+                say that several clients are actively using them today.
+              </p>
+              {PRODUCTS.map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
+            </div>
+          </FadeContent>
+        </div>
+
         {/* Projects section */}
         <div className="w-full space-y-5">
-          <h2 className="font-medium text-xl">Projects:</h2>
+          <h2 className="font-subHead text-xl font-semibold italic">
+            Projects:
+          </h2>
 
           <div className="grid grid-cols-1 gap-8 md:gap-5">
             {PROJECTS.map((project) => (
