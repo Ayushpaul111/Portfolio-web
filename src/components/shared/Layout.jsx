@@ -37,7 +37,18 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen pt-10 p-5 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row md:justify-center">
+    <div className="min-h-screen pt-10 p-5 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row md:justify-center relative">
+      {/* Background Image */}
+      <div
+        className="fixed inset-0 z-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: `url('https://media.giphy.com/media/feOLsVVsYft04/giphy.gif?cid=ecf05e47xwmy15trt80f6i8819bmhp4l8zhcpwq5a5to1jmq&ep=v1_gifs_related&rid=giphy.gif&ct=g')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+
       <Toaster
         toastOptions={{
           duration: 4000,
@@ -52,7 +63,7 @@ const Layout = () => {
           },
         }}
       />
-      <header className="">
+      <header className="z-10 relative">
         <img
           src={Logo}
           className="ml-1 mb-5 flex object-cover h-20 w-20 md:-ml-3"
@@ -81,7 +92,7 @@ const Layout = () => {
           </ul>
         </nav>
       </header>
-      <div className="md:min-h-full md:flex md:justify-center">
+      <div className="md:min-h-full md:flex md:justify-center z-10 relative">
         <Outlet />
         <FixedPopup />
       </div>
@@ -94,7 +105,7 @@ const Layout = () => {
       />
 
       {/* for phone */}
-      <div>
+      <div className="z-10 relative">
         <footer className="md:hidden flex items-center justify-center mt-10">
           <div className="mb-8 flex w-11/12 max-w-2xl flex-col items-start">
             <hr className="border-1 mb-8 w-full border-gray-200 dark:border-[#1A2936]" />

@@ -1,7 +1,7 @@
 const Card = ({ src, title, titleHref, previewHref, description }) => {
   return (
-    <div className="relative flex w-full max-w-[48rem] flex-col md:flex-row rounded-xl bg-gray-200 dark:bg-[#1A2936] bg-clip-border text-white shadow-md transition-all duration-300 hover:shadow-lg">
-      <div className="relative m-0 w-full md:w-2/5 shrink-0 overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none bg-black bg-clip-border">
+    <div className="relative flex w-full max-w-[48rem] flex-col md:flex-row rounded-xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-md border border-white/20 dark:border-gray-800/30 text-gray-800 dark:text-white shadow-lg transition-all duration-300 hover:shadow-xl">
+      <div className="relative m-0 w-full md:w-2/5 shrink-0 overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none bg-black/50 backdrop-blur-sm bg-clip-border border border-white/10 dark:border-gray-800/20">
         <a
           href={previewHref}
           target="_blank"
@@ -9,7 +9,7 @@ const Card = ({ src, title, titleHref, previewHref, description }) => {
           aria-label={`Preview of ${title}`}
         >
           <img
-            src={src}
+            src={src || "/placeholder.svg"}
             alt={title}
             className="h-60 md:h-full w-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
@@ -18,10 +18,10 @@ const Card = ({ src, title, titleHref, previewHref, description }) => {
       </div>
       <div className="p-6 flex flex-col justify-between">
         <div>
-          <h2 className="mb-2 font-subHead text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+          <h2 className="mb-2 font-subHead text-2xl font-semibold leading-snug tracking-normal text-gray-900 dark:text-white antialiased">
             {title}
           </h2>
-          <p className="mb-4 md:mb-8 font-para text-base font-normal leading-relaxed text-gray-400 antialiased">
+          <p className="mb-4 md:mb-8 font-para text-base font-normal leading-relaxed text-gray-600 dark:text-gray-300 antialiased">
             {description}
           </p>
         </div>
@@ -33,7 +33,7 @@ const Card = ({ src, title, titleHref, previewHref, description }) => {
           aria-label={`Read more about ${title}`}
         >
           <button
-            className="flex select-none items-center gap-2 rounded-lg py-3 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="flex select-none items-center gap-2 rounded-lg py-3 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/20 active:bg-pink-500/30 backdrop-blur-sm border border-pink-500/10 shadow-sm"
             type="button"
           >
             Read more
