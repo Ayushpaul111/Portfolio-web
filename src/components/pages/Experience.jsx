@@ -12,7 +12,7 @@ const PROJECTS = [
     title: "Dayananda Sagar University Library System",
     description:
       "An efficient and robust library management system for seamless student and system data administration.",
-    src: "/assets/DSU-Library.jpg", // Using path imports for better build optimization
+    src: "../src/assets/DSU-Library.jpg", // Using path imports for better build optimization
     previewHref:
       "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
     titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
@@ -22,7 +22,7 @@ const PROJECTS = [
     title: "Weather UI",
     description:
       "A sleek and user-friendly weather app with an efficient and modern UI.",
-    src: "/assets/iitm.png",
+    src: "../src/assets/iitm.png",
     previewHref: "https://ayush-iitm.netlify.app/",
     titleHref: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
   },
@@ -292,6 +292,7 @@ const Experience = () => {
 
           <a
             className="inline-block"
+            target="_blank"
             href="https://drive.google.com/drive/folders/1Ccl9fVm9xxBB4V5U6Y0mUgEUHySGu50a?usp=sharing"
             rel="noopener noreferrer"
             aria-label="View certificates and other documents"

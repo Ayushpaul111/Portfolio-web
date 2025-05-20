@@ -1,4 +1,3 @@
-import React from "react";
 import MyImage from "../../assets/heroImage.png";
 import { BiLogoLinkedin, BiLogoGithub, BiLogoInstagram } from "react-icons/bi";
 import BlurText from "../ui/BlurText";

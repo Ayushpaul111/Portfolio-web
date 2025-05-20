@@ -1,11 +1,10 @@
-import React from "react";
-
 const Card = ({ src, title, titleHref, previewHref, description }) => {
   return (
     <div className="relative flex w-full max-w-[48rem] flex-col md:flex-row rounded-xl bg-gray-200 dark:bg-[#1A2936] bg-clip-border text-white shadow-md transition-all duration-300 hover:shadow-lg">
       <div className="relative m-0 w-full md:w-2/5 shrink-0 overflow-hidden rounded-t-xl md:rounded-l-xl md:rounded-tr-none bg-black bg-clip-border">
         <a
           href={previewHref}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label={`Preview of ${title}`}
         >
@@ -29,6 +28,7 @@ const Card = ({ src, title, titleHref, previewHref, description }) => {
         <a
           className="inline-block mt-auto"
           href={titleHref}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label={`Read more about ${title}`}
         >
