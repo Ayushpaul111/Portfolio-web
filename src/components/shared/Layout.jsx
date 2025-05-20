@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/logo.png";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { FixedPopup } from "../ui/FixedPopup";
 import { toast, Toaster } from "react-hot-toast";
+import ResumePDFViewer from "./ResumeViewer.jsx";
 
 const links = [
   { linkTo: "/", label: "Home", tar: "_self" },
@@ -10,10 +11,8 @@ const links = [
   { linkTo: "/experience", label: "Experience", tar: "_self" },
   { linkTo: "/letsTalk", label: "LetsTalk", tar: "_self" },
   {
-    // linkTo:
-    //   "https://drive.google.com/file/d/1LMhZ0rfr31lfF3Egx-JBSTDfd9rNnbIu/view?usp=sharing",
     label: "Resume",
-    // tar: "_blank",
+    isResume: true,
   },
   {
     linkTo: "https://ehike.in",
@@ -22,11 +21,21 @@ const links = [
   },
 ];
 
+// Replace this URL with your actual resume PDF URL
+const RESUME_PDF_URL = "./Ayush Paul_Resume.pdf";
+
 const Layout = () => {
   const { pathname } = useLocation();
+  const [isPdfViewerOpen, setIsPdfViewerOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [pathname]);
+
+  const handleResumeClick = () => {
+    setIsPdfViewerOpen(true);
+  };
+
   return (
     <div className="min-h-screen pt-10 p-5 transition-all md:pt-20 md:p-20 lg:p-30 md:flex md:flex-row md:justify-center">
       <Toaster
@@ -65,6 +74,8 @@ const Layout = () => {
                 label={link.label}
                 linkTo={link.linkTo}
                 tar={link.tar}
+                isResume={link.isResume}
+                onResumeClick={handleResumeClick}
               />
             ))}
           </ul>
@@ -74,6 +85,14 @@ const Layout = () => {
         <Outlet />
         <FixedPopup />
       </div>
+
+      {/* Floating PDF Viewer */}
+      <ResumePDFViewer
+        isOpen={isPdfViewerOpen}
+        onClose={() => setIsPdfViewerOpen(false)}
+        pdfUrl={RESUME_PDF_URL}
+      />
+
       {/* for phone */}
       <div>
         <footer className="md:hidden flex items-center justify-center mt-10">
@@ -170,49 +189,36 @@ const Layout = () => {
 
 export default Layout;
 
-const NavLink = ({ label, linkTo, tar }) => {
+const NavLink = ({ label, linkTo, tar, isResume, onResumeClick }) => {
   const location = useLocation();
 
-  const handleResumeClick = () => {
-    if (label === "Resume") {
-      toast.success(
-        "I am always learning and implementing. Please mail me at Ayushpaul1111@gmail.com or tap on 𝗟𝗲𝘁'𝘀 𝗖𝗵𝗮𝘁",
-
-        {
-          duration: 4000,
-          position: "top-center",
-          className: "animate-bounce",
-          style: {
-            background: "#333",
-            color: "#fff",
-            maxWidth: "400px",
-            padding: "16px",
-            borderRadius: "8px",
-            animationDuration: "0.5s",
-          },
-        }
-      );
+  const handleClick = (e) => {
+    if (isResume) {
+      e.preventDefault();
+      onResumeClick();
     }
   };
-
-  console.log(location.pathname === linkTo);
 
   return (
     <li
       className={`pr-3 transition-all hover:text-neutral-800 dark:hover:text-neutral-200 md:hover:scale-105 md:hover:pl-1 flex align-middle ${
-        location.pathname === linkTo
+        location.pathname === linkTo && !isResume
           ? "text-neutral-100 font-title font-semibold"
           : "text-neutral-500 "
       }`}
     >
-      <Link
-        className="md:pb-4 font-subHead"
-        to={linkTo}
-        target={tar}
-        onClick={handleResumeClick}
-      >
-        {label}
-      </Link>
+      {isResume ? (
+        <button
+          className="md:pb-4 font-subHead cursor-pointer"
+          onClick={handleClick}
+        >
+          {label}
+        </button>
+      ) : (
+        <Link className="md:pb-4 font-subHead" to={linkTo} target={tar}>
+          {label}
+        </Link>
+      )}
     </li>
   );
 };
