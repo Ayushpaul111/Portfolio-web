@@ -142,10 +142,11 @@ const Links = () => {
           aria-label={`Visit ${link.title}`}
         >
           <div className="w-full max-w-[48rem] mx-auto rounded-xl overflow-hidden text-gray-800 dark:text-white shadow-lg transition-all duration-300 hover:shadow-xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-md border border-white/20 dark:border-gray-800/30 shine-effect">
-            {/* Main card content */}
-            <div className="flex flex-col md:flex-row">
-              {/* Image Section */}
-              {link.image && (
+            {/* Conditional layout based on image presence */}
+            {link.image ? (
+              // Layout WITH image - horizontal split
+              <div className="flex flex-col md:flex-row">
+                {/* Image Section */}
                 <div className="w-full md:w-2/5 p-6 flex items-center justify-center">
                   <div className="bg-white/80 dark:bg-gray-800/50 rounded-xl overflow-hidden w-full aspect-square shadow-inner backdrop-blur-sm border border-white/30 dark:border-gray-700/30">
                     <img
@@ -157,24 +158,41 @@ const Links = () => {
                     />
                   </div>
                 </div>
-              )}
-              {/* Content Section */}
-              <div className="w-full md:w-3/5 p-6 flex flex-col justify-between">
-                <div className="absolute md:top-4 top-0 bottom-0 right-0 md:right-4 text-neutral-400 group-hover:text-white transition-colors hidden md:block">
+                {/* Content Section */}
+                <div className="w-full md:w-3/5 p-6 flex flex-col justify-between relative">
+                  <div className="absolute top-4 right-4 text-neutral-400 group-hover:text-white transition-colors">
+                    <FaLocationArrow className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-subHead font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-neutral-200 transition-colors">
+                      {link.title}
+                    </h2>
+                    {link.description && (
+                      <p className="text-base font-para text-gray-600 dark:text-gray-300 mb-4">
+                        {link.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Layout WITHOUT image - note-style card
+              <div className="p-6 relative">
+                <div className="absolute top-4 right-4 text-neutral-400 group-hover:text-white transition-colors">
                   <FaLocationArrow className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="pr-8">
                   <h2 className="text-2xl font-subHead font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-neutral-200 transition-colors">
                     {link.title}
                   </h2>
                   {link.description && (
-                    <p className="text-base font-para text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-base font-para text-gray-600 dark:text-gray-300 leading-relaxed">
                       {link.description}
                     </p>
                   )}
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </a>
       </div>
