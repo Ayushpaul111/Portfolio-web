@@ -9,6 +9,7 @@ const links = [
   { linkTo: "/", label: "Home", tar: "_self" },
   { linkTo: "/about", label: "About", tar: "_self" },
   { linkTo: "/experience", label: "Experience", tar: "_self" },
+  { linkTo: "/links", label: "Links", tar: "_self" },
   { linkTo: "/letsTalk", label: "LetsTalk", tar: "_self" },
   {
     label: "Resume",

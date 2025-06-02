@@ -8,6 +8,7 @@ import NotFound from "./components/pages/NotFound";
 import LetsTalk from "./components/pages/LetsTalk";
 import "../src/globals.css";
 import Loader from "./components/shared/Loader";
+import Links from "./components/pages/Links";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="experience" element={<Experience />} />
+              <Route path="links" element={<Links />} />
               <Route path="letsTalk" element={<LetsTalk />} />
               {/* <Route path="resume" element={} /> */}
 
