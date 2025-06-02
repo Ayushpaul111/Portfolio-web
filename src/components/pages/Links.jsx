@@ -160,7 +160,7 @@ const Links = () => {
               )}
               {/* Content Section */}
               <div className="w-full md:w-3/5 p-6 flex flex-col justify-between">
-                <div className="absolute top-4 right-4 text-neutral-400 group-hover:text-white transition-colors">
+                <div className="absolute md:top-4 top-0 bottom-0 right-0 md:right-4 text-neutral-400 group-hover:text-white transition-colors hidden md:block">
                   <FaLocationArrow className="w-5 h-5" />
                 </div>
                 <div>
