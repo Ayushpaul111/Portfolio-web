@@ -1,0 +1,202 @@
+---
+title: "Google Sheets as a Free Lightweight Database"
+publishedAt: "2025-06-10"
+summary: "Use Google Sheets and Apps Script to create a functional database without any costs or complex setup."
+---
+
+Google Sheets can serve as a lightweight database for small projects. It's completely free, requires no setup, and Apps Script provides the programming interface you need.
+
+## Why Use Google Sheets as a Database?
+
+- **Free** - No hosting costs or subscription fees
+- **No setup** - Works immediately without installation
+- **Easy to manage** - Visual interface for data viewing and editing
+- **Automatic backups** - Google handles data storage and recovery
+
+## Basic Database Structure
+
+Structure your sheet like a database table:
+
+```jsx
+// Example: Simple user database
+// Column A: ID
+// Column B: Name
+// Column C: Email
+// Column D: Created Date
+```
+
+## CRUD Operations with Apps Script
+
+### Add Data (Create)
+
+```jsx
+function addUser(name, email) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const lastRow = sheet.getLastRow() + 1;
+  const id = Date.now().toString();
+
+  sheet.getRange(lastRow, 1, 1, 4).setValues([[id, name, email, new Date()]]);
+
+  return id;
+}
+```
+
+### Get Data (Read)
+
+```jsx
+function getUser(email) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][2] === email) {
+      return {
+        id: data[i][0],
+        name: data[i][1],
+        email: data[i][2],
+        created: data[i][3],
+      };
+    }
+  }
+  return null;
+}
+```
+
+### Update Data
+
+```jsx
+function updateUser(id, newName) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][0] === id) {
+      sheet.getRange(i + 1, 2).setValue(newName);
+      return true;
+    }
+  }
+  return false;
+}
+```
+
+### Delete Data
+
+```jsx
+function deleteUser(id) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][0] === id) {
+      sheet.deleteRow(i + 1);
+      return true;
+    }
+  }
+  return false;
+}
+```
+
+## Simple Automation Example
+
+```jsx
+function sendWelcomeEmail() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const lastRow = sheet.getLastRow();
+  const userData = sheet.getRange(lastRow, 1, 1, 4).getValues()[0];
+
+  const [id, name, email] = userData;
+
+  GmailApp.sendEmail(email, "Welcome!", `Hi ${name}, your ID is ${id}`);
+}
+```
+
+## Web API Integration
+
+```jsx
+function doPost(e) {
+  const data = JSON.parse(e.postData.contents);
+
+  if (data.action === "add") {
+    const id = addUser(data.name, data.email);
+    return ContentService.createTextOutput(
+      JSON.stringify({ success: true, id: id })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+
+## Limitations
+
+| Limitation               | Workaround                |
+| ------------------------ | ------------------------- |
+| 10 million cells max     | Archive old data          |
+| No complex queries       | Use Apps Script filtering |
+| Limited concurrent users | Keep operations simple    |
+
+## Real-World Example: Portfolio Links Database
+
+Here's how I use Google Sheets as a database for my portfolio's links section:
+
+### Google Sheets Setup
+
+Create a sheet with these columns:
+
+| Column A | Column B | Column C    | Column D | Column E |
+| -------- | -------- | ----------- | -------- | -------- |
+| title    | link     | description | category | image    |
+
+### Apps Script API
+
+```jsx
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+  const headers = data[0];
+
+  const links = data.slice(1).map((row) => {
+    const link = {};
+    headers.forEach((header, index) => {
+      link[header] = row[index];
+    });
+    return link;
+  });
+
+  return ContentService.createTextOutput(
+    JSON.stringify({
+      success: true,
+      data: links,
+    })
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Frontend Integration
+
+```jsx
+// In your React component
+const [linksData, setLinksData] = useState([]);
+const API_URL = process.env.NEXT_PUBLIC_SHEET_URLS;
+
+const fetchLinks = async () => {
+  const response = await fetch(API_URL);
+  const data = await response.json();
+
+  if (data.success) {
+    setLinksData(data.data);
+  }
+};
+
+// Render links
+{
+  linksData.map((link, index) => <LinkCard key={index} link={link} />);
+}
+```
+
+### Benefits of This Approach
+
+- **Easy content management** - Update links directly in Google Sheets
+- **No database costs** - Completely free solution
+- **Non-technical friendly** - Anyone can add/edit links
+- **Instant updates** - Changes reflect immediately on your site
+
+Google Sheets works well for small databases up to thousands of records. It's perfect for prototypes, personal projects, or small business applications where you need a database without the complexity or cost of traditional solutions.
