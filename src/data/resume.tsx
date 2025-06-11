@@ -1,9 +1,11 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, LinkIcon } from "lucide-react";
+import bonbhojan from "/public/product/bonbhojan.webp";
+import dsuLibrary from "/public/product/dsu-Library.jpg";
 
 export const DATA = {
   name: "Ayush Paul",
-  initials: "DV",
+  initials: "AP",
   url: "https://ayushpaul.dev",
   location: "West Bengal, India",
   locationLink: "https://www.google.com/maps/place/coochbehar",
@@ -31,8 +33,8 @@ export const DATA = {
     { href: "/link", icon: LinkIcon, label: "Links" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "ayushpaul1111@gmail.com",
+    tel: "+919064995568",
     social: {
       GitHub: {
         name: "GitHub",
@@ -56,7 +58,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:ayushpaul1111@gmail.com",
         icon: Icons.email,
 
         navbar: false,
@@ -156,34 +158,71 @@ export const DATA = {
       end: "2018",
     },
   ],
-  projects: [
+  products: [
     {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
+      title: "QR Menu + Restaurant Management System",
+      href: "",
+      dates: "",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "With this, they're saving around 20,000 rupees every month and also getting a clear insight into which dishes are performing well and how the expenses are going. They can easily manage menu items, control charges, availability, and more. Their customers are also happy with how quickly and smoothly orders are being handled now.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
+        // Add your actual technologies used
       ],
       links: [
         {
+          type: "Preview",
+          href: "https://demo.ehike.in",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: bonbhojan,
+      video: "",
+    },
+    {
+      title: "Dayananda Sagar University Library System",
+      href: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
+      dates: "",
+      active: true,
+      description:
+        "An efficient and robust library management system designed for seamless student and system data administration. The system streamlines library operations and provides comprehensive management tools for educational institutions.",
+      technologies: [
+        // Add your actual technologies used
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Preview",
+          href: "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: dsuLibrary,
+      video: "",
+    },
+  ],
+  projects: [
+    {
+      title: "Unicodentals",
+      href: "https://unicodentals.com",
+      dates: "Jan 2024 - Feb 2024",
+      active: true,
+      description: "Unico Dentals wanted a simple wbsite where theycan ",
+      technologies: ["Next.js", "Typescript", "TailwindCSS", "Framer Motion"],
+      links: [
+        {
           type: "Website",
-          href: "https://chatcollect.com",
+          href: "https://unicodentals.com",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+        "https://media.canva.com/v2/files/uri:ifs%3A%2F%2FV%2F-lc7nZkE2fctLMmSFOzJniOpB0K6j1HTYldfl4uA9Ps.mp4?csig=AAAAAAAAAAAAAAAAAAAAAGSANJtnNVMB2n1NUacRdjPS9fqz8yNSkpAoWAc6RnoS&exp=1749634560&signer=video-rpc&token=AAIAAVYALy1sYzduWmtFMmZjdExNbVNGT3pKbmlPcEIwSzZqMUhUWWxkZmw0dUE5UHMubXA0AAAAAAGXXliwAArbSzgQeUN26UDe038fugz6Kk2Q4-pr_5BeZpfR2Ocp",
     },
     {
       title: "Magic UI",
@@ -216,36 +255,6 @@ export const DATA = {
       ],
       image: "",
       video: "https://cdn.magicui.design/bento-grid.mp4",
-    },
-  ],
-  products: [
-    {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
-      active: true,
-      description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://chatcollect.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
     },
   ],
   // hackathons: [
