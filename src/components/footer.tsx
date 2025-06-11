@@ -31,23 +31,25 @@ const Footer = () => {
         </div>
         <div className="px-4 md:px-6 border-t border-gray-500/50 text-sm">
           <div className="mt-1 flex flex-col md:flex-row items-center justify-between">
-            <p className="text-gray-400">Prakash Pun © 2025</p>
+            <p className="text-gray-400">
+              Ayush Paul © {new Date().getFullYear()}
+            </p>
             <div className="flex gap-4 mt-1 md:mt-0">
               <Link
                 href="https://instagram.com/ayushpaul1111"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 Instagram
               </Link>
               <Link
                 href="https://linkedin.com/in/ayushpaul1111"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 LinkedIn
               </Link>
               <Link
                 href="https://github.com/ayushpaul111"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 GitHub
               </Link>

@@ -38,7 +38,7 @@ export default function Navbar() {
         ))}
         <Separator
           orientation="vertical"
-          className="h-full bg-white/20 dark:bg-white/10"
+          className="h-full bg-gray-400/30 dark:bg-white/20"
         />
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)
@@ -48,6 +48,7 @@ export default function Navbar() {
                 <TooltipTrigger asChild>
                   <Link
                     href={social.url}
+                    target="_blank"
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12"
@@ -64,7 +65,7 @@ export default function Navbar() {
           ))}
         <Separator
           orientation="vertical"
-          className="h-full py-2 bg-white/20 dark:bg-white/10"
+          className="h-full bg-gray-400/30 dark:bg-white/20"
         />
         <DockIcon>
           <Tooltip>

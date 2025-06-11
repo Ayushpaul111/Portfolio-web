@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, Loader2 } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Badge } from "@/components/ui/badge";
 import Footer from "@/components/footer";
 
@@ -131,7 +130,7 @@ export default function LinksPage() {
   };
 
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col  space-y-10">
       {/* Links Section */}
       <section id="links">
         <div className="space-y-12 w-full">
