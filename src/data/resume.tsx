@@ -144,7 +144,7 @@ export const DATA = {
     {
       school: "Vivekananda Vidyapeeth High School",
       href: "https://school.banglarshiksha.gov.in/ws/website/index/19031701301",
-      degree: "Class 10 - 12",
+      degree: "Class 11 - 12",
       logoUrl: "/vvh.jpg",
       start: "2018",
       end: "2020",
