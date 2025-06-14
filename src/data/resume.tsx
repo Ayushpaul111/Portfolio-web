@@ -10,7 +10,7 @@ export const DATA = {
   description: "Software Engineer who love building things and helping people.",
   summary:
     "A startup geek who not only have ideas but also have the ability to execute them. I graduated from [Dayananda Sagar University, in Computer Science Engineering](https://drive.google.com/file/d/1SNs2uUcjBxJ4jMajOuG6dxK4cSawaPba/view?usp=sharing). Tech stack does not matter, I am a problem solver who can adapt to any situation, learn any tech stack and deliver results.",
-  avatarUrl: "/ayush.webp",
+  avatarUrl: "/Ayush.webp",
   skills: [
     "React",
     "Next.js",
@@ -45,7 +45,6 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://linkedin.com/in/ayushpaul1111",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       Instagram: {
@@ -58,7 +57,6 @@ export const DATA = {
         name: "Send Email",
         url: "mailto:ayushpaul1111@gmail.com",
         icon: Icons.email,
-
         navbar: false,
       },
     },
