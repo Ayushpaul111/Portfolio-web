@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm install --legacy-peer-deps && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,6 +17,7 @@
     "@radix-ui/react-tooltip": "^1.2.3",
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
+    "cli-table3": "^0.6.5",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "glob": "^11.0.2",
