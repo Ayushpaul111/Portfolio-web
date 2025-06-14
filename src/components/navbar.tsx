@@ -1,3 +1,4 @@
+"use client";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -12,6 +13,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Navbar() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-14">
       <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
@@ -22,6 +27,7 @@ export default function Navbar() {
               <TooltipTrigger asChild>
                 <Link
                   href={item.href}
+                  onClick={scrollToTop}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12"
@@ -49,6 +55,7 @@ export default function Navbar() {
                   <Link
                     href={social.url}
                     target="_blank"
+                    onClick={scrollToTop}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12"

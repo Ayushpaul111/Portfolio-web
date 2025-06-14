@@ -223,8 +223,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "https://pouch.jumpshare.com/preview/l5z12quGzaQD5SU3PhHGWT1r1IZxFuE4yumu_2Qjs4vLAOnoAH7dAr5AmWk78tCL9mM2HyMGKR6om5tcBme45Ytg9fczCRc8oENyF8tBLOVHdDL6q2sX9FkihTZ5Uu0SMXpPCGBGwJTd3RnG5GbDfW6yjbN-I2pg_cnoHs_AmgI.mp4",
+      video: "https://r2.vidzflow.com/v/jBgbaAknSF_576p_1749926759.mp4",
     },
     {
       title: "Digital Menu",
@@ -242,8 +241,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "https://pouch.jumpshare.com/preview/KADYYsJC0WW6_Smze_0X6VXz4MHHyi9yKQ-KYcSQ8X4a8Z044HwtNkrfdL6ly8diLe0vbmel2_bsfWUoVO7tgrf6lMQ8HvuLO01GXS5TaDyuHiGcbY6dMw25EKhZvS7qMMv56rqiT3aNJDifCBJ27m6yjbN-I2pg_cnoHs_AmgI.mp4",
+      video: "https://r2.vidzflow.com/v/XvPPsj7GTX_576p_1749926764.mp4",
     },
   ],
   // hackathons: [
