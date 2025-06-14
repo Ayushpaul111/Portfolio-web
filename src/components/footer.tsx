@@ -25,15 +25,14 @@ const Footer = () => {
               Get in Touch
             </h2>
             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Want to chat? Just shoot me a dm{" "}
+              Have a idea and want to implement it? Just shoot me a dm{" "}
               <Link
                 href={DATA.contact.social.LinkedIn.url}
                 className="text-blue-500 hover:underline"
               >
-                with a direct question on twitter
+                directly on linkedin
               </Link>{" "}
-              and I&apos;ll respond whenever I can. I will ignore all
-              soliciting.
+              and I&apos;ll respond as soon as possible.
             </p>
           </div>
           <button
@@ -41,9 +40,9 @@ const Footer = () => {
             ata-cal-namespace="15min"
             data-cal-link="ayush-paul/15min"
             data-cal-config='{"layout":"month_view"}'
-            className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 dark:bg-slate-600 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 dark:border-gray-300 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+            className="flex justify-center gap-2 items-center mx-auto shadow-xl md:text-base text-sm bg-gray-50 dark:bg-slate-600 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 dark:border-gray-300 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
           >
-            Explore
+            Lets Connect
             <svg
               className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700  dark:border-gray-400 group-hover:border-none p-2 rotate-45"
               viewBox="0 0 16 19"
@@ -63,7 +62,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 mt-1 md:mt-0">
               <Link
-                href="https://instagram.com/ayushpaul1111"
+                href="https://instagram.com/_ayush_paul_"
                 className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 Instagram

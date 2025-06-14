@@ -1,7 +1,5 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, LinkIcon } from "lucide-react";
-import bonbhojan from "./product/bonbhojan.webp";
-import dsuLibrary from "./product/dsu-Library.png";
 
 export const DATA = {
   name: "Ayush Paul",
@@ -12,7 +10,7 @@ export const DATA = {
   description: "Software Engineer who love building things and helping people.",
   summary:
     "A startup geek who not only have ideas but also have the ability to execute them. I graduated from [Dayananda Sagar University, in Computer Science Engineering](https://drive.google.com/file/d/1SNs2uUcjBxJ4jMajOuG6dxK4cSawaPba/view?usp=sharing). Tech stack does not matter, I am a problem solver who can adapt to any situation, learn any tech stack and deliver results.",
-  avatarUrl: "/ayush.webp",
+  avatarUrl: "/Ayush.webp",
   skills: [
     "React",
     "Next.js",
@@ -47,12 +45,11 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://linkedin.com/in/ayushpaul1111",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       Instagram: {
         name: "Instagram",
-        url: "https://instagram.com/ayushpaul1111",
+        url: "https://instagram.com/_ayush_paul_",
         icon: Icons.instagram,
         navbar: true,
       },
@@ -60,7 +57,6 @@ export const DATA = {
         name: "Send Email",
         url: "mailto:ayushpaul1111@gmail.com",
         icon: Icons.email,
-
         navbar: false,
       },
     },
@@ -176,7 +172,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: bonbhojan,
+      image: "",
       video: "",
     },
     {
@@ -200,8 +196,13 @@ export const DATA = {
           href: "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          type: "Appreciation",
+          href: "https://drive.google.com/file/d/1NJki6o1VWT-vLohZRdaJxA2FUEGg1sTv/view?usp=sharing",
+          icon: <Icons.globe className="size-3" />,
+        },
       ],
-      image: dsuLibrary,
+      image: "",
       video: "",
     },
   ],
@@ -209,9 +210,10 @@ export const DATA = {
     {
       title: "Unicodentals",
       href: "https://unicodentals.com",
-      dates: "Jan 2024 - Feb 2024",
+      dates: "June 2024 - June 2024",
       active: true,
-      description: "Unico Dentals wanted a simple wbsite where theycan ",
+      description:
+        "Unico Dentals wanted a simple wbsite. More like a porfolio but with dynamic content.",
       technologies: ["Next.js", "Typescript", "TailwindCSS", "Framer Motion"],
       links: [
         {
@@ -225,36 +227,23 @@ export const DATA = {
         "https://pouch.jumpshare.com/preview/l5z12quGzaQD5SU3PhHGWT1r1IZxFuE4yumu_2Qjs4vLAOnoAH7dAr5AmWk78tCL9mM2HyMGKR6om5tcBme45Ytg9fczCRc8oENyF8tBLOVHdDL6q2sX9FkihTZ5Uu0SMXpPCGBGwJTd3RnG5GbDfW6yjbN-I2pg_cnoHs_AmgI.mp4",
     },
     {
-      title: "Magic UI",
-      href: "https://magicui.design",
-      dates: "June 2023 - Present",
+      title: "Digital Menu",
+      href: "https://demo.ehike.in",
+      dates: "March 2025 - April 2025",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
+        "Developed a digital menu for restaurants to manage their menu items, prices, and availability.",
+      technologies: ["Next.js", "TailwindCSS", "Google APIs", "Framer Motion"],
       links: [
         {
           type: "Website",
-          href: "https://magicui.design",
+          href: "https://demo.ehike.in",
           icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
-          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video:
+        "https://pouch.jumpshare.com/preview/KADYYsJC0WW6_Smze_0X6VXz4MHHyi9yKQ-KYcSQ8X4a8Z044HwtNkrfdL6ly8diLe0vbmel2_bsfWUoVO7tgrf6lMQ8HvuLO01GXS5TaDyuHiGcbY6dMw25EKhZvS7qMMv56rqiT3aNJDifCBJ27m6yjbN-I2pg_cnoHs_AmgI.mp4",
     },
   ],
   // hackathons: [
