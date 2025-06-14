@@ -1,7 +1,7 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, LinkIcon } from "lucide-react";
-// import bonbhojan from "/public/product/bonbhojan.webp";
-// import dsuLibrary from "/public/product/dsu-Library.jpg";
+import bonbhojan from "./product/bonbhojan.webp";
+import dsuLibrary from "./product/dsu-Library.png";
 
 export const DATA = {
   name: "Ayush Paul",
@@ -176,7 +176,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: bonbhojan,
       video: "",
     },
     {
@@ -201,7 +201,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
+      image: dsuLibrary,
       video: "",
     },
   ],
@@ -222,7 +222,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://media.canva.com/v2/files/uri:ifs%3A%2F%2FV%2F-lc7nZkE2fctLMmSFOzJniOpB0K6j1HTYldfl4uA9Ps.mp4?csig=AAAAAAAAAAAAAAAAAAAAAGSANJtnNVMB2n1NUacRdjPS9fqz8yNSkpAoWAc6RnoS&exp=1749634560&signer=video-rpc&token=AAIAAVYALy1sYzduWmtFMmZjdExNbVNGT3pKbmlPcEIwSzZqMUhUWWxkZmw0dUE5UHMubXA0AAAAAAGXXliwAArbSzgQeUN26UDe038fugz6Kk2Q4-pr_5BeZpfR2Ocp",
+        "https://pouch.jumpshare.com/preview/l5z12quGzaQD5SU3PhHGWT1r1IZxFuE4yumu_2Qjs4vLAOnoAH7dAr5AmWk78tCL9mM2HyMGKR6om5tcBme45Ytg9fczCRc8oENyF8tBLOVHdDL6q2sX9FkihTZ5Uu0SMXpPCGBGwJTd3RnG5GbDfW6yjbN-I2pg_cnoHs_AmgI.mp4",
     },
     {
       title: "Magic UI",
