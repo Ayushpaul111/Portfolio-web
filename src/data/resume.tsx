@@ -1,7 +1,5 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, LinkIcon } from "lucide-react";
-import bonbhojan from "./product/bonbhojan.webp";
-import dsuLibrary from "./product/dsu-Library.png";
 
 export const DATA = {
   name: "Ayush Paul",
@@ -52,7 +50,7 @@ export const DATA = {
       },
       Instagram: {
         name: "Instagram",
-        url: "https://instagram.com/ayushpaul1111",
+        url: "https://instagram.com/_ayush_paul_",
         icon: Icons.instagram,
         navbar: true,
       },
@@ -176,7 +174,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: bonbhojan,
+      image: "",
       video: "",
     },
     {
@@ -201,7 +199,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: dsuLibrary,
+      image: "",
       video: "",
     },
   ],

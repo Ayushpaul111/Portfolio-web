@@ -63,7 +63,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 mt-1 md:mt-0">
               <Link
-                href="https://instagram.com/ayushpaul1111"
+                href="https://instagram.com/_ayush_paul_"
                 className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 Instagram
