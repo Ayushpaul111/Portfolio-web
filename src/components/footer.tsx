@@ -28,6 +28,7 @@ const Footer = () => {
               Have a idea and want to implement it? Just shoot me a dm{" "}
               <Link
                 href={DATA.contact.social.LinkedIn.url}
+                target="_blank"
                 className="text-blue-500 hover:underline"
               >
                 directly on linkedin
@@ -63,18 +64,21 @@ const Footer = () => {
             <div className="flex gap-4 mt-1 md:mt-0">
               <Link
                 href="https://instagram.com/_ayush_paul_"
+                target="_blank"
                 className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 Instagram
               </Link>
               <Link
                 href="https://linkedin.com/in/ayushpaul1111"
+                target="_blank"
                 className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 LinkedIn
               </Link>
               <Link
                 href="https://github.com/ayushpaul111"
+                target="_blank"
                 className="text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 GitHub

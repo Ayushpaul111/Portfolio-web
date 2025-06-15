@@ -41,6 +41,7 @@ export const ResumeCard = ({
   return (
     <Link
       href={href || "#"}
+      target="_blank"
       className="block cursor-pointer"
       onClick={handleClick}
     >
@@ -75,7 +76,7 @@ export const ResumeCard = ({
                 )}
                 <ChevronRightIcon
                   className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                    "size-4 translate-x-0 transform transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100 opacity-40",
                     isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
@@ -98,7 +99,7 @@ export const ResumeCard = ({
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 text-xs sm:text-sm prose max-w-full text-pretty font-sans text-muted-foreground dark:prose-invert"
             >
               {description}
             </motion.div>
