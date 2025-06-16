@@ -39,9 +39,14 @@ export default async function BlogPage() {
               >
                 <div className="w-full flex flex-col">
                   <p className="tracking-tight">{post.metadata.title}</p>
-                  <p className="h-6 text-xs text-muted-foreground">
-                    {post.metadata.publishedAt}
-                  </p>
+                  <div className="flex justify-between">
+                    <p className="h-6 text-xs text-muted-foreground">
+                      {post.metadata.publishedAt}
+                    </p>
+                    <p className="h-6 text-xs text-muted-foreground">
+                      {post.metadata.readingTime}&nbsp;read
+                    </p>
+                  </div>
                 </div>
               </Link>
             </BlurFade>

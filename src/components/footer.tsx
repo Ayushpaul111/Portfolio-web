@@ -17,7 +17,7 @@ const Footer = () => {
     <section id="contact">
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
         <div className="grid items-center justify-center gap-4 text-center md:px-6 w-full py-6 border-t border-gray-500/50">
-          <div className="space-y-2">
+          <div className="space-y-2 font-medium ">
             <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
               Contact
             </div>
@@ -25,13 +25,21 @@ const Footer = () => {
               Get in Touch
             </h2>
             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Have a idea and want to implement it? Just shoot me a dm{" "}
+              Got an idea you want to bring to life? Just shoot me a dm directly{" "}
               <Link
                 href={DATA.contact.social.LinkedIn.url}
                 target="_blank"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline text-transparent relative bg-clip-text bg-gradient-to-r z-40 from-green-400 to-blue-400"
               >
-                directly on linkedin
+                on linkedin
+              </Link>{" "}
+              or drop me{" "}
+              <Link
+                href="mailto:ayushpaul1111@gmail.com"
+                target="_blank"
+                className="text-blue-500 hover:underline text-transparent relative bg-clip-text bg-gradient-to-r z-40 from-green-400 to-blue-400"
+              >
+                an email
               </Link>{" "}
               and I&apos;ll respond as soon as possible.
             </p>

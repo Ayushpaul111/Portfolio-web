@@ -6,7 +6,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Share2 } from "lucide-react";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -21,7 +22,6 @@ export async function generateMetadata({
   };
 }): Promise<Metadata | undefined> {
   let post = await getPost(params.slug);
-
   let {
     title,
     publishedAt: publishedTime,
@@ -29,7 +29,6 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
-
   return {
     title,
     description,
@@ -62,12 +61,10 @@ export default async function Blog({
   };
 }) {
   let post = await getPost(params.slug);
-
   if (!post) {
     notFound();
   }
   const BLUR_FADE_DELAY = 0.04;
-
   return (
     <section id="blog">
       <script
@@ -80,6 +77,7 @@ export default async function Blog({
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
+            readingTime: post.metadata.readingTime,
             description: post.metadata.summary,
             image: post.metadata.image
               ? `${DATA.url}${post.metadata.image}`
@@ -105,14 +103,35 @@ export default async function Blog({
         <h1 className="title font-bold text-3xl tracking-tighter max-w-[650px]">
           {post.metadata.title}
         </h1>
-      </BlurFade>
-      <BlurFade delay={BLUR_FADE_DELAY * 0.5}>
-        <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-          <Suspense fallback={<p className="h-5" />}>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              {formatDate(post.metadata.publishedAt)}
-            </p>
-          </Suspense>
+        {/* Author and Date Section - Styled like the screenshot with responsive design */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-x-2 mt-4 mb-8 text-sm text-neutral-600 dark:text-neutral-400">
+          <div className="flex items-center gap-x-2 flex-wrap">
+            <Image
+              src={DATA.avatarUrl}
+              className="rounded-full"
+              alt="avatar"
+              width={20}
+              height={20}
+            />
+            <span className="font-medium">{DATA.name}</span>
+            <span className="hidden xs:inline">-</span>
+            <Suspense
+              fallback={
+                <span className="h-4 w-24 bg-gray-200 rounded animate-pulse" />
+              }
+            >
+              <span className="whitespace-nowrap">
+                {formatDate(post.metadata.publishedAt)}
+              </span>
+            </Suspense>
+            <span className="flex items-center gap-1 whitespace-nowrap">
+              <span className="w-1 h-1 bg-current rounded-full"></span>
+              <span>{post.metadata.readingTime} min read</span>
+            </span>
+          </div>
+          <button className="self-start sm:self-auto">
+            <Share2 className="w-4 h-4" />
+          </button>
         </div>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 2}>

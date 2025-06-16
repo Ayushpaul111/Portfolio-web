@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ExternalLink, Loader2 } from "lucide-react";
+import { ExternalLink, Loader2, ChevronDown, ChevronUp } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import Footer from "@/components/footer";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -30,52 +31,79 @@ interface LinkCardProps {
   delay: number;
 }
 
-const LinkCard = ({ link, delay }: LinkCardProps) => (
-  <BlurFade delay={delay}>
-    <a
-      href={link.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block group"
-    >
-      <div className="relative overflow-hidden rounded-lg border bg-background p-6 transition-all hover:shadow-lg hover:shadow-primary/10">
-        <div className="flex items-start justify-between">
-          <div className="flex-1 space-y-2">
-            <h3 className="font-semibold leading-none tracking-tight group-hover:text-primary transition-colors">
-              {link.title}
-            </h3>
-            {link.description && (
-              <p className="text-sm text-muted-foreground line-clamp-2">
-                {link.description}
-              </p>
-            )}
-            {link.category && (
-              <Badge variant="secondary" className="text-xs">
-                {link.category}
-              </Badge>
-            )}
-          </div>
-          <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
-        </div>
+const LinkCard = ({ link, delay }: LinkCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-        {link.image && (
-          <div className="mt-4 aspect-video overflow-hidden rounded-md">
-            <img
-              src={link.image}
-              alt={link.title}
-              className="h-full w-full object-cover transition-transform group-hover:scale-105"
-              loading="lazy"
-            />
+  return (
+    <BlurFade delay={delay}>
+      <a
+        href={link.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group"
+      >
+        <div className="relative overflow-hidden rounded-lg border bg-background p-6 transition-all hover:shadow-lg hover:shadow-primary/10 min-h-[280px] flex flex-col">
+          <div className="flex items-start justify-between flex-grow">
+            <div className="flex-1 space-y-2 overflow-hidden">
+              <h3 className="font-semibold leading-tight tracking-tight group-hover:text-primary transition-colors">
+                {link.title}
+              </h3>
+              {link.description && (
+                <p
+                  className={`text-sm text-muted-foreground ${
+                    isExpanded ? "" : "line-clamp-3"
+                  }`}
+                >
+                  {link.description}
+                </p>
+              )}
+              {link.category && (
+                <Badge variant="secondary" className="text-xs">
+                  {link.category}
+                </Badge>
+              )}
+            </div>
+            <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
           </div>
-        )}
-      </div>
-    </a>
-  </BlurFade>
-);
+
+          {link.description && link.description.length > 100 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="mt-2 text-xs text-primary hover:bg-primary/10 w-full flex justify-center items-center gap-1 transform transition-all duration-200 ease-in-out hover:scale-105 active:scale-95"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsExpanded(!isExpanded);
+              }}
+            >
+              {isExpanded ? "Show Less" : "Read More"}
+              {isExpanded ? (
+                <ChevronUp className="h-3 w-3 transition-transform duration-200" />
+              ) : (
+                <ChevronDown className="h-3 w-3 transition-transform duration-200" />
+              )}
+            </Button>
+          )}
+
+          {link.image && (
+            <div className="mt-4 aspect-video overflow-hidden rounded-md h-[120px]">
+              <img
+                src={link.image}
+                alt={link.title}
+                className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          )}
+        </div>
+      </a>
+    </BlurFade>
+  );
+};
 
 const SkeletonCard = () => (
-  <div className="overflow-hidden rounded-lg border bg-background p-6 animate-pulse">
-    <div className="flex items-start justify-between">
+  <div className="overflow-hidden rounded-lg border bg-background p-6 animate-pulse min-h-[280px] flex flex-col">
+    <div className="flex items-start justify-between flex-grow">
       <div className="flex-1 space-y-2">
         <div className="h-5 bg-muted rounded w-3/4"></div>
         <div className="h-4 bg-muted rounded w-full"></div>
@@ -84,7 +112,8 @@ const SkeletonCard = () => (
       </div>
       <div className="h-4 w-4 bg-muted rounded ml-2"></div>
     </div>
-    <div className="mt-4 aspect-video bg-muted rounded-md"></div>
+    <div className="mt-2 h-6 bg-muted rounded w-24 mx-auto"></div>
+    <div className="mt-4 aspect-video bg-muted rounded-md h-[120px]"></div>
   </div>
 );
 
@@ -130,7 +159,7 @@ export default function LinksPage() {
   };
 
   return (
-    <main className="flex flex-col  space-y-10">
+    <main className="flex flex-col space-y-10">
       {/* Links Section */}
       <section id="links">
         <div className="space-y-12 w-full">
