@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/coochbehar",
   description: "Software Engineer who love building things and helping people.",
   summary:
-    "A startup geek who not only have ideas but also have the ability to execute them. I graduated from [Dayananda Sagar University, in Computer Science Engineering](https://drive.google.com/file/d/1SNs2uUcjBxJ4jMajOuG6dxK4cSawaPba/view?usp=sharing). Tech stack does not matter, I am a problem solver who can adapt to any situation, learn any tech stack and deliver results.",
+    "A startup geek who not only has ideas but also have the ability to execute them. I graduated from [Dayananda Sagar University, in Computer Science Engineering](https://drive.google.com/file/d/1SNs2uUcjBxJ4jMajOuG6dxK4cSawaPba/view?usp=sharing). Tech stack does not matter, I am a problem solver who can adapt to any situation, learn any tech stack and deliver results.",
   avatarUrl: "/Ayush.webp",
   skills: [
     "React",
