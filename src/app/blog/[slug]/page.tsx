@@ -8,6 +8,8 @@ import BlurFade from "@/components/magicui/blur-fade";
 import Link from "next/link";
 import { ArrowLeft, Share2 } from "lucide-react";
 import Image from "next/image";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import Footer from "@/components/footer";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -65,8 +67,16 @@ export default async function Blog({
     notFound();
   }
   const BLUR_FADE_DELAY = 0.04;
+
+  // Construct the LinkedIn share URL
+  const shareUrl = `${DATA.url}/blog/${post.slug}`;
+  const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    shareUrl
+  )}`;
+
   return (
     <section id="blog">
+      <ScrollProgress className="top-[0px]" />
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -114,7 +124,7 @@ export default async function Blog({
               height={20}
             />
             <span className="font-medium">{DATA.name}</span>
-            <span className="hidden xs:inline">-</span>
+            {/* <span className="xs:inline">-</span> */}
             <Suspense
               fallback={
                 <span className="h-4 w-24 bg-gray-200 rounded animate-pulse" />
@@ -129,9 +139,16 @@ export default async function Blog({
               <span>{post.metadata.readingTime} min read</span>
             </span>
           </div>
-          <button className="self-start sm:self-auto">
+          {/* Updated Share Button for LinkedIn */}
+          <a
+            href={linkedInShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start sm:self-auto text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400"
+            aria-label="Share on LinkedIn"
+          >
             <Share2 className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 2}>

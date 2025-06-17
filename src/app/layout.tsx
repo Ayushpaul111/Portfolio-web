@@ -64,7 +64,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             <Navbar />
-            <div className="mt-12 md:mt-6">{children}</div>
+            <div className="mt-16 md:mt-8">{children}</div>
           </TooltipProvider>
         </ThemeProvider>
       </body>
