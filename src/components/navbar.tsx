@@ -21,7 +21,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-16">
+    <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-3">
       <style jsx>{`
         @media (max-width: 387px) {
           .avatar-container {
@@ -30,7 +30,7 @@ export default function Navbar() {
         }
       `}</style>
       <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-14 max-w-2xl w-full items-center px-4 bg-white/15 dark:bg-black/15 backdrop-blur-xl border border-white/30 dark:border-white/15 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.2)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.15)] transition-all duration-300 justify-between">
+      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-14 max-w-2xl w-full items-center px-4 bg-white/15 dark:bg-black/15 backdrop-blur-2xl border border-white/30 dark:border-white/15 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.2)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.15)] transition-all duration-300 justify-between">
         <div className="avatar-container">
           <Image
             src={DATA.avatarUrl}
@@ -53,12 +53,16 @@ export default function Navbar() {
                   )}
                 >
                   <item.icon className="size-5" />
-                  {/* Underline for active page */}
-                  {(pathname === item.href ||
-                    (item.href === "/blog" &&
-                      pathname.startsWith("/blog"))) && (
-                    <span className="absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white/80 rounded-full" />
-                  )}
+                  {/* Animated underline for active page */}
+                  <span
+                    className={cn(
+                      "absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white/80 rounded-full transition-all duration-300 ease-in-out",
+                      pathname === item.href ||
+                        (item.href === "/blog" && pathname.startsWith("/blog"))
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0"
+                    )}
+                  />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -87,10 +91,15 @@ export default function Navbar() {
                     )}
                   >
                     <social.icon className="size-5" />
-                    {/* Underline for active social link (optional) */}
-                    {pathname === social.url && (
-                      <span className="absolute bottom-2 h-0.5 w-5 bg-white dark:bg-white rounded-full" />
-                    )}
+                    {/* Animated underline for active social link */}
+                    <span
+                      className={cn(
+                        "absolute bottom-2 h-0.5 w-5 bg-white dark:bg-white rounded-full transition-all duration-300 ease-in-out",
+                        pathname === social.url
+                          ? "opacity-100 scale-x-100"
+                          : "opacity-0 scale-x-0"
+                      )}
+                    />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
