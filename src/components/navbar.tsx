@@ -11,16 +11,35 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const pathname = usePathname();
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-14">
+    <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-16">
+      <style jsx>{`
+        @media (max-width: 387px) {
+          .avatar-container {
+            display: none;
+          }
+        }
+      `}</style>
       <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-white/10 dark:bg-black/10 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.1)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300">
+      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-14 max-w-2xl w-full items-center px-4 bg-white/15 dark:bg-black/15 backdrop-blur-xl border border-white/30 dark:border-white/15 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.2)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.15)] transition-all duration-300 justify-between">
+        <div className="avatar-container">
+          <Image
+            src={DATA.avatarUrl}
+            alt={DATA.name}
+            width={30}
+            height={30}
+            className="rounded-full"
+          />
+        </div>
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
             <Tooltip>
@@ -30,10 +49,16 @@ export default function Navbar() {
                   onClick={scrollToTop}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
+                    "size-12 relative flex items-center justify-center"
                   )}
                 >
-                  <item.icon className="size-4" />
+                  <item.icon className="size-5" />
+                  {/* Underline for active page */}
+                  {(pathname === item.href ||
+                    (item.href === "/blog" &&
+                      pathname.startsWith("/blog"))) && (
+                    <span className="absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white/80 rounded-full" />
+                  )}
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -44,7 +69,7 @@ export default function Navbar() {
         ))}
         <Separator
           orientation="vertical"
-          className="h-full bg-gray-400/30 dark:bg-white/20"
+          className="h-8 bg-gray-400/40 dark:bg-white/25"
         />
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)
@@ -58,10 +83,14 @@ export default function Navbar() {
                     onClick={scrollToTop}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12"
+                      "size-12 relative flex items-center justify-center"
                     )}
                   >
-                    <social.icon className="size-4" />
+                    <social.icon className="size-5" />
+                    {/* Underline for active social link (optional) */}
+                    {pathname === social.url && (
+                      <span className="absolute bottom-2 h-0.5 w-5 bg-white dark:bg-white rounded-full" />
+                    )}
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -72,7 +101,7 @@ export default function Navbar() {
           ))}
         <Separator
           orientation="vertical"
-          className="h-full bg-gray-400/30 dark:bg-white/20"
+          className="h-8 bg-gray-400/40 dark:bg-white/25"
         />
         <DockIcon>
           <Tooltip>
