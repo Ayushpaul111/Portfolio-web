@@ -57,7 +57,7 @@ export default function Navbar() {
                   {(pathname === item.href ||
                     (item.href === "/blog" &&
                       pathname.startsWith("/blog"))) && (
-                    <span className="absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white rounded-full" />
+                    <span className="absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white/80 rounded-full" />
                   )}
                 </Link>
               </TooltipTrigger>
