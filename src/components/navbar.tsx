@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const scrollToTop = () => {
@@ -28,7 +29,17 @@ export default function Navbar() {
   const distance = isMdScreen ? 140 : 0;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-3 px-2">
+    <motion.div
+      className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-3 px-2"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        duration: 0.6,
+      }}
+    >
       <style jsx>{`
         @media (max-width: 420px) {
           .avatar-container {
@@ -36,7 +47,7 @@ export default function Navbar() {
           }
         }
       `}</style>
-      <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
+      <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-3xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
       <Dock
         className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-14 max-w-2xl w-full items-center px-4 bg-white/15 dark:bg-black/15 backdrop-blur-2xl border border-white/30 dark:border-white/15 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.2)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300 justify-between"
         distance={distance} // Pass dynamic distance
@@ -131,6 +142,6 @@ export default function Navbar() {
           </Tooltip>
         </DockIcon>
       </Dock>
-    </div>
+    </motion.div>
   );
 }
