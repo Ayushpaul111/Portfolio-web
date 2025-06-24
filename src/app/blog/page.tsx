@@ -39,17 +39,18 @@ export default async function BlogPage() {
                   <p className="tracking-tight font-medium">
                     {post.metadata.title}
                   </p>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mt-1">
-                    <p className="text-xs text-muted-foreground break-words">
+                  <div className="flex flex-col gap-2 mt-1">
+                    <p className="text-xs sm:items-start text-muted-foreground break-words">
                       {post.metadata.summary}
                     </p>
-                    <div className="flex flex-row sm:flex-col md:gap-2 gap-4">
-                      <p className="text-xs text-muted-foreground">
+                    <div className="flex flex-row justify-between items-center border-t border-gray-300 pt-2 dark:border-gray-700/50">
+                      <p className="text-xs text-muted-foreground flex-shrink-0">
                         {post.metadata.publishedAt}
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      {/* Reading time badge */}
+                      <div className="text-xs text-muted-foreground flex-shrink-0">
                         {post.metadata.readingTime} min read
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
