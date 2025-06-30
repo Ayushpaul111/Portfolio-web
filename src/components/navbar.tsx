@@ -47,11 +47,19 @@ export default function Navbar() {
           }
         }
       `}</style>
+
       <div className="fixed top-0 inset-x-0 h-16 w-full bg-transparent to-transparent backdrop-blur-3xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
       <Dock
         className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-14 max-w-2xl w-full items-center px-4 bg-white/15 dark:bg-black/15 backdrop-blur-2xl border border-white/30 dark:border-white/15 rounded-full [box-shadow:0_4px_30px_rgba(0,0,0,0.2)] dark:[box-shadow:0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300 justify-between"
         distance={distance} // Pass dynamic distance
       >
+        <div className="fixed top-10 right-0 md:w-16 md:h-16 w-10 h-10 -z-10 opacity-100 pointer-events-none">
+          <img
+            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDllZnNiNDd4ZzVlN3EwbXJyYnQzY2xpcGV0Z3dlcWR0NjBvMXVneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JhfsxuCI5KxYfbyuui/giphy.gif"
+            alt=""
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
         <div className="avatar-container">
           <Image
             src={DATA.avatarUrl}
