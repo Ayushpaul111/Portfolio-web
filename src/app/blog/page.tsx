@@ -17,7 +17,10 @@ export default async function BlogPage() {
     <section>
       <div className="min-h-[50vh]">
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <h1 className="text-2xl mb-8 tracking-tighter font-semibold">Blog</h1>
+          <h1 className="text-2xl tracking-tighter font-semibold">Blog</h1>
+          <p className="text-base mb-8  text-muted-foreground">
+            My thoughts on software development, life, and more.
+          </p>
         </BlurFade>
         {posts
           .sort((a, b) => {
@@ -32,9 +35,17 @@ export default async function BlogPage() {
           .map((post, id) => (
             <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
               <Link
-                className="flex flex-col space-y-1 mb-4 border border-gray-300 rounded-xl p-4 transition-all hover:shadow-lg hover:shadow-primary/10 dark:border-gray-700/50"
+                className="relativ flex flex-col space-y-1 mb-4 border border-gray-300 rounded-xl p-4 transition-all hover:shadow-lg hover:shadow-primary/10 dark:border-gray-700/50"
                 href={`/blog/${post.slug}`}
               >
+                {/* Show pin only for the first (most recent) post */}
+                {id === 0 && (
+                  <img
+                    className="absolute w-8 h-8 -top-3 -right-3"
+                    src="./pin.svg"
+                    alt="Pinned post"
+                  />
+                )}
                 <div className="w-full flex flex-col">
                   <p className="tracking-tight font-medium">
                     {post.metadata.title}
