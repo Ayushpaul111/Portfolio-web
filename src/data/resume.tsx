@@ -167,8 +167,13 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Preview",
+          type: "Menu",
           href: "https://demo.ehike.in",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Admin",
+          href: "https://ehike-menu-admin.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
       ],

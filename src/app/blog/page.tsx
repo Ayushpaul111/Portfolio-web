@@ -40,11 +40,18 @@ export default async function BlogPage() {
               >
                 {/* Show pin only for the first (most recent) post */}
                 {id === 0 && (
-                  <img
-                    className="absolute w-8 h-8 -top-3 -right-3"
-                    src="./pin.svg"
-                    alt="Pinned post"
-                  />
+                  <>
+                    <img
+                      className="absolute w-8 h-8 -top-3 -right-3 dark:hidden block"
+                      src="./pin.svg"
+                      alt="Pinned post"
+                    />
+                    <img
+                      className="absolute w-8 h-8 -top-3 -right-3 dark:block hidden"
+                      src="./pin-white.svg"
+                      alt="Pinned post"
+                    />
+                  </>
                 )}
                 <div className="w-full flex flex-col">
                   <p className="tracking-tight font-medium">
