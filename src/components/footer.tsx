@@ -41,7 +41,7 @@ const Footer = () => {
               >
                 an email
               </Link>{" "}
-              and I&apos;ll respond as soon as possible.
+              and I&apos;ll respond as soon as possible
             </p>
           </div>
           <button
