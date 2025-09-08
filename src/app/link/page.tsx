@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ExternalLink, Loader2, ChevronDown, ChevronUp } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/footer";
+import { useLinks } from "@/app/context/LinksContext";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -16,13 +17,6 @@ interface Link {
   description?: string;
   category?: string;
   image?: string;
-}
-
-// Define the API response type
-interface ApiResponse {
-  success: boolean;
-  data?: Link[];
-  error?: string;
 }
 
 // Define props for LinkCard component
@@ -118,45 +112,8 @@ const SkeletonCard = () => (
 );
 
 export default function LinksPage() {
-  const [linksData, setLinksData] = useState<Link[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const API_URL = process.env.NEXT_PUBLIC_SHEET_URLS;
-
-  useEffect(() => {
-    fetchLinks();
-  }, []);
-
-  const fetchLinks = async () => {
-    try {
-      // Check if API_URL is defined
-      if (!API_URL) {
-        throw new Error("API URL is not configured");
-      }
-
-      const response = await fetch(API_URL);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: ApiResponse = await response.json();
-
-      if (data.success && Array.isArray(data.data)) {
-        setLinksData(data.data);
-      } else {
-        setError(data.error || "Invalid data format received");
-      }
-    } catch (err) {
-      console.error("Failed to fetch links:", err);
-      const errorMessage =
-        err instanceof Error ? err.message : "Unknown error occurred";
-      setError(`Failed to load links: ${errorMessage}`);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Use the context instead of local state
+  const { linksData, loading, error, refetchLinks } = useLinks();
 
   return (
     <main className="flex flex-col space-y-10">
@@ -196,6 +153,13 @@ export default function LinksPage() {
                       <Loader2 className="h-4 w-4" />
                       <span>{error}</span>
                     </div>
+                    <Button
+                      onClick={refetchLinks}
+                      variant="outline"
+                      className="mt-4"
+                    >
+                      Try Again
+                    </Button>
                   </div>
                 </BlurFade>
               )}
