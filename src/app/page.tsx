@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import GalleryGrid from "@/components/GalleryGrid";
-import { HackathonCard } from "@/components/hackathon-card";
+// import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -20,18 +20,18 @@ export default function Page() {
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5 ">
               <BlurFadeText
-                delay={BLUR_FADE_DELAY}
+                delay={BLUR_FADE_DELAY * 2}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
                 text={`Hy, I'm ${DATA.name.split(" ")[0]} 👋`}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
+                delay={BLUR_FADE_DELAY * 2}
                 text={DATA.description}
               />
             </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
+            <BlurFade delay={BLUR_FADE_DELAY * 2}>
               <Avatar className="size-28 border">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
@@ -52,7 +52,10 @@ export default function Page() {
       </section>
       <section id="gallery">
         <div className="w-full">
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
+            <h2 className="text-xl font-bold mb-4">Gallery</h2>
+          </BlurFade> */}
+          <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
             <GalleryGrid />
           </BlurFade>
         </div>
@@ -161,7 +164,7 @@ export default function Page() {
       </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -182,7 +185,7 @@ export default function Page() {
             {DATA.projects.map((project, id) => (
               <BlurFade
                 key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 14 + id * 0.05}
               >
                 <ProjectCard
                   href={project.href}
