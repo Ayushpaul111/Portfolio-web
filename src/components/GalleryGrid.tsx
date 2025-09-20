@@ -95,8 +95,8 @@ const GalleryGrid = () => {
         return (
           <motion.div
             key={index}
-            className={`${item.className}`}
-            variants={itemVariants}
+            className={`${item.className}${itemVariants}`}
+            // variants={itemVariants}
             initial="initial"
             animate="animate"
             whileHover="hover"
@@ -115,8 +115,8 @@ const GalleryGrid = () => {
         return (
           <motion.div
             key={index}
-            className={item.className}
-            variants={itemVariants}
+            className={item.className + itemVariants}
+            // variants={itemVariants}
             initial="initial"
             animate="animate"
             whileHover="hover"
@@ -136,8 +136,8 @@ const GalleryGrid = () => {
         return (
           <motion.div
             key={index}
-            className={item.className + " relative"}
-            variants={itemVariants}
+            className={item.className + " relative" + itemVariants}
+            // variants={itemVariants}
             initial="initial"
             animate="animate"
             whileHover="hover"
