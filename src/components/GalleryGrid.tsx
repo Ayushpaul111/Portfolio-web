@@ -150,7 +150,7 @@ const GalleryGrid = () => {
                     layout
                     transition={{ type: "spring", damping: 30, stiffness: 400 }}
                   >
-                    I'm&nbsp;{" "}
+                    I&apos;m&nbsp;{" "}
                   </motion.span>
                   <TextRotate
                     texts={["a dev ✦", "fast", "creative", "flexible"]}
