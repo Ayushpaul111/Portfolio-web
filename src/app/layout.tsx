@@ -1,7 +1,9 @@
 import Navbar from "@/components/navbar";
+import StructuredData from "@/components/StructuredData";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
+import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -14,41 +16,39 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
+export const metadata: Metadata = generateSEOMetadata({
+  title: `${DATA.name} - Full Stack Developer`,
   description: DATA.description,
-  openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  verification: {
-    google: "cKdhBphu0GLeOH0kpFGSU0ZSj7xgiN_H6xspXKcQmL0",
-    yandex: "",
-  },
-};
+  keywords: [
+    'Ayush Paul',
+    'Full Stack Developer',
+    'React Developer',
+    'Next.js Developer',
+    'TypeScript Developer',
+    'Web Developer',
+    'Portfolio',
+    'JavaScript',
+    'TailwindCSS',
+    'Framer Motion',
+    'Node.js',
+    'MongoDB',
+    'Software Engineer',
+    'Frontend Developer',
+    'Backend Developer',
+    'UI/UX Designer',
+    'Freelancer',
+    'West Bengal',
+    'India'
+  ],
+  type: 'profile',
+  url: DATA.url,
+  image: `${DATA.url}${DATA.avatarUrl}`,
+});
+
+// Add Google Search Console verification
+if (metadata.verification) {
+  metadata.verification.google = "cKdhBphu0GLeOH0kpFGSU0ZSj7xgiN_H6xspXKcQmL0";
+}
 
 export default function RootLayout({
   children,
@@ -58,6 +58,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/Ayush.webp" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <StructuredData data={{
+          type: 'profile',
+          title: `${DATA.name} - Full Stack Developer`,
+          description: DATA.description,
+          url: DATA.url,
+          image: `${DATA.url}${DATA.avatarUrl}`,
+        }} />
+        
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8RWB3X1665"
           strategy="afterInteractive"

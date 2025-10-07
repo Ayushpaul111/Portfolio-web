@@ -1,0 +1,14 @@
+# Robots.txt for ayushpaul.dev Portfolio
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ayushpaul.dev/sitemap.xml
+
+# Optional: Block access to admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
