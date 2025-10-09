@@ -29,8 +29,8 @@ export function generateBlogMetadata(
       ...(frontmatter.tags || [])
     ],
     type: 'article',
-    url: `https://ayushpaul.dev/blog/${slug}`,
-    image: frontmatter.image || 'https://ayushpaul.dev/Ayush.webp',
+    url: `https://www.ayushpaul.dev/blog/${slug}`,
+    image: frontmatter.image || 'https://www.ayushpaul.dev/Ayush.webp',
     publishedTime: frontmatter.date,
     modifiedTime: frontmatter.date,
     author: frontmatter.author || 'Ayush Paul',

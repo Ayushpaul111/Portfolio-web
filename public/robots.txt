@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ayushpaul.dev/sitemap.xml
+Sitemap: https://www.ayushpaul.dev/sitemap.xml
 
 # Optional: Block access to admin or private areas (if any)
 # Disallow: /admin/

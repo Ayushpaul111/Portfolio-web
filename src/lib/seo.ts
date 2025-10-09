@@ -32,8 +32,8 @@ const defaultSEO: Required<
     "TailwindCSS",
     "Framer Motion",
   ],
-  image: "https://ayushpaul.dev/Ayush.webp",
-  url: "https://ayushpaul.dev",
+  image: "https://www.ayushpaul.dev/Ayush.webp",
+  url: "https://www.ayushpaul.dev",
   type: "website",
   author: "Ayush Paul",
 };
@@ -69,7 +69,7 @@ export function generateMetadata(seo: SEOData = {}): Metadata {
       address: false,
       telephone: false,
     },
-    metadataBase: new URL("https://ayushpaul.dev"),
+    metadataBase: new URL("https://www.ayushpaul.dev"),
     alternates: {
       canonical: url,
     },

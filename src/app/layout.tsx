@@ -1,3 +1,4 @@
+import AdditionalSEO from "@/components/AdditionalSEO";
 import Navbar from "@/components/navbar";
 import StructuredData from "@/components/StructuredData";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -20,27 +21,28 @@ export const metadata: Metadata = generateSEOMetadata({
   title: `${DATA.name} - Full Stack Developer`,
   description: DATA.description,
   keywords: [
-    'Ayush Paul',
-    'Full Stack Developer',
-    'React Developer',
-    'Next.js Developer',
-    'TypeScript Developer',
-    'Web Developer',
-    'Portfolio',
-    'JavaScript',
-    'TailwindCSS',
-    'Framer Motion',
-    'Node.js',
-    'MongoDB',
-    'Software Engineer',
-    'Frontend Developer',
-    'Backend Developer',
-    'UI/UX Designer',
-    'Freelancer',
-    'West Bengal',
-    'India'
+    "Ayush Paul",
+    "Ayush developer",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "Web Developer",
+    "Portfolio",
+    "JavaScript",
+    "TailwindCSS",
+    "Framer Motion",
+    "Node.js",
+    "MongoDB",
+    "Software Engineer",
+    "Frontend Developer",
+    "Backend Developer",
+    "UI/UX Designer",
+    "Freelancer",
+    "West Bengal",
+    "India",
   ],
-  type: 'profile',
+  type: "profile",
   url: DATA.url,
   image: `${DATA.url}${DATA.avatarUrl}`,
 });
@@ -64,15 +66,19 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <StructuredData data={{
-          type: 'profile',
-          title: `${DATA.name} - Full Stack Developer`,
-          description: DATA.description,
-          url: DATA.url,
-          image: `${DATA.url}${DATA.avatarUrl}`,
-        }} />
-        
+
+        <AdditionalSEO />
+
+        <StructuredData
+          data={{
+            type: "profile",
+            title: `${DATA.name} - Full Stack Developer`,
+            description: DATA.description,
+            url: DATA.url,
+            image: `${DATA.url}${DATA.avatarUrl}`,
+          }}
+        />
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8RWB3X1665"
           strategy="afterInteractive"
