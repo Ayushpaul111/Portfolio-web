@@ -8,7 +8,7 @@ const GalleryGrid = () => {
   const galleryItems = [
     {
       type: "image",
-      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1757316288/chilapata_qnzr1u.jpg",
+      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1761158591/chilapata_qnzr1u_e4pc6a.webp",
       alt: "Chilapata forest",
       className: "",
     },
@@ -35,7 +35,7 @@ const GalleryGrid = () => {
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1757268160/graduatedMe_1_uxv5np.jpg",
+      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1761158636/graduatedMe_1_uxv5np_h5sjes.webp",
       alt: "Me in my graduation day outfit",
       className: "",
     },
@@ -46,19 +46,19 @@ const GalleryGrid = () => {
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1757317301/dogo2_bpm7bu.jpg",
+      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1761158369/dogo2_bpm7bu_v2ldft.webp",
       alt: "Portrait photo",
       className: "block md:hidden",
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dips3yafu/image/upload/c_crop,ar_9:16/v1757316289/dogo2_i59ytz.jpg",
+      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1761158516/dogo2_i59ytz_ewkdx0.webp",
       alt: "Scene photo",
       className: "hidden md:block",
     },
     {
       type: "image",
-      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1757316808/zed2_ejllfl.jpg",
+      src: "https://res.cloudinary.com/dips3yafu/image/upload/v1761158452/zed2_ejllfl_cl73qk.webp",
       className: "h-full w-full object-cover",
     },
   ];
@@ -153,7 +153,7 @@ const GalleryGrid = () => {
                     I&apos;m&nbsp;{" "}
                   </motion.span>
                   <TextRotate
-                    texts={["a dev ✦", "fast", "creative", "flexible"]}
+                    texts={["a dev", "fast", "creative", "flexible"]}
                     mainClassName="text-white px-2 sm:px-2 md:px-3 bg-green-700 overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
                     staggerFrom={"last"}
                     initial={{ y: "100%" }}

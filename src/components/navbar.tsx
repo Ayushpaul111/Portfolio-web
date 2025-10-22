@@ -86,7 +86,10 @@ export default function Navbar() {
                     className={cn(
                       "absolute bottom-2 h-0.5 w-5 bg-gray-700/80 dark:bg-white/80 rounded-full transition-all duration-300 ease-in-out",
                       pathname === item.href ||
-                        (item.href === "/blog" && pathname.startsWith("/blog"))
+                        (item.href === "/blog" &&
+                          pathname.startsWith("/blog")) ||
+                        (item.href === "/portfolio" &&
+                          pathname.startsWith("/portfolio"))
                         ? "opacity-100 scale-x-100"
                         : "opacity-0 scale-x-0"
                     )}

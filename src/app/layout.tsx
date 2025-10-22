@@ -10,7 +10,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { LinksProvider } from "./context/LinksContext";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -101,9 +100,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             <Navbar />
-            <LinksProvider>
-              <main className="mt-16 md:mt-8">{children}</main>
-            </LinksProvider>
+            <main className="mt-16 md:mt-8">{children}</main>
           </TooltipProvider>
         </ThemeProvider>
       </body>
