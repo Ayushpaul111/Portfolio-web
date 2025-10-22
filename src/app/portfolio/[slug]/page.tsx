@@ -189,7 +189,7 @@ export default function PortfolioSlugPage({
                   <Quote className="h-8 w-8 text-primary/40 flex-shrink-0 mt-1" />
                   <div className="space-y-6 flex-1">
                     <blockquote className="text-base text-foreground/90 leading-relaxed">
-                      "{work.testimonial.text}"
+                      &quot;{work.testimonial.text}&quot;
                     </blockquote>
 
                     <div className="flex items-center gap-4 pt-2">
