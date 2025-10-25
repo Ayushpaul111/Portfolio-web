@@ -142,30 +142,30 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
-/* WebKit-based browsers (Chrome, Safari, Edge) */
+
+/* Notion-style smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
-    width: 5px; /* Width of the vertical scrollbar */
-    height: 5px; /* Height of the horizontal scrollbar */
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a1a; /* Darker track background for dark mode */
-    border-radius: 10px; /* Rounded corners for the track */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4a4a4a; /* Lighter thumb color for contrast in dark mode */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 1px solid #2a2a2a; /* Slightly darker border for the thumb */
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
 }
 
-/* Firefox */
-* {
-    scrollbar-width: thin; /* Makes the scrollbar thinner */
-    scrollbar-color: #4a4a4a #1a1a1a; /* Thumb color and track color for dark mode */
-}
-
-/* Optional: Smooth scrolling behavior */
-html {
-    scroll-behavior: smooth;
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ArrowLeft, Share2 } from "lucide-react";
 import Image from "next/image";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import BlogSidebar from "@/components/ui/BlogSidebar";
 import Footer from "@/components/footer";
 
 export async function generateStaticParams() {
@@ -77,6 +78,7 @@ export default async function Blog({
   return (
     <section id="blog">
       <ScrollProgress className="top-[0px]" />
+      <BlogSidebar />
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -151,12 +153,13 @@ export default async function Blog({
           </a>
         </div>
       </BlurFade>
-      <BlurFade delay={BLUR_FADE_DELAY * 2}>
+      <BlurFade delay={BLUR_FADE_DELAY * 2} className="mb-12">
         <article
           className="prose dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: post.source }}
         ></article>
       </BlurFade>
+      <Footer />
     </section>
   );
 }

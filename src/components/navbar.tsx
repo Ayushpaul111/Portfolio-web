@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed inset-x-0 top-5 z-30 mx-auto mb-4 flex origin-top h-full max-h-3 px-2"
+      className="pointer-events-none fixed inset-x-0 top-5 z-50 mx-auto mb-4 flex origin-top h-full max-h-3 px-2"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{

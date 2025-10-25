@@ -11,6 +11,8 @@ import {
   generatePortfolioStructuredData,
 } from "@/lib/portfolio-seo";
 import { Metadata } from "next";
+import PortfolioSidebar from "@/components/ui/PortfolioSidebar";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -61,27 +63,33 @@ export default function PortfolioSlugPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <main className="flex flex-col space-y-12 sm:space-y-16 pb-12 sm:pb-16">
+      <main className="flex flex-col space-y-12 sm:space-y-2 pb-12 sm:pb-16">
+        {/* Sidebar */}
+        <PortfolioSidebar
+          hasMetrics={work.metrics && work.metrics.length > 0}
+        />
+        <ScrollProgress className="-top-2" />
+
         <section className="w-full">
           <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto px-4 sm:px-6">
             {/* Navigation */}
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Link href="/portfolio">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="gap-2 -ml-2 text-muted-foreground hover:text-foreground"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Portfolio
-                </Button>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Portfolio
               </Link>
             </BlurFade>
 
             {/* Hero Image */}
             {work.image && (
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="aspect-video overflow-hidden rounded-lg sm:rounded-xl shadow-sm border">
+                <div
+                  id="overview"
+                  className="aspect-video overflow-hidden rounded-lg sm:rounded-xl shadow-sm border scroll-mt-24"
+                >
                   <img
                     src={work.image}
                     alt={`${work.title} - ${work.client} project showcase`}
@@ -116,24 +124,27 @@ export default function PortfolioSlugPage({
                 </div>
 
                 {/* {work.link && (
-                  <div>
-                    <a
-                      href={work.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
-                    >
-                      Visit Live Project <ExternalLink className="h-4 w-4" />
-                    </a>
-                  </div>
-                )} */}
+                    <div>
+                      <a
+                        href={work.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
+                      >
+                        Visit Live Project <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  )} */}
               </div>
             </BlurFade>
 
             {/* Project Metrics */}
             {work.metrics && work.metrics.length > 0 && (
               <BlurFade delay={BLUR_FADE_DELAY * 4}>
-                <div className="flex flex-col justify-center items-center sm:grid sm:grid-cols-3 gap-4 p-6 sm:p-8 bg-muted/30 rounded-lg sm:rounded-xl border">
+                <div
+                  id="metrics"
+                  className="flex flex-col justify-center items-center sm:grid sm:grid-cols-3 gap-4 p-6 sm:p-8 bg-muted/30 rounded-lg sm:rounded-xl border scroll-mt-24"
+                >
                   {work.metrics.map((metric) => (
                     <div
                       key={metric.label}
@@ -156,7 +167,10 @@ export default function PortfolioSlugPage({
 
             {/* Project Description */}
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
-              <div className="space-y-3 sm:space-y-4">
+              <div
+                id="description"
+                className="space-y-3 sm:space-y-4 scroll-mt-24"
+              >
                 <h2 className="text-xl sm:text-2xl font-bold">
                   This is how I helped them:
                 </h2>
@@ -169,7 +183,10 @@ export default function PortfolioSlugPage({
             {/* Technologies Used */}
             {work.tags.length > 0 && (
               <BlurFade delay={BLUR_FADE_DELAY * 6}>
-                <div className="space-y-3 sm:space-y-4">
+                <div
+                  id="technologies"
+                  className="space-y-3 sm:space-y-4 scroll-mt-24"
+                >
                   <h2 className="text-xl sm:text-2xl font-bold">
                     Technologies Used
                   </h2>
@@ -193,7 +210,10 @@ export default function PortfolioSlugPage({
 
             {/* Testimonial Section */}
             <BlurFade delay={BLUR_FADE_DELAY * 7}>
-              <div className="bg-muted/30 rounded-lg sm:rounded-xl p-4 sm:p-8 border space-y-4 sm:space-y-6">
+              <div
+                id="testimonial"
+                className="bg-muted/30 rounded-lg sm:rounded-xl p-4 sm:p-8 border space-y-4 sm:space-y-6 scroll-mt-24"
+              >
                 <h2 className="text-xl sm:text-2xl font-bold">
                   Client Testimonial
                 </h2>
@@ -240,8 +260,8 @@ export default function PortfolioSlugPage({
             </BlurFade>
           </div>
         </section>
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }
