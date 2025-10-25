@@ -142,7 +142,7 @@ const GalleryGrid = () => {
             animate="animate"
             whileHover="hover"
           >
-            <div className="w-full h-full text-2xl sm:text-3xl md:text-4xl flex flex-row items-center justify-center font-overusedGrotesk dark:text-muted text-foreground font-light overflow-hidden p-12 sm:p-20 md:p-24">
+            <div className="w-full h-full text-2xl sm:text-3xl md:text-4xl flex flex-row items-center justify-center font-overusedGrotesk text-foreground font-light overflow-hidden p-12 sm:p-20 md:p-24">
               <LayoutGroup>
                 <motion.p className="absolute flex" layout>
                   <motion.span
