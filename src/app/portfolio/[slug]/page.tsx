@@ -63,12 +63,12 @@ export default function PortfolioSlugPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <main className="flex flex-col space-y-12 sm:space-y-2 pb-12 sm:pb-16">
+      <main className="flex flex-col space-y-2 sm:space-y-2 pb-12 sm:pb-16">
         {/* Sidebar */}
+        <ScrollProgress className="top-[0px]" />
         <PortfolioSidebar
           hasMetrics={work.metrics && work.metrics.length > 0}
         />
-        <ScrollProgress className="-top-2" />
 
         <section className="w-full">
           <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto px-4 sm:px-6">
