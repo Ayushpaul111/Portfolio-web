@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, List } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Heading {
   id: string;
@@ -99,10 +100,12 @@ export default function BlogSidebar() {
       </button>
 
       {/* Sidebar */}
-      <aside
+      <motion.aside
+        initial={{ x: -256 }}
+        animate={{ x: isOpen ? 0 : -256 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className={cn(
-          "hidden lg:block fixed left-0 -top-2 h-screen bg-background/80 backdrop-blur-md border-r border-border/50 transition-all duration-300 ease-in-out z-40 shadow-sm",
-          isOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
+          "hidden lg:block fixed left-0 -top-2 h-screen bg-background/80 backdrop-blur-md border-r border-border/50 z-40 shadow-sm w-64"
         )}
       >
         <div className="h-full overflow-y-auto overflow-x-hidden px-4 pt-24 pb-6 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
@@ -179,7 +182,7 @@ export default function BlogSidebar() {
             </div>
           </div>
         </div>
-      </aside>
+      </motion.aside>
     </>
   );
 }
