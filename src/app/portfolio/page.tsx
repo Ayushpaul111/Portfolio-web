@@ -45,7 +45,7 @@ const PortfolioCard = ({ work, delay }: PortfolioCardProps) => {
     <BlurFade delay={delay}>
       <Link
         href={`/portfolio/${work.id}`}
-        className="cursor-pointer block h-full"
+        className="group cursor-pointer block h-full"
       >
         <div className="rounded-2xl bg-transparent shadow-md p-3 border border-gray-200 dark:border-gray-700 h-full flex flex-col">
           {/* Title */}
@@ -64,8 +64,8 @@ const PortfolioCard = ({ work, delay }: PortfolioCardProps) => {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <button className="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-50">
-              <ArrowUpRight className="w-5 h-5 text-gray-800" />
+            <button className="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center rounded-full shadow-md border border-gray-200 group-hover:bg-gray-50 bg-slate-700/50 backdrop-blur-md transition">
+              <ArrowUpRight className="w-5 h-5 text-gray-200 transition group-hover:text-gray-700 group-hover:rotate-45 duration-300 ease-in-out" />
             </button>
           </div>
         </div>
