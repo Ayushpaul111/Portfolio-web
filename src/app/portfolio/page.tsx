@@ -88,9 +88,9 @@ export default function PortfolioPage() {
 
       <main className="flex flex-col space-y-10">
         <section id="portfolio">
-          <div className="space-y-12 w-full">
+          <div className="space-y-6 w-full">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              {/* <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                     Portfolio
@@ -103,7 +103,16 @@ export default function PortfolioPage() {
                     my clients, and the impact my work had on their businesses.
                   </p>
                 </div>
-              </div>
+              </div> */}
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <h1 className="text-2xl tracking-tighter font-semibold">
+                  Portfolio - Development, Automation & More
+                </h1>
+                <p className="text-base mb-8 text-muted-foreground">
+                  Just solving my clients&apos; problems even before they
+                  realize they can be solved technically.
+                </p>
+              </BlurFade>
             </BlurFade>
 
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
