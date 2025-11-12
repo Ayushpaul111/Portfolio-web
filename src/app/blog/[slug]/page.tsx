@@ -67,6 +67,9 @@ export default async function Blog({
   if (!post) {
     notFound();
   }
+
+  const posts = await getBlogPosts();
+
   const BLUR_FADE_DELAY = 0.04;
 
   // Construct the LinkedIn share URL
@@ -158,6 +161,40 @@ export default async function Blog({
           className="prose dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: post.source }}
         ></article>
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 3}>
+        <div className="mt-12 mb-12 border-t pt-8">
+          <h2 className="text-2xl font-bold mb-6">Continue Reading</h2>
+
+          <div className="grid gap-4">
+            {posts
+              .filter((p) => p.slug !== params.slug)
+              .slice(0, 5)
+              .map((relatedPost) => (
+                <Link
+                  key={relatedPost.slug}
+                  href={`/blog/${relatedPost.slug}`}
+                  className="group p-4 border border-gray-300 dark:border-gray-700/50 rounded-lg hover:shadow-md transition-all"
+                >
+                  <h3 className="font-semibold mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {relatedPost.metadata.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {relatedPost.metadata.summary}
+                  </p>
+                </Link>
+              ))}
+          </div>
+
+          <div className="mt-6 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              View All Posts →
+            </Link>
+          </div>
+        </div>
       </BlurFade>
       <Footer />
     </section>

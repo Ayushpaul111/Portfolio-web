@@ -37,13 +37,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const blogPosts = fs
         .readdirSync(contentDir)
         .filter((file) => file.endsWith(".mdx"))
-        .map((file) => file.replace(".mdx", ""));
+        .map((file) => {
+          const slug = file.replace(".mdx", "");
+          const filePath = path.join(contentDir, file);
+          const stats = fs.statSync(filePath);
 
-      blogRoutes = blogPosts.map((slug) => ({
-        url: `${baseUrl}/blog/${slug}`,
-        lastModified: new Date(),
+          return {
+            slug,
+            lastModified: stats.mtime,
+          };
+        })
+        .sort((a, b) => b.lastModified.getTime() - a.lastModified.getTime());
+
+      blogRoutes = blogPosts.map((post, index) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: post.lastModified,
         changeFrequency: "monthly" as const,
-        priority: 0.7,
+        priority: index < 3 ? 0.8 : index < 6 ? 0.75 : 0.7,
       }));
     }
   } catch (error) {
