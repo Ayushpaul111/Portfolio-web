@@ -231,22 +231,30 @@ export const DATA = {
       video: "https://r2.vidzflow.com/v/jBgbaAknSF_576p_1749926759.mp4",
     },
     {
-      title: "Digital Menu",
-      href: "https://demo.ehike.in",
-      dates: "March 2025 - April 2025",
+      title: "AI Consulting Automation System",
+      href: "https://drive.google.com/file/d/1aCV8bZUD8UfpNdCZJQsTXXepxtJIlnFe/view?usp=sharing",
+      dates: "November 2025",
       active: true,
       description:
-        "Developed a digital menu for restaurants to manage their menu items, prices, and availability.",
-      technologies: ["Next.js", "TailwindCSS", "Google APIs", "Framer Motion"],
+        "Built an end-to-end AI automation system that generates custom consulting reports from user submissions. Features dual-AI processing (Google Gemini for analysis, Claude Sonnet for HTML generation), duplicate prevention via Google Sheets, and automated email delivery with branded HTML reports.",
+      technologies: [
+        "n8n",
+        "Google Gemini 2.5 Flash",
+        "Claude Sonnet 4",
+        "Google Sheets API",
+        "Gmail API",
+        "Webhook Integration",
+        "AI Agents",
+      ],
       links: [
         {
-          type: "Website",
-          href: "https://demo.ehike.in",
+          type: "Download",
+          href: "https://drive.google.com/file/d/1aCV8bZUD8UfpNdCZJQsTXXepxtJIlnFe/view?usp=sharing",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
-      video: "https://r2.vidzflow.com/v/XvPPsj7GTX_576p_1749926764.mp4",
+      video: "",
     },
   ],
   // hackathons: [
