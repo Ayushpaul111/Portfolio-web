@@ -134,8 +134,8 @@ export default function Page() {
                   I love providing solutions
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  The features and ideas I brought to life truly connected with
-                  users and they&apos;re available for free.
+                  Either I&apos;m really good at what I do, or I have some
+                  serious communication skills! 😂
                 </p>
               </div>
             </div>
