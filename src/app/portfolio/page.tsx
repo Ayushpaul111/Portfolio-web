@@ -7,6 +7,7 @@ import type { PortfolioWork } from "./data/portfolio-data";
 import { generateMetadata as genMeta, SEOData } from "@/lib/seo";
 import { generatePortfolioListStructuredData } from "@/lib/portfolio-seo";
 import { Metadata } from "next";
+import { Testimonials } from "@/components/ui/unique-testimonial";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -90,29 +91,13 @@ export default function PortfolioPage() {
         <section id="portfolio">
           <div className="space-y-6 w-full">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              {/* <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                    Portfolio
-                  </div>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Works
-                  </h1>
-                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-[600px] mx-auto">
-                    A showcase of my recent projects, how I solved problems of
-                    my clients, and the impact my work had on their businesses.
-                  </p>
-                </div>
-              </div> */}
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <h1 className="text-2xl tracking-tighter font-semibold">
-                  Portfolio - Development, Automation & More
-                </h1>
-                <p className="text-base mb-8 text-muted-foreground">
-                  Just solving my clients&apos; problems even before they
-                  realize they can be solved technically.
-                </p>
-              </BlurFade>
+              <h1 className="text-2xl tracking-tighter font-semibold">
+                Portfolio - Development, Automation & More
+              </h1>
+              <p className="text-base mb-8 text-muted-foreground">
+                Just solving my clients&apos; problems even before they realize
+                they can be solved technically.
+              </p>
             </BlurFade>
 
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
@@ -136,11 +121,25 @@ export default function PortfolioPage() {
                 )}
               </div>
             </BlurFade>
-            <div>
-              <h2 className="-mt-6 flex justify-center items-center text-gray-600">
-                and many more....
-              </h2>
+            <div className="flex justify-center">
+              <div
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 
+             bg-black/40 px-4 py-2 text-sm text-white backdrop-blur-md 
+             hover:border-white/20 transition"
+              >
+                {/* Glow dot */}
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 blur-sm"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                </span>
+
+                {/* Text */}
+                <span className="font-medium">
+                  And this is just a tip of the iceberg!
+                </span>
+              </div>
             </div>
+            <Testimonials />
           </div>
         </section>
 
