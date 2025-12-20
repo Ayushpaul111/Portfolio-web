@@ -52,9 +52,6 @@ export default function Page() {
       </section>
       <section id="gallery">
         <div className="w-full">
-          {/* <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <h2 className="text-xl font-bold mb-4">Gallery</h2>
-          </BlurFade> */}
           <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
             <GalleryGrid />
           </BlurFade>
