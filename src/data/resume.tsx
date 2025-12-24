@@ -65,7 +65,7 @@ export const DATA = {
   work: [
     {
       company: "Messy Programmer",
-      href: "https://messyprogrammer.in",
+      href: "https://messyprogrammer.dev",
       badges: [],
       location: "Hybrid",
       title: "Full Stack Developer (Full Time)",
@@ -74,7 +74,7 @@ export const DATA = {
       start: "Nov 2024",
       end: "Present",
       description:
-        "Currently working as a Full-Stack Developer contributing to automations and full-stack development while providing consultation for technical solutions. Working with modern technologies including Next.js, MongoDB, Zapier, App Script, Google APIs, Docker, GoHighLevel, and Firebase.",
+        "Helping clients save time with automations and web apps! They choose me for company's YouTube videos where I share how businesses can work smarter. Building Next.js, Zapier, n8n, App Script, Docker, GoHighLevel, and Firebase, basically making tech do the heavy lifting clients don't have to.",
     },
     {
       company: "LYIK Technologies",

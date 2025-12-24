@@ -18,7 +18,9 @@ interface ResumeCardProps {
   badges?: readonly string[];
   period: string;
   description?: string;
+  isCurrentWork?: boolean;
 }
+
 export const ResumeCard = ({
   logoUrl,
   altText,
@@ -28,8 +30,9 @@ export const ResumeCard = ({
   badges,
   period,
   description,
+  isCurrentWork = false,
 }: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(isCurrentWork);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     if (description) {
@@ -99,7 +102,7 @@ export const ResumeCard = ({
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm prose max-w-full text-pretty font-sans text-muted-foreground dark:prose-invert"
+              className="mt-2 text-xs sm:text-sm prose max-w-full text-pretty font-sans text-opacity-95 dark:prose-invert"
             >
               {description}
             </motion.div>
