@@ -1,0 +1,119 @@
+---
+title: "Why Everyone Is Hyping OpenClaw (And Why You Should Wait)"
+publishedAt: "2026-02-12"
+readingTime: 6
+summary: "OpenClaw sounds incredible - AI that controls your computer while you sleep. But 900+ unsecured instances and $300 token burns in 2 days tell a different story. Here's what nobody is talking about."
+---
+
+Over 900 instances of OpenClaw are running right now on VPS servers with no authentication and open ports.
+
+That means anyone can jump in. Steal your API tokens. Access your environment variables. Or worse.
+
+And this thing is only 1-2 months old.
+
+So yeah, let me pop that hype bubble for you real quick, because what nobody is talking about are the actual problems hiding underneath all those "I automated my life with AI" videos.
+
+## First, What Even Is OpenClaw?
+
+If you are confused about the name - it was Claudebot, then Moltbot, now OpenClaw. Same thing. Different branding drama.
+
+The chaotic rebrand from Claudebot to Moltbot enabled a massive impersonation campaign. Attackers used similar names and fake GitHub repositories to trick users. The move to OpenClaw was about restoring trust and establishing a legal, stable identity.
+
+But what is it actually?
+
+It is basically AI with hands. It can control your computer. Open apps, write code, run commands, browse the web. You can connect it to WhatsApp, Gmail, your calendar, VSCode on your laptop. Message it, and it invokes actions for you.
+
+The promise? Text it saying "build and host a website for me," go to bed, wake up to a live site.
+
+Sounds amazing, right?
+
+To be really honest, it's not a magic. It is just an LLM with access to a computer. The memory stays local on your machine, or you can host it on a Mac Mini or VPS.
+
+And that is where things get sketchy.
+
+## The Problems Nobody Talks About
+
+### Problem #1: Prompt Injection Vulnerability
+
+You tell it to search something. It lands on a malicious website. That website has an embedded prompt injection. And boom - your data is compromised.
+
+This is not theoretical. People are already finding ways to exploit this. And because OpenClaw browses the web for you, it is constantly exposed to potentially malicious sites.
+
+### Problem #2: Token Burn Is Insane
+
+One user spent $300 in just two days on basic tasks.
+
+OpenClaw chews through tokens like crazy. Most of what it automates? You could do it manually with better control and zero cost.
+
+The AI needs to think through every action. Browse. Read. Interpret. Execute. Each step costs tokens. A simple task that takes you 5 minutes might cost $10 in API calls.
+
+And it is painfully slow unless you give it headless browser access instead of a regular browser. Even then, watching it work feels like watching someone learn to use a computer for the first time.
+
+### Problem #3: The Security Nightmare
+
+This is the big one.
+
+A recent scan found more than 900 OpenClaw instances running with no authentication and open ports exposed to the internet.
+
+Think about what that means:
+
+- Your API keys are sitting there
+- Your environment variables are accessible
+- Anyone can send commands to your instance
+- Your connected services (Gmail, Calendar, etc.) are exposed
+
+And people are just... running this on public servers. No firewall. No authentication layer. Nothing.
+
+This thing is only 2-3 months old. It is not production-ready. Even the founder agrees that non developers should not use this.
+
+## Why Is Everyone Hyping This Then?
+
+Honestly? Because it sounds incredible.
+
+And any video titled "I automated texting my wife with Claudebot" gets instant views. That drives the conversation - not actual practicality.
+
+The concept is genuinely exciting. AI that can handle tasks while you sleep? That is the dream. But the reality right now is messy, expensive, and dangerous.
+
+People see the potential and ignore the problems. They see the future and forget we are not there yet.
+
+## Will This Get Better?
+
+Absolutely.
+
+Over time, OpenClaw will get smarter. More secure. It will consume fewer tokens for basic tasks. Gain better skills. Hopefully!
+
+The underlying idea is solid. AI agents that can actually do things? That is the direction we are heading. But we are in the very early days.
+
+Think of this like self-driving cars in 2015. The technology is real. The vision is clear. But you probably should not let it drive your kids to school just yet.
+
+## My Take: Wait
+
+Do not install OpenClaw on your personal machine right now. Just wait.
+
+Wait for:
+
+- Proper security implementations
+- Better token efficiency
+- More mature tooling
+
+The hype is real. The potential is real. But so are the risks.
+
+If you are a developer who wants to experiment? Fine. Set it up on a isolated VM with dummy accounts. Do not connect your real Gmail. Do not give it access to production systems. Treat it like the experimental software it is.
+
+But for everyone else? Let this cook for a few more months. Let other people find the security holes. Let the developers fix them.
+
+Your data is worth more than being an early adopter of unstable software.
+
+## The Bottom Line
+
+OpenClaw is not ready. The hype is ahead of the reality.
+
+That does not mean it is bad. It means it is early. And early technology comes with early problems.
+
+If you are excited about this? Good. You should be. Just be smart about it.
+
+Wait for it to mature. Let the security issues get fixed. Let the token comsumption come down. Let the developers figure out the hard problems.
+
+Then jump in.
+
+Your move. Are you installing it anyway, or waiting it out? Let me know what you think.
