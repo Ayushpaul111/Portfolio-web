@@ -63,32 +63,27 @@ const nextConfig = {
     return [
       {
         source: "/resume",
-        destination:
-          "/?utm_source=resume&utm_medium=pdf&utm_campaign=job_application",
+        destination: "/?utm_source=resume",
         permanent: false,
       },
       {
         source: "/insta",
-        destination:
-          "/?utm_source=instagram&utm_medium=social&utm_campaign=bio_link",
+        destination: "/?utm_source=instagram",
         permanent: false,
       },
       {
         source: "/linkedin",
-        destination:
-          "/?utm_source=linkedin&utm_medium=social&utm_campaign=profile_link",
+        destination: "/?utm_source=linkedin",
         permanent: false,
       },
       {
         source: "/fb",
-        destination:
-          "/?utm_source=facebook&utm_medium=social&utm_campaign=profile_link",
+        destination: "/?utm_source=facebook",
         permanent: false,
       },
       {
         source: "/email",
-        destination:
-          "/?utm_source=email&utm_medium=email&utm_campaign=signature",
+        destination: "/?utm_source=email",
         permanent: false,
       },
     ];

@@ -80,7 +80,7 @@ export const DATA = {
       start: "Nov 2024",
       end: "Present",
       description:
-        "Helping clients save time with automations and web apps! They choose me for company's YouTube videos where I share how businesses can work smarter. Building Next.js, Zapier, n8n, App Script, Docker, GoHighLevel, and Firebase, basically making tech do the heavy lifting clients don't have to.",
+        "Helping clients save time with automations and web apps! They choose me for company's YouTube videos where I share how businesses can work smarter. Building Next.js, Zapier, n8n, App Script, Docker, GoHighLevel, and Firebase, basically making tech to do the heavy lifting clients don't have to.",
     },
     {
       company: "LYIK Technologies",
