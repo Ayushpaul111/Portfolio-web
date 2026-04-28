@@ -114,7 +114,7 @@ export const DATA = {
       location: "Remote",
       title: "Graphic Designer (Part-time)",
       logoUrl:
-        "https://media.licdn.com/dms/image/C560BAQGLl5g9wT4ZsQ/company-logo_200_200/0/1652106728326?e=2147483647&v=beta&t=oRWJeUKeVe9u4mHsWOXTSX6D3Ct848XnM_WUQOKBPTw",
+        "https://skillacademia.com/apple-icon.png?b8cc0de692812447",
       start: "June 2022",
       end: "March 2023",
       description:
@@ -127,7 +127,7 @@ export const DATA = {
       location: "Remote",
       title: "Graphic Designer (Part-time)",
       logoUrl:
-        "https://media.licdn.com/dms/image/C560BAQEhmbMP7wQpoA/company-logo_200_200/0/1662660599258?e=2147483647&v=beta&t=Jb9yGmePebjjvgWVaPjJjatQ1l-cuBrKMa7neO5b5eM",
+        "https://media.licdn.com/dms/image/v2/C560BAQEhmbMP7wQpoA/company-logo_200_200/company-logo_200_200/0/1662660599962?e=2147483647&v=beta&t=bQKswfC0egnG-3LQFZYXpdOj5ZXwtEOOPMMCbIou54o",
       start: "Oct 2022",
       end: "March 2023",
       description:
