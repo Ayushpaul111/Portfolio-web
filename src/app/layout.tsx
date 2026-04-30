@@ -1,4 +1,5 @@
 import AdditionalSEO from "@/components/AdditionalSEO";
+import ResumeFloatingButton from "@/components/ResumeFloatingButton";
 import Navbar from "@/components/navbar";
 import StructuredData from "@/components/StructuredData";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -101,6 +102,7 @@ export default function RootLayout({
           <TooltipProvider delayDuration={0}>
             <Navbar />
             <main className="mt-16 md:mt-8">{children}</main>
+            <ResumeFloatingButton />
           </TooltipProvider>
         </ThemeProvider>
       </body>
