@@ -1,11 +1,17 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-function FolderIcon({ isHovered }: { isHovered: boolean }) {
+function FolderIcon({
+  isHovered,
+  showDoc,
+}: {
+  isHovered: boolean;
+  showDoc: boolean;
+}) {
   const width = 32;
   const height = 24;
   const tabWidth = width * 0.375;
@@ -14,8 +20,31 @@ function FolderIcon({ isHovered }: { isHovered: boolean }) {
   return (
     <motion.div
       className="relative"
-      style={{ width, height, transformStyle: "preserve-3d" }}
+      style={{
+        width,
+        height,
+        transformStyle: "preserve-3d",
+        overflow: "visible",
+      }}
     >
+      {/* Document that peeks out on hover (always visible on small screens) */}
+      <AnimatePresence>
+        {showDoc && (
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2 bg-white dark:bg-neutral-100 rounded-[2px] shadow-sm overflow-hidden"
+            style={{ width: 24, zIndex: 5 }}
+            initial={{ bottom: 2, height: 0, opacity: 0 }}
+            animate={{ bottom: 10, height: 16, opacity: 1 }}
+            exit={{ bottom: 2, height: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+          >
+            <div className="absolute top-[3px] left-[2px] right-[2px] h-px bg-neutral-300 rounded-full" />
+            <div className="absolute top-[6px] left-[2px] right-[4px] h-px bg-neutral-300 rounded-full" />
+            <div className="absolute top-[9px] left-[2px] right-[3px] h-px bg-neutral-300 rounded-full" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="absolute inset-0 rounded-[4px] bg-gradient-to-b from-amber-400 to-amber-500 shadow-sm">
         <div
           className="absolute left-0.5 rounded-t-[2px] bg-gradient-to-b from-amber-300 to-amber-400"
@@ -40,7 +69,16 @@ function FolderIcon({ isHovered }: { isHovered: boolean }) {
 export default function ResumeFloatingButton() {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    setIsSmallScreen(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsSmallScreen(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   if (pathname.includes("/blog")) return null;
 
@@ -56,7 +94,7 @@ export default function ResumeFloatingButton() {
         whileTap={{ scale: 0.97 }}
         aria-label="View Resume"
       >
-        <FolderIcon isHovered={isHovered} />
+        <FolderIcon isHovered={isHovered} showDoc={isHovered || isSmallScreen} />
         <span className="text-sm font-medium text-foreground">Resume</span>
       </motion.button>
 
@@ -88,7 +126,7 @@ export default function ResumeFloatingButton() {
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-muted/40 shrink-0">
                 <div className="flex items-center gap-3">
-                  <FolderIcon isHovered={false} />
+                  <FolderIcon isHovered={false} showDoc={false} />
                   <div>
                     <p className="text-sm font-semibold text-foreground leading-none">
                       Resume
