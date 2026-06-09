@@ -174,7 +174,7 @@ export default function Page() {
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I had the opportunity to share my journey and insights about
-                  Automation, Workflows, and Processes in MessyProgrammer's
+                  Automation, Workflows, and Processes in MessyProgrammer&apos;s
                   YouTube channel.
                 </p>
               </div>
