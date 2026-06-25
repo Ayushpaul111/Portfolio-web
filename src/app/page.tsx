@@ -5,6 +5,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import YouTubeVideoGrid from "@/components/YouTubeVideoGrid";
+import WebFlagSection from "@/components/WebFlagSection";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -182,6 +183,29 @@ export default function Page() {
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <YouTubeVideoGrid />
+          </BlurFade>
+        </div>
+      </section>
+      <section id="webflag">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Chrome Extension
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  I launched WebFlag!
+                </h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Capture web bugs in one click — screenshot, annotate, grab the
+                  element selector + environment, and send straight to ClickUp.
+                </p>
+              </div>
+            </div>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <WebFlagSection />
           </BlurFade>
         </div>
       </section>
