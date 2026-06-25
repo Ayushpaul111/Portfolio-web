@@ -60,7 +60,8 @@ export default function WebFlagSection() {
               A lightweight bug-capture tool: find a bug, capture it (screenshot
               + annotate + element selector + environment), and send it straight
               to ClickUp — no backend, no setup beyond your own ClickUp API
-              token.
+              token. Basically, I automated what I was going through while I was
+              testing.
             </p>
           </div>
 
