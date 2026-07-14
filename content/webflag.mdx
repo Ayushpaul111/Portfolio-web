@@ -1,0 +1,95 @@
+---
+title: "I Automated My Entire QA Bug-Reporting Flow (And Built WebFlag)"
+publishedAt: "2026-07-14"
+readingTime: 5
+summary: "Find a bug, screenshot it, annotate it, write a description, create a ClickUp task, assign the right person. I was doing this a hundred times a day. So I turned the whole thing into a Chrome extension — and now my testing team lives in it."
+---
+
+Here's what testing a web application actually looks like.
+
+You find a bug. Then you take a screenshot. Then you open some editor to annotate it — draw a box around the broken button, circle the misaligned text. Then you write a description explaining what's wrong, what browser you're on, what the screen size was. Then you go to ClickUp, create a task, paste everything in, attach the screenshot, and assign it to the right person.
+
+And then you find the next bug. And you do it all over again.
+
+I was bleeding time on this. Not because any single step was hard — but because there were _six_ of them, every single time, dozens of times a day.
+
+So I automated the whole flow with a Chrome extension. It's called **WebFlag**, and now my testing team runs on it.
+
+![WebFlag logo](/product/webflag.png)
+
+## The Problem Was Never "Finding" Bugs
+
+Finding bugs is the easy part. That's literally the job.
+
+The pain was everything _after_ finding one. The context-switching. Screenshot tool here, annotation app there, ClickUp in another tab, copy-pasting environment details by hand like it's 2010.
+
+By the time you've documented one bug properly, you've lost your place on the page you were testing. Multiply that friction across a full QA cycle and you're spending more time _reporting_ bugs than actually _finding_ them.
+
+That's a broken workflow. So I fixed it.
+
+## How WebFlag Works
+
+The whole idea is simple: **capture the bug, annotate it, send it to ClickUp — without ever leaving the page you're testing.**
+
+There are two ways to capture.
+
+**Method 1 — Element Picker.** Press `Ctrl+Shift+E` (or `Cmd+Shift+E` on Mac). Hover over the page and elements highlight as you move. Click the broken one, and WebFlag grabs a robust CSS selector, the element details, and auto-boxes it right on the screenshot. Perfect for "this button is misaligned" or "this input is throwing an error."
+
+**Method 2 — Text Selection.** Just select text on any page and a floating icon pops up — click it, or use the right-click menu. Instant capture, no shortcut needed. Great for typos, wrong copy, or content bugs.
+
+If you've read my post on [WebNote](/blog/what-is-automation), the floating-icon idea will feel familiar. Same philosophy — capture right where you are, don't make me switch tabs.
+
+## It Collects the Boring Stuff Automatically
+
+This is the part I'm most happy about.
+
+Every bug report needs context, and nobody wants to type it out. So WebFlag just grabs it for you:
+
+- 📸 **Screenshot** — the visible tab, captured at the exact moment of the bug.
+- 🖥️ **Page environment** — browser, OS, viewport, screen size, DPR, and user agent. All of it, automatically.
+- 🎯 **Element details** — CSS selector, tag, attributes, and the visible text of the offending element.
+- ✏️ **Annotation editor** — box, circle, arrow, free-pen, colors, undo, clear. You mark up the screenshot _before_ you send it, right inside the extension.
+
+No more "what browser were you on again?" follow-up messages. No more vague bug reports that a developer can't reproduce. The context is just... there.
+
+## Then One Click to ClickUp
+
+Once the bug is captured and annotated, you send it.
+
+WebFlag pushes each capture straight into ClickUp as a **subtask** (or a top-level task, your call) — with a clean, formatted bug-report description and the screenshot attached. Assign it to the right person and it's done.
+
+So the whole flow collapses down to three steps:
+
+1. **Capture** — element picker or text selection.
+2. **Annotate** — draw on the screenshot so the issue is unmistakable.
+3. **Send** — creates a ClickUp subtask with description + screenshot attached.
+
+And if you're not ready to send yet? Save the note locally and push it later. Your captures don't disappear.
+
+## No Backend, No Account, Fully Private
+
+Here's the part that matters to me, and probably to you: **your data never leaves your machine.**
+
+There's no server. No database. No analytics. No account to create. WebFlag only talks to ClickUp's API — and _only_ when you click "Send."
+
+Your ClickUp Personal API token and every capture stay locally in your browser. When you hit send, the data goes directly from your browser to ClickUp's API. WebFlag is never an intermediary and never gets a copy of anything. That's the whole setup — the only thing you configure is your own ClickUp API token, and you're running.
+
+## My Team Actually Uses It Now
+
+That's the real test of any tool I build — do people keep using it after the novelty wears off?
+
+With WebFlag, they do. My testers stopped context-switching between five apps. Bug reports got more consistent because the environment and element details are always captured. And developers stopped pinging back for missing info, because it's all in the ticket already.
+
+It went from a six-step chore to a three-click habit. That's the whole point.
+
+## It's Free — Go Flag a Bug
+
+WebFlag is live on the Chrome Web Store, and it's **free forever**. No account, no backend, nothing to sign up for.
+
+[Add WebFlag to Chrome](https://chromewebstore.google.com/detail/webflag/gbhhfgklbcdoiconjalndhfljgkbfmbi)
+
+And here's the thing — I built this to solve my own team's problem, but it's built to grow. **If there's a particular feature you need, email me at [contact@ayushpaul.dev](mailto:contact@ayushpaul.dev) and I'll build it for you.** More integrations beyond ClickUp, different capture modes, whatever makes your testing life easier — send it my way.
+
+This is exactly what I do: find where you're bleeding time, and plug the leak. Sometimes that's an automation, sometimes a web app, and sometimes a tiny Chrome extension that quietly saves your team hundreds of clicks a week.
+
+Go find a bug. Capture it. Ship it to ClickUp.

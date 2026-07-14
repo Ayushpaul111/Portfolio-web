@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Camera, MousePointerClick, Send, ShieldCheck } from "lucide-react";
 
 const STORE_URL =
@@ -79,14 +80,22 @@ export default function WebFlagSection() {
             ))}
           </div>
 
-          <a
-            href={STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
-          >
-            Add to Chrome
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            >
+              Add to Chrome
+            </a>
+            <Link
+              href="/blog/webflag-qa-bug-capture"
+              className="inline-flex w-fit items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              Read the story
+            </Link>
+          </div>
         </div>
       </div>
     </div>
