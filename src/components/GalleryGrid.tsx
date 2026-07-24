@@ -1,12 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Play } from "lucide-react";
 
-const images = [
-  "https://res.cloudinary.com/dips3yafu/image/upload/v1757316288/cleo_viludk.webp",
-  "https://res.cloudinary.com/dips3yafu/image/upload/v1761158636/graduatedMe_1_uxv5np_h5sjes.webp",
-  "https://res.cloudinary.com/dips3yafu/image/upload/v1761158591/chilapata_qnzr1u_e4pc6a.webp",
+const videos = [
+  {
+    videoId: "nSbwxkh78Hw",
+    title: "We Automated a 7 Day Hiring Process Down to 3 Days",
+  },
+  {
+    videoId: "HiYUQ3vxTEU",
+    title: "How to Scale n8n Workflows (Parallel Executions & Sub-Workflows)",
+  },
+  {
+    videoId: "JBgJr6sXWNc",
+    title: "Web Scraping in n8n - Scrape ANY Website (without any API)",
+  },
+  {
+    videoId: "K2z-SJ4WScE",
+    title: "Build An AI Agent for Data Analysis",
+  },
 ];
 
 const positions = [
@@ -18,24 +33,29 @@ const positions = [
 export default function GalleryGrid() {
   const [cards, setCards] = useState([0, 1, 2]);
   const [nextId, setNextId] = useState(3);
+  const [playingId, setPlayingId] = useState<string | null>(null);
 
   const handleAnimate = () => {
-    const nextImage = (cards[2] + 1) % 3;
-    setCards([...cards.slice(1), nextImage]);
+    const nextVideo = (cards[2] + 1) % videos.length;
+    setCards([...cards.slice(1), nextVideo]);
     setNextId((prev) => prev + 1);
+    setPlayingId(null);
   };
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <div className="relative h-[260px] w-full max-w-[90vw] overflow-hidden sm:h-[360px] sm:max-w-[644px]">
         <AnimatePresence initial={false}>
-          {cards.slice(0, 3).map((imageIndex, index) => {
+          {cards.slice(0, 3).map((videoIndex, index) => {
             const { scale, y } = positions[index] ?? positions[2];
             const zIndex = 3 - index;
+            const video = videos[videoIndex];
+            const isFront = index === 0;
+            const isPlaying = isFront && playingId === video.videoId;
 
             return (
               <motion.div
-                key={`${imageIndex}-${nextId + index}`}
+                key={`${videoIndex}-${nextId + index}`}
                 initial={index === 2 ? { y: -16, scale: 0.9 } : undefined}
                 animate={{ y, scale }}
                 exit={
@@ -43,13 +63,44 @@ export default function GalleryGrid() {
                 }
                 transition={{ type: "spring", duration: 1, bounce: 0 }}
                 style={{ zIndex, left: "50%", x: "-50%", bottom: 0 }}
-                className="absolute h-[200px] w-full overflow-hidden rounded-t-xl border-x border-t border-border bg-card will-change-transform sm:h-[280px] sm:w-[512px] p-1 pb-8 outline outline-black/10 dark:outline-white/10"
+                className="absolute flex w-full flex-col overflow-hidden rounded-t-xl border-x border-t border-border bg-card p-1 will-change-transform outline outline-black/10 dark:outline-white/10 sm:w-[512px]"
               >
-                <img
-                  src={images[imageIndex]}
-                  alt={`Gallery image ${imageIndex + 1}`}
-                  className="h-full w-full select-none object-cover rounded-md shadow-xl"
-                />
+                <div className="relative aspect-video w-full overflow-hidden rounded-md bg-black shadow-xl">
+                  {isPlaying ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.videoId}?autoplay=1`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => isFront && setPlayingId(video.videoId)}
+                      className="group absolute inset-0 h-full w-full"
+                      aria-label={isFront ? `Play ${video.title}` : video.title}
+                      tabIndex={isFront ? 0 : -1}
+                    >
+                      <Image
+                        src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+                        alt={video.title}
+                        fill
+                        className="select-none object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      {isFront && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-300 group-hover:bg-black/35">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-white">
+                            <Play className="ml-1 h-6 w-6 fill-black text-black" />
+                          </div>
+                        </div>
+                      )}
+                    </button>
+                  )}
+                </div>
+                <p className="truncate px-3 py-3.5 text-center text-xs font-medium text-muted-foreground">
+                  {video.title}
+                </p>
               </motion.div>
             );
           })}
