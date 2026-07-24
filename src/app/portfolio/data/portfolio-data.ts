@@ -42,7 +42,7 @@ export const portfolioWorks: PortfolioWork[] = [
       author: "Dr. Somoshree Paul",
       position: "Dental Surgeon & Implantologist",
       company: "Unico Dentals",
-      avatar: "https://www.unicodentals.com/IMG_5377.JPG",
+      avatar: "https://www.unicodentals.com/IMG_5377.webp",
     },
     tags: [
       "React",

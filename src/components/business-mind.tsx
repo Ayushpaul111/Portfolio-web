@@ -17,12 +17,12 @@ export default function BusinessMind() {
         </h2>
         <p className="text-muted-foreground md:text-lg">
           Full-stack development, workflow automation, whatever the stack
-          demands - I build with a founder's brain, not just an engineer's.
-          Years of freelancing, multiple companies, multiple teams, shipping
-          everything from backend systems to the automations that keep them
-          running without me. I've failed more than once, and every failure got
-          turned into a system that made sure it never happened twice as a
-          developer!
+          demands - I build with a founder&apos;s brain, not just an
+          engineer&apos;s. Years of freelancing, multiple companies, multiple
+          teams, shipping everything from backend systems to the automations
+          that keep them running without me. I have failed more than once, and
+          every failure got turned into a system that made sure it never
+          happened twice as a developer!
         </p>
         <p className="text-muted-foreground md:text-lg">
           I run on one loop: learn a problem end to end, find the best way to
