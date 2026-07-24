@@ -110,9 +110,23 @@ export default function GalleryGrid() {
       <div className="relative z-10 -mt-px flex w-full items-center justify-center border-t border-border py-4">
         <button
           onClick={handleAnimate}
-          className="flex h-9 cursor-pointer select-none items-center justify-center gap-1 rounded-lg border border-border bg-background px-3 font-medium text-secondary-foreground transition-all hover:bg-secondary/80 active:scale-[0.98]"
+          className="group flex items-center gap-2 rounded-md border border-black bg-white px-4 py-2 text-sm font-medium text-black shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0)] active:translate-x-1 active:translate-y-1 active:shadow-none"
         >
           Next
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-active:translate-x-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13 5l7 7-7 7M5 12h15"
+            />
+          </svg>
         </button>
       </div>
     </div>

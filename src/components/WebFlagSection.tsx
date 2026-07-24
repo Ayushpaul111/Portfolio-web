@@ -90,7 +90,7 @@ export default function WebFlagSection() {
               Add to Chrome
             </a>
             <Link
-              href="/blog/webflag-qa-bug-capture"
+              href="/blog/webflag"
               className="inline-flex w-fit items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               Read the story

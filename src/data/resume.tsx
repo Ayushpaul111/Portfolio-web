@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/coochbehar",
   description: "Software Engineer who love building things and helping people.",
   summary:
-    "A startup geek who not only has ideas but also have the ability to execute them. I graduated from [Dayananda Sagar University, in Computer Science Engineering](https://drive.google.com/file/d/1SNs2uUcjBxJ4jMajOuG6dxK4cSawaPba/view?usp=sharing). Tech stack does not matter, I am a problem solver who can adapt to any situation, learn any tech stack and deliver results.",
+    "I'm a developer knows how a business works, not just the code. 4+ years freelancing for Indian and international clients across development, sales, and design. I have built and led my own team when i was in 2nd year, and today I help run the dev, testing, and support teams at Medikzo while shipping products at [Messy Programmer](https://messyprogrammer.dev). Hand me a messy problem and a blank slate - I'll figure out the plan, build it or even get the right people running it. I adapt, learn, and deliver.",
   avatarUrl: "/Ayush.webp",
   skills: [
     "React",
@@ -69,6 +69,20 @@ export const DATA = {
   },
 
   work: [
+    // TODO(ayush): confirm Medikzo title / start / URL / logo
+    // TODO(ayush): confirm Suman Das relationship (co-founder/partner)
+    {
+      company: "Medikzo",
+      href: "https://medikzo.com/",
+      badges: [],
+      location: "Hybrid",
+      title: "Operations Lead",
+      logoUrl: "./medikzo.png",
+      start: "Nov 2024",
+      end: "Present",
+      description:
+        "Working alongside Messy Programmer to build Medikzo end-to-end. Medikzo is a healthcare appointment booking platform designed primarily for tier-2 and tier-3 cities. I run the development and testing teams, train the support team, and write the SOPs that keep everything consistent. With Suman (founder of Messy Programmer) I'm shaping the business model. Basically, me and Suman act as a \"Human LLM\" - we get into one domain first, understand the entire flow of how it works, and then turn that into a proper workflow/SOP. Once that's documented, we train someone on it and hand off that role to them. Then we move on to the next domain and repeat the exact same cycle - sales, development, literally everything.",
+    },
     {
       company: "Messy Programmer",
       href: "https://messyprogrammer.dev",
@@ -80,7 +94,7 @@ export const DATA = {
       start: "Nov 2024",
       end: "Present",
       description:
-        "Helping clients save time with automations and web apps! They choose me for company's YouTube videos where I share how businesses can work smarter. Building Next.js, Zapier, n8n, App Script, Docker, GoHighLevel, and Firebase, basically making tech to do the heavy lifting clients don't have to.",
+        "Helping clients save time with automations and web apps! They choose me for company's YouTube videos where I share how businesses can work smarter. Building Next.js, Zapier, n8n, App Script, Docker, GoHighLevel, and Firebase, basically making tech to do the heavy lifting so, clients don't have to.",
     },
     {
       company: "LYIK Technologies",
@@ -113,8 +127,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Graphic Designer (Part-time)",
-      logoUrl:
-        "https://skillacademia.com/apple-icon.png?b8cc0de692812447",
+      logoUrl: "https://skillacademia.com/apple-icon.png?b8cc0de692812447",
       start: "June 2022",
       end: "March 2023",
       description:
@@ -132,6 +145,18 @@ export const DATA = {
       end: "March 2023",
       description:
         "Worked as a Graphic Designer creating impactful marketing materials such as posters and logos for clients. Contributed to social media poster designs using Adobe Photoshop, Adobe Illustrator, Adobe XD, and Canva.",
+    },
+    {
+      company: "Freelance",
+      href: "",
+      badges: [],
+      location: "Remote",
+      title: "Freelance Full Stack Developer",
+      logoUrl: "",
+      start: "2021",
+      end: "",
+      description:
+        "4+ years building web apps and automations for Indian & international clients. Built a library management system for Dayananda Sagar University still in use today. In my 3rd year I built and led a 4-person team — I owned outreach and solution design, my team built, and I owned delivery.",
     },
   ],
   education: [
@@ -160,7 +185,66 @@ export const DATA = {
       end: "2018",
     },
   ],
-  products: [
+  built: [
+    {
+      title: "WebFlag — Chrome Extension for QA",
+      href: "/blog/webflag",
+      dates: "",
+      active: true,
+      description:
+        "A lightweight bug-capture tool for QA testers: find a bug, capture it (screenshot + annotate + element selector + environment), and push it straight to ClickUp — no backend, no account. I automated what I was struggling with while testing.",
+      technologies: ["Chrome Extension", "ClickUp API"],
+      links: [
+        {
+          type: "Add to Chrome",
+          href: "https://chromewebstore.google.com/detail/webflag/gbhhfgklbcdoiconjalndhfljgkbfmbi",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Read the story",
+          href: "/blog/webflag",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Home Service Platform",
+      href: "/blog/home-service-company",
+      dates: "",
+      active: true,
+      description:
+        "Built a home-services platform for a tier-3 city from scratch — researched both sides of the market, ran door-to-door campaigns, built the site + SEO, and got organic orders in the first week. Ran it solo alongside a full-time job and freelancing.",
+      technologies: [],
+      links: [
+        {
+          type: "Read the story",
+          href: "/blog/home-service-company",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "360° Virtual Real Estate Tours",
+      href: "/blog/360-realestate",
+      dates: "",
+      active: true,
+      description:
+        "Spotted a gap in tier-2/3 real estate, cold-outreached builders, landed a real client, and now building full 360° property tours (plus digitally-furnished versions with an architect) so buyers anywhere can walk through remotely.",
+      technologies: [],
+      links: [
+        {
+          type: "Read the story",
+          href: "/blog/360-realestate",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
     {
       title: "QR Menu + Restaurant Management System",
       href: "",
@@ -174,42 +258,12 @@ export const DATA = {
       links: [
         {
           type: "Menu",
-          href: "https://demo.ehike.in",
+          href: "https://woody-pizza.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Admin",
-          href: "https://ehike-menu-admin.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Dayananda Sagar University Library System",
-      href: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
-      dates: "",
-      active: true,
-      description:
-        "An efficient and robust library management system designed for seamless student and system data administration. The system streamlines library operations and provides comprehensive management tools for educational institutions.",
-      technologies: [
-        // Add your actual technologies used
-      ],
-      links: [
-        {
-          type: "GitHub",
-          href: "https://github.com/Zafcar/Special-topics-2/tree/Front-end",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Preview",
-          href: "https://drive.google.com/file/d/1y2bi4RRD5i-yIQGy_V5COCKaza-8EcoP/view?usp=sharing",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Appreciation",
-          href: "https://drive.google.com/file/d/1NJki6o1VWT-vLohZRdaJxA2FUEGg1sTv/view?usp=sharing",
+          href: "https://woody-pizza.vercel.app/admin",
           icon: <Icons.globe className="size-3" />,
         },
       ],
