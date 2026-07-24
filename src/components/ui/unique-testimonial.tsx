@@ -10,7 +10,7 @@ const testimonials = [
       "Our team saves hours every day with automated reminders and follow-ups. We can now focus more on patient care rather than administrative tasks.",
     author: "Dr. Somoshree Paul",
     role: "Dental Surgeon at Unico Dentals",
-    avatar: "https://www.unicodentals.com/IMG_5377.JPG",
+    avatar: "https://www.unicodentals.com/IMG_5377.webp",
   },
   {
     id: 2,
@@ -20,15 +20,6 @@ const testimonials = [
     role: "Founder & CEO at Fool Ideas",
     avatar:
       "https://www.foolideas.com/_next/image?url=%2Fteam_images%2FbiruNew.png&w=1080&q=75",
-  },
-  {
-    id: 3,
-    quote:
-      "We handle 50+ bookings daily with minimal manual intervention. The automated assignment system ensures the right professional reaches customers on time every time.",
-    author: "Founder",
-    role: "CEO at PrimeGhar",
-    avatar:
-      "https://btownbanners.com/uploads/monthly_2017_08/P.png.23e48690e8f417746b666cbc797cd844.png",
   },
 ];
 
@@ -65,7 +56,7 @@ export function Testimonials() {
               "text-xl md:text-2xl font-light text-foreground text-center max-w-2xl leading-relaxed transition-all duration-400 ease-out",
               isAnimating
                 ? "opacity-0 blur-sm scale-[0.98]"
-                : "opacity-100 blur-0 scale-100"
+                : "opacity-100 blur-0 scale-100",
             )}
           >
             {displayedQuote}
@@ -86,7 +77,7 @@ export function Testimonials() {
               "text-xs text-muted-foreground tracking-[0.2em] uppercase transition-all duration-500 ease-out",
               isAnimating
                 ? "opacity-0 translate-y-2"
-                : "opacity-100 translate-y-0"
+                : "opacity-100 translate-y-0",
             )}
           >
             {displayedRole}
@@ -112,7 +103,7 @@ export function Testimonials() {
                   isActive
                     ? "bg-foreground shadow-lg"
                     : "bg-transparent hover:bg-muted/80",
-                  showName ? "pr-4 pl-2" : "px-0.5"
+                  showName ? "pr-4 pl-2" : "px-0.5",
                 )}
               >
                 {/* Avatar with smooth ring animation */}
@@ -124,7 +115,7 @@ export function Testimonials() {
                       "w-8 h-8 rounded-full object-cover",
                       "transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
                       isActive ? "ring-2 ring-background/30" : "ring-0",
-                      !isActive && "hover:scale-105"
+                      !isActive && "hover:scale-105",
                     )}
                   />
                 </div>
@@ -134,7 +125,7 @@ export function Testimonials() {
                     "grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]",
                     showName
                       ? "grid-cols-[1fr] opacity-100 ml-2"
-                      : "grid-cols-[0fr] opacity-0 ml-0"
+                      : "grid-cols-[0fr] opacity-0 ml-0",
                   )}
                 >
                   <div className="overflow-hidden">
@@ -142,7 +133,7 @@ export function Testimonials() {
                       className={cn(
                         "text-sm font-medium whitespace-nowrap block",
                         "transition-colors duration-300",
-                        isActive ? "text-background" : "text-foreground"
+                        isActive ? "text-background" : "text-foreground",
                       )}
                     >
                       {testimonial.author}

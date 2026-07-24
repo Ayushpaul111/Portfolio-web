@@ -7,7 +7,7 @@ export const DATA = {
   url: "https://ayushpaul.dev",
   location: "West Bengal, India",
   locationLink: "https://www.google.com/maps/place/coochbehar",
-  description: "Software Engineer who love building things and helping people.",
+  description: "Software Engineer with business mindset.",
   summary:
     "I'm a developer knows how a business works, not just the code. 4+ years freelancing for Indian and international clients across development, sales, and design. I have built and led my own team when i was in 2nd year, and today I help run the dev, testing, and support teams at Medikzo while shipping products at [Messy Programmer](https://messyprogrammer.dev). Hand me a messy problem and a blank slate - I'll figure out the plan, build it or even get the right people running it. I adapt, learn, and deliver.",
   avatarUrl: "/Ayush.webp",
