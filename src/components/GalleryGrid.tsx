@@ -110,7 +110,7 @@ export default function GalleryGrid() {
       <div className="relative z-10 -mt-px flex w-full items-center justify-center border-t border-border py-4">
         <button
           onClick={handleAnimate}
-          className="group flex items-center gap-2 rounded-md border border-black bg-white px-4 py-2 text-sm font-medium text-black shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0)] active:translate-x-1 active:translate-y-1 active:shadow-none"
+          className="group flex items-center gap-2 rounded-md border border-black dark:border-white bg-white dark:bg-black px-4 py-2 text-sm font-medium text-black dark:text-white shadow-[4px_4px_0px_0px_rgba(0,0,0)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255)] active:translate-x-1 active:translate-y-1 active:shadow-none dark:active:shadow-none active:duration-75"
         >
           Next
           <svg
