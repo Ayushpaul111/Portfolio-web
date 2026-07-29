@@ -44,7 +44,9 @@ export default function GalleryGrid() {
 
   return (
     <div className="flex w-full flex-col items-center justify-center">
-      <div className="relative h-[260px] w-full max-w-[90vw] overflow-hidden sm:h-[360px] sm:max-w-[644px]">
+      {/* Height tracks the card (16:9 media + title bar) plus headroom for the
+          upward-offset cards behind it, so the stack never clips at the top. */}
+      <div className="relative h-[calc(56.25vw_+_80px)] w-full max-w-[90vw] overflow-hidden sm:h-[380px] sm:max-w-[644px]">
         <AnimatePresence initial={false}>
           {cards.slice(0, 3).map((videoIndex, index) => {
             const { scale, y } = positions[index] ?? positions[2];
