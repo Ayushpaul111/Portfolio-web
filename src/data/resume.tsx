@@ -78,10 +78,10 @@ export const DATA = {
       location: "Hybrid",
       title: "Operations Lead",
       logoUrl: "./medikzo.png",
-      start: "Nov 2024",
+      start: "January 2026",
       end: "Present",
       description:
-        "Working alongside Messy Programmer to build Medikzo end-to-end. Medikzo is a healthcare appointment booking platform designed primarily for tier-2 and tier-3 cities. I run the development and testing teams, train the support team, and write the SOPs that keep everything consistent. With Suman (founder of Messy Programmer) I'm shaping the business model. Basically, me and Suman act as a \"Human LLM\" - we get into one domain first, understand the entire flow of how it works, and then turn that into a proper workflow/SOP. Once that's documented, we train someone on it and hand off that role to them. Then we move on to the next domain and repeat the exact same cycle - sales, development, literally everything.",
+        'Medikzo is a healthcare appointment booking platform designed primarily for tier-2 and tier-3 cities. I supervise the development and testing teams, train the support team and work on the business strategies. With Suman (founder of Messy Programmer) we are shaping the business model. Basically, me and Suman act as a "Human LLM" - we get into one domain first, understand the entire flow of how it works, and then turn that into a proper workflow/SOP. Once that\'s documented, we train someone on it and hand off that role to them. Then we move on to the next domain and repeat the exact same cycle - Business, development, sales, literally everything. Within the first month: onboarded 600+ doctors, crossed 1,000+ app downloads, and processed ~400 appointments.',
     },
     {
       company: "Messy Programmer",

@@ -1,9 +1,11 @@
 import { renderOgCard } from "@/lib/og-card";
 
+// X/Twitter reads twitter:image, which the opengraph-image convention does not
+// populate. Without this file, src/lib/seo.ts's twitter.images (the square
+// avatar) is what gets shown. Same card, same size.
+
 export { ogAlt as alt, ogSize as size } from "@/lib/og-card";
 
-// Static content from a TS constant — bake the PNG at build time instead of
-// re-rendering it on every scraper request.
 export const dynamic = "force-static";
 export const contentType = "image/png";
 
