@@ -17,7 +17,7 @@ const RESUMES = {
     label: "Automation",
     icon: Zap,
     description: "Workflows, scripting, RPA, n8n & process automation",
-    src: "https://drive.google.com/file/d/1lDsAxegyukipc8wElLyKs44lKAVtufte/preview",
+    src: "https://drive.google.com/file/d/1lP3-PjsD5VNmTvkqp6Z05IMkNCjB1NZc/preview",
   },
 } as const;
 
