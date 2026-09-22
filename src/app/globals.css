@@ -143,6 +143,24 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
 
+/* Blog images - website style: bordered card with caption.
+   Two or more images in one markdown block sit side by side, stacked on mobile. */
+.prose p:has(> img) {
+  @apply my-8 grid grid-cols-1 items-stretch gap-4;
+}
+
+.prose p:has(> img + img) {
+  @apply sm:grid-cols-2;
+}
+
+.prose img {
+  @apply my-0 h-full w-full rounded-xl border border-border bg-muted/30 object-cover;
+}
+
+.prose p > img + em {
+  @apply col-span-full mt-0 block text-center text-sm not-italic text-muted-foreground;
+}
+
 /* Notion-style smooth scrolling */
 html {
   scroll-behavior: smooth;
