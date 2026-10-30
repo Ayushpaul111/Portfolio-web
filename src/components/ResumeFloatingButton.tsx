@@ -84,35 +84,6 @@ export default function ResumeFloatingButton() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Preload the resume in the background once the page is idle, so opening is instant
-  useEffect(() => {
-    const connection = (navigator as Navigator & {
-      connection?: { saveData?: boolean };
-    }).connection;
-    if (connection?.saveData) return;
-
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    const schedule = () => {
-      if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(() => setShouldPreload(true), {
-          timeout: 3000,
-        });
-      } else {
-        timeoutId = setTimeout(() => setShouldPreload(true), 1500);
-      }
-    };
-
-    if (document.readyState === "complete") schedule();
-    else window.addEventListener("load", schedule, { once: true });
-
-    return () => {
-      window.removeEventListener("load", schedule);
-      if (idleId !== undefined) window.cancelIdleCallback(idleId);
-      if (timeoutId !== undefined) clearTimeout(timeoutId);
-    };
-  }, []);
-
   useEffect(() => {
     if (!isOpen) return;
     const prevOverflow = document.body.style.overflow;
@@ -135,8 +106,15 @@ export default function ResumeFloatingButton() {
     <>
       <motion.button
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-background border border-border px-4 py-2.5 shadow-lg cursor-pointer"
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          setShouldPreload(true);
+        }}
         onMouseLeave={() => setIsHovered(false)}
+        // Start loading the resume on intent (hover/touch/focus), so it is
+        // ready by the time the click lands without costing every visitor
+        onTouchStart={() => setShouldPreload(true)}
+        onFocus={() => setShouldPreload(true)}
         onClick={() => setIsOpen(true)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
@@ -161,7 +139,7 @@ export default function ResumeFloatingButton() {
         )}
       </AnimatePresence>
 
-      {/* Kept mounted after preload so the iframe isn't reloaded on every open */}
+      {/* Kept mounted once loaded so the iframe isn't reloaded on every open */}
       {(shouldPreload || isOpen) && (
         <motion.div
           className={`fixed z-50 flex flex-col overflow-hidden rounded-2xl bg-background shadow-2xl ring-1 ring-border

@@ -1,18 +1,22 @@
 "use client";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 import BlurFade from "./magicui/blur-fade";
+
+// Load the Cal.com embed only when the visitor asks to book a call,
+// so its script and third-party cookies don't load with every page view
+async function openBookingModal() {
+  const { getCalApi } = await import("@calcom/embed-react");
+  const cal = await getCalApi({ namespace: "15min" });
+  cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  cal("modal", {
+    calLink: "ayush-paul/15min",
+    config: { layout: "month_view" },
+  });
+}
 
 const Footer = () => {
   const BLUR_FADE_DELAY = 0.04;
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: "15min" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
-    })();
-  }, []);
   return (
     <section id="contact">
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -45,10 +49,8 @@ const Footer = () => {
             </p>
           </div>
           <button
-            type="submit"
-            ata-cal-namespace="15min"
-            data-cal-link="ayush-paul/15min"
-            data-cal-config='{"layout":"month_view"}'
+            type="button"
+            onClick={openBookingModal}
             className="flex justify-center gap-2 items-center mx-auto shadow-xl md:text-base text-sm bg-gray-50 dark:bg-slate-600 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 dark:border-gray-300 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
           >
             Lets Connect
@@ -66,28 +68,28 @@ const Footer = () => {
         </div>
         <div className="px-4 md:px-6 border-t border-gray-500/50 text-sm">
           <div className="mt-1 flex flex-col md:flex-row items-center justify-between">
-            <p className="text-gray-400">
+            <p className="text-gray-500 dark:text-gray-400">
               Ayush Paul © {new Date().getFullYear()}
             </p>
             <div className="flex gap-4 mt-1 md:mt-0">
               <Link
                 href="https://instagram.com/_ayush_paul_"
                 target="_blank"
-                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
+                className="text-gray-500 dark:text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 Instagram
               </Link>
               <Link
                 href="https://linkedin.com/in/ayushpaul1111"
                 target="_blank"
-                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
+                className="text-gray-500 dark:text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 LinkedIn
               </Link>
               <Link
                 href="https://github.com/ayushpaul111"
                 target="_blank"
-                className="text-gray-400 dark:hover:text-white hover:text-gray-900"
+                className="text-gray-500 dark:text-gray-400 dark:hover:text-white hover:text-gray-900"
               >
                 GitHub
               </Link>

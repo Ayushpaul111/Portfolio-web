@@ -127,7 +127,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Graphic Designer (Part-time)",
-      logoUrl: "https://skillacademia.com/apple-icon.png?b8cc0de692812447",
+      logoUrl: "/skillacademia.webp",
       start: "June 2022",
       end: "March 2023",
       description:

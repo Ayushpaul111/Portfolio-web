@@ -1,11 +1,12 @@
 import Footer from "@/components/footer";
 import GalleryGrid from "@/components/GalleryGrid";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import BusinessMind from "@/components/business-mind";
 import { ResumeCard } from "@/components/resume-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { Avatar } from "@/components/ui/avatar";
+import Image from "next/image";
 import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
@@ -33,8 +34,15 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 1}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
+                <Image
+                  src={DATA.avatarUrl}
+                  alt={DATA.name}
+                  width={112}
+                  height={112}
+                  sizes="112px"
+                  priority
+                  className="aspect-square h-full w-full object-cover"
+                />
               </Avatar>
             </BlurFade>
           </div>

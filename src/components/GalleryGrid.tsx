@@ -88,6 +88,9 @@ export default function GalleryGrid() {
                         src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
                         alt={video.title}
                         fill
+                        sizes="(min-width: 640px) 512px, 90vw"
+                        // Front card is the page's LCP image, so load it eagerly
+                        priority={isFront}
                         className="select-none object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       {isFront && (

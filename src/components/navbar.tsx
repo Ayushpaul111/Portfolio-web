@@ -55,8 +55,11 @@ export default function Navbar() {
       >
         <div className="fixed top-10 right-0 md:w-16 md:h-16 w-10 h-10 -z-10 opacity-100 pointer-events-none">
           <img
-            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDllZnNiNDd4ZzVlN3EwbXJyYnQzY2xpcGV0Z3dlcWR0NjBvMXVneiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JhfsxuCI5KxYfbyuui/giphy.gif"
+            src="/navbar-sticker.webp"
             alt=""
+            aria-hidden="true"
+            decoding="async"
+            fetchPriority="low"
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
@@ -76,6 +79,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={scrollToTop}
+                  aria-label={item.label}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12 relative flex items-center justify-center"
@@ -115,7 +119,9 @@ export default function Navbar() {
                   <Link
                     href={social.url}
                     target="_blank"
+                    rel="noopener noreferrer"
                     onClick={scrollToTop}
+                    aria-label={name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 relative flex items-center justify-center"
