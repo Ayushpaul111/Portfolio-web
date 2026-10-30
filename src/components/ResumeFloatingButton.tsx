@@ -2,26 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { X, ArrowLeft, Zap, Code2 } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-const RESUMES = {
-  fullstack: {
-    label: "Full Stack",
-    icon: Code2,
-    description:
-      "React, Node.js, databases, APIs & end-to-end product development",
-    src: "https://drive.google.com/file/d/1opXVxFujxJUFv8N3CXnoNk-GBomFSqvg/preview",
-  },
-  automation: {
-    label: "Automation",
-    icon: Zap,
-    description: "Workflows, scripting, RPA, n8n & process automation",
-    src: "https://drive.google.com/file/d/1lP3-PjsD5VNmTvkqp6Z05IMkNCjB1NZc/preview",
-  },
-} as const;
-
-type ResumeKey = keyof typeof RESUMES;
+const RESUME_SRC =
+  "https://drive.google.com/file/d/1lP3-PjsD5VNmTvkqp6Z05IMkNCjB1NZc/preview";
 
 function FolderIcon({
   isHovered,
@@ -83,60 +68,11 @@ function FolderIcon({
   );
 }
 
-function PickerStep({ onSelect }: { onSelect: (key: ResumeKey) => void }) {
-  return (
-    <motion.div
-      className="flex flex-col items-center justify-center flex-1 px-6 py-10 gap-8"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="text-center space-y-1.5">
-        <h2 className="text-lg font-semibold text-foreground">
-          What are you looking for?
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Choose the resume that fits your needs
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg">
-        {(
-          Object.entries(RESUMES) as [ResumeKey, (typeof RESUMES)[ResumeKey]][]
-        ).map(([key, resume]) => {
-          const Icon = resume.icon;
-          return (
-            <motion.button
-              key={key}
-              onClick={() => onSelect(key)}
-              className="group flex flex-col items-start gap-3 rounded-xl border border-border bg-muted/40 hover:bg-muted hover:border-foreground/20 px-5 py-5 text-left transition-colors cursor-pointer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-background border border-border group-hover:border-foreground/20 transition-colors">
-                <Icon className="w-5 h-5 text-foreground" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground leading-none">
-                  {resume.label}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
-                  {resume.description}
-                </p>
-              </div>
-            </motion.button>
-          );
-        })}
-      </div>
-    </motion.div>
-  );
-}
-
 export default function ResumeFloatingButton() {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<ResumeKey | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldPreload, setShouldPreload] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const pathname = usePathname();
 
@@ -148,14 +84,52 @@ export default function ResumeFloatingButton() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  // Preload the resume in the background once the page is idle, so opening is instant
+  useEffect(() => {
+    const connection = (navigator as Navigator & {
+      connection?: { saveData?: boolean };
+    }).connection;
+    if (connection?.saveData) return;
+
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        idleId = window.requestIdleCallback(() => setShouldPreload(true), {
+          timeout: 3000,
+        });
+      } else {
+        timeoutId = setTimeout(() => setShouldPreload(true), 1500);
+      }
+    };
+
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idleId !== undefined) window.cancelIdleCallback(idleId);
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && handleClose();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen]);
+
   function handleClose() {
     setIsOpen(false);
-    setSelected(null);
   }
 
   if (pathname.includes("/blog")) return null;
-
-  const resume = selected ? RESUMES[selected] : null;
 
   return (
     <>
@@ -177,84 +151,77 @@ export default function ResumeFloatingButton() {
 
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-md"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={handleClose}
-            />
-
-            <motion.div
-              className="fixed z-50 flex flex-col overflow-hidden rounded-2xl bg-background shadow-2xl ring-1 ring-border
-                inset-4
-                sm:inset-8
-                md:inset-x-16 md:inset-y-6
-                lg:inset-x-16 lg:inset-y-4"
-              initial={{ opacity: 0, scale: 0.95, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 12 }}
-              transition={{ type: "spring", stiffness: 350, damping: 30 }}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-muted/40 shrink-0">
-                <div className="flex items-center gap-3">
-                  {selected ? (
-                    <motion.button
-                      onClick={() => setSelected(null)}
-                      className="group rounded-full w-7 h-7 flex items-center justify-center bg-muted hover:bg-foreground/10 transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      aria-label="Back"
-                    >
-                      <ArrowLeft className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    </motion.button>
-                  ) : (
-                    <FolderIcon isHovered={false} showDoc={false} />
-                  )}
-                  <div>
-                    <p className="text-sm font-semibold text-foreground leading-none">
-                      {selected ? `Resume — ${resume!.label}` : "Resume"}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      Ayush Paul
-                    </p>
-                  </div>
-                </div>
-                <motion.button
-                  onClick={handleClose}
-                  className="group rounded-full w-7 h-7 flex items-center justify-center bg-muted hover:bg-foreground/10 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label="Close"
-                >
-                  <X className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                </motion.button>
-              </div>
-
-              {/* Body */}
-              <AnimatePresence mode="wait">
-                {!selected ? (
-                  <PickerStep key="picker" onSelect={setSelected} />
-                ) : (
-                  <motion.iframe
-                    key={selected}
-                    src={resume!.src}
-                    className="flex-1 w-full"
-                    allow="autoplay"
-                    title={`Resume — ${resume!.label}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </>
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleClose}
+          />
         )}
       </AnimatePresence>
+
+      {/* Kept mounted after preload so the iframe isn't reloaded on every open */}
+      {(shouldPreload || isOpen) && (
+        <motion.div
+          className={`fixed z-50 flex flex-col overflow-hidden rounded-2xl bg-background shadow-2xl ring-1 ring-border
+            inset-4
+            sm:inset-8
+            md:inset-x-16 md:inset-y-6
+            lg:inset-x-16 lg:inset-y-4
+            ${isOpen ? "" : "pointer-events-none"}`}
+          initial={{ opacity: 0, y: 16, visibility: "hidden" }}
+          animate={
+            isOpen
+              ? { opacity: 1, y: 0, visibility: "visible" }
+              : { opacity: 0, y: 16, transitionEnd: { visibility: "hidden" } }
+          }
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          aria-hidden={!isOpen}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-muted/40 shrink-0">
+            <div className="flex items-center gap-3">
+              <FolderIcon isHovered={false} showDoc={false} />
+              <div>
+                <p className="text-sm font-semibold text-foreground leading-none">
+                  Resume
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Ayush Paul
+                </p>
+              </div>
+            </div>
+            <motion.button
+              onClick={handleClose}
+              className="group rounded-full w-7 h-7 flex items-center justify-center bg-muted hover:bg-foreground/10 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Close"
+            >
+              <X className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+            </motion.button>
+          </div>
+
+          {/* Body */}
+          <div className="relative flex-1">
+            {!isLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+              </div>
+            )}
+            <iframe
+              src={RESUME_SRC}
+              className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
+                isLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              allow="autoplay"
+              title="Resume — Ayush Paul"
+              onLoad={() => setIsLoaded(true)}
+            />
+          </div>
+        </motion.div>
+      )}
     </>
   );
 }
